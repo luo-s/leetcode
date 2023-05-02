@@ -7,14 +7,14 @@ You must write an algorithm with O(log n) runtime complexity.
 */
 
 var search = function (nums, target) {
-  let leftPointer = 0;
-  let rightPointer = nums.length - 1;
-  while (leftPointer <= rightPointer) {
-    let mid = Math.floor((leftPointer + rightPointer) / 2);
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
     if (nums[mid] > target) {
-      rightPointer = mid - 1;
+      right = mid - 1;
     } else if (nums[mid] < target) {
-      leftPointer = mid + 1;
+      left = mid + 1;
     } else {
       return mid;
     }
