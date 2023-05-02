@@ -14,6 +14,20 @@ You must write an algorithm that runs in O(log n) time.
 
 */
 var findMin = function (nums) {
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    const pivot = left + Math.floor((right - left) / 2);
+    if (nums[pivot] < nums[right]) {
+      right = pivot;
+    } else {
+      left = pivot + 1;
+    }
+  }
+  return nums[low];
+};
+
+var findMin = function (nums) {
   // handle edge cases: empty array & single element array
   if (nums.length <= 1) {
     return nums[0];
