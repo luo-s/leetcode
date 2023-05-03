@@ -4,17 +4,16 @@
 //https://leetcode.com/problems/rotate-array/
 
 var rotate = function (nums, k) {
-  let result = [];
-  let l = nums.length;
-  let kCopy = k;
-  while (k > 0) {
-    result.push(nums[l - k]);
-    k--;
+  let rotation = k % nums.length;
+  numsCopy = nums.slice();
+  for (let i = 0; i < nums.length; i++) {
+    if (i < rotation) {
+      nums[i] = numsCopy[nums.length - rotation + i];
+    } else {
+      nums[i] = numsCopy[i - rotation];
+    }
   }
-  for (let i = 0; i < l - kCopy; i++) {
-    result.push(nums[i]);
-  }
-  return result;
+  return nums;
 };
 
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3)); //[5,6,7,1,2,3,4]
