@@ -8,6 +8,7 @@ The product of any prefix or suffix of nums is guaranteed to fit in a
 You must write an algorithm that runs in O(n) time and without using 
 the division operation.
 */
+//https://leetcode.com/problems/product-of-array-except-self/
 
 var productExceptSelf = function (nums) {
   let objStartLeft = {};
@@ -38,4 +39,4 @@ var productExceptSelf = function (nums) {
 };
 
 console.log(productExceptSelf([1, 2, 3, 4])); // [24,12,8,6]
-console.log(productExceptSelf([-1, 1, 0, 3, -3]));  // [0,0,9,0,0]
+console.log(productExceptSelf([-1, 1, 0, 3, -3])); // [0,0,9,0,0]

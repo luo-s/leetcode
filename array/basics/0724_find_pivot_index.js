@@ -11,6 +11,8 @@ right edge of the array.
 Return the leftmost pivot index. If no such index exists, return -1.
 */
 
+//https://leetcode.com/problems/find-pivot-index/
+
 var pivotIndex = function (nums) {
   let sum = 0;
   for (ele of nums) {
@@ -26,6 +28,6 @@ var pivotIndex = function (nums) {
   return -1;
 };
 
-console.log(pivotIndex([1, 7, 3, 6, 5, 6]));  // 3
+console.log(pivotIndex([1, 7, 3, 6, 5, 6])); // 3
 console.log(pivotIndex([1, 2, 3])); // -1
-console.log(pivotIndex([2, 1, -1]));  // 0
+console.log(pivotIndex([2, 1, -1])); // 0
