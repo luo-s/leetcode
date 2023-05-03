@@ -5,7 +5,7 @@ inserted in order.
 
 You must write an algorithm with O(log n) runtime complexity.
 */
-
+// find the 1st index of element > target;
 var searchInsert = function (nums, target) {
   let left = 0;
   let right = nums.length - 1;
