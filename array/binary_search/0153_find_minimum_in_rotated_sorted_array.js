@@ -11,8 +11,9 @@ Given the sorted rotated array nums of unique elements, return the minimum
 element of this array.
 
 You must write an algorithm that runs in O(log n) time.
-
 */
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+
 // better version
 var findMin = function (nums) {
   let left = 0;

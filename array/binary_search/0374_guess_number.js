@@ -8,18 +8,19 @@ You call a pre-defined API int guess(int num), which returns three possible resu
 0: your guess is equal to the number I picked (i.e. num == pick).
 Return the number that I picked.
 */
+// https://leetcode.com/problems/guess-number-higher-or-lower/
 
-var guessNumber = function(n) {
-    let left = 0;
-    let right = n;
-    while (left <= right) {
-        let mid = Math.floor((left + right)/2);
-        if (guess(mid) === -1) {
-            right = mid - 1;
-        } else if (guess(mid) === 1) {
-            left = mid + 1;
-        } else {
-            return mid;
-        }
+var guessNumber = function (n) {
+  let left = 0;
+  let right = n;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (guess(mid) === -1) {
+      right = mid - 1;
+    } else if (guess(mid) === 1) {
+      left = mid + 1;
+    } else {
+      return mid;
     }
+  }
 };

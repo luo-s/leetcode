@@ -6,6 +6,8 @@ If target exists, then return its index. Otherwise, return -1.
 You must write an algorithm with O(log n) runtime complexity.
 */
 
+// https://leetcode.com/problems/binary-search/
+
 var search = function (nums, target) {
   let left = 0;
   let right = nums.length - 1;
