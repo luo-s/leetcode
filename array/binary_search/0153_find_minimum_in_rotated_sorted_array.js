@@ -11,6 +11,9 @@ in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
 Given the sorted rotated array nums of unique elements, return the minimum 
 element of this array.
 
+All the integers of nums are unique.
+nums is sorted and rotated between 1 and n times.
+
 You must write an algorithm that runs in O(log n) time.
 */
 // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/

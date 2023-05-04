@@ -7,9 +7,6 @@ arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
 Given a mountain array arr, return the index i such that arr[0] < arr[1] < ... 
 < arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1].
 
-Constraints:
-3 <= arr.length <= 105
-0 <= arr[i] <= 106
 arr is guaranteed to be a mountain array.
 
 You must solve it in O(log(arr.length)) time complexity.

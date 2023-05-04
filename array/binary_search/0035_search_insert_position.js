@@ -3,6 +3,8 @@ Given a sorted array of distinct integers and a target value, return the index
 if the target is found. If not, return the index where it would be if it were 
 inserted in order.
 
+nums contains distinct values sorted in ascending order.
+
 You must write an algorithm with O(log n) runtime complexity.
 */
 // find the 1st index of element > target;

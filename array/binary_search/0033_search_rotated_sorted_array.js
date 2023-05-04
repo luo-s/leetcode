@@ -10,6 +10,9 @@ For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become
 Given the array nums after the possible rotation and an integer target, 
 return the index of target if it is in nums, or -1 if it is not in nums.
 
+All values of nums are unique.
+nums is an ascending array that is possibly rotated.
+
 You must write an algorithm with O(log n) runtime complexity.
 */
 // https://leetcode.com/problems/search-in-rotated-sorted-array/
