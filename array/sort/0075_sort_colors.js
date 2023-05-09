@@ -9,6 +9,27 @@ blue, respectively.
 You must solve this problem without using the library's sort function.
 */
 
+// merge sort
+// time complexity O(nlogn)
+// space complexity O(n)
+var sortColors = function (nums) {
+  var merge = function (left, right) {
+    let array = [];
+    if (left.length && right.length) {
+      if (left[0] < right[0]) {
+        array.push(left.shift());
+      } else {
+        array.push(right.shift());
+      }
+    }
+    return array.concat(left).concat(rihgt);
+  };
+  let mid = Math.floor(nums.length / 2);
+  let left = nums.slice(0, mid);
+  let right = nums.slice(mid);
+  return merge(sortColors(left), sortColors(right));
+};
+
 // quick sort + recursion
 // time complexity O(nlogn)
 // space complexity O(n)
@@ -83,3 +104,4 @@ var sortColors = function (nums) {
   }
   return nums;
 };
+console.log(sortColors([5, 8, 3, 4, 9, 7, 1]));
