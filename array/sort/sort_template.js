@@ -17,10 +17,6 @@ var bubbleSort = function (nums) {
   }
   return nums;
 };
-console.log(
-  "bubble    sort: ",
-  bubbleSort([9, -4, 5, 7, -3, 0, 1, -6, 2, 8, 3, 5, 7, 9, 10, 23, 54, -5])
-);
 
 // selection sort -- unstable sort
 // time complexity O(n^2)
@@ -43,10 +39,6 @@ var selectionSort = function (nums) {
   }
   return nums;
 };
-console.log(
-  "selection sort: ",
-  selectionSort([9, -4, 5, 7, -3, 0, 1, -6, 2, 8, 3, 5, 7, 9, 10, 23, 54, -5])
-);
 
 // insertion sort -- stable sort
 // time complexity O(n^2)
@@ -63,10 +55,6 @@ var insertionSort = function (nums) {
   }
   return nums;
 };
-console.log(
-  "insertion sort: ",
-  insertionSort([9, -4, 5, 7, -3, 0, 1, -6, 2, 8, 3, 5, 7, 9, 10, 23, 54, -5])
-);
 
 // quick sort -- unstable sort
 // time complexity -- O(nlogn)
@@ -88,15 +76,23 @@ var quickSort = function (nums) {
     return quickSort(left).concat(pivot).concat(quickSort(right));
   }
 };
-console.log(
-  "quick     sort: ",
-  quickSort([9, -4, 5, 7, -3, 0, 1, -6, 2, 8, 3, 5, 7, 9, 10, 23, 54, -5])
-);
 
 // merge sort -- stable sort
 // time complexity O(nlogn)
 // space complexity O(n)
 var mergeSort = function (nums) {
+  var merge = function (left, right) {
+    const array = [];
+    while (left.length && right.length) {
+      if (left[0] < right[0]) {
+        array.push(left.shift());
+      } else {
+        array.push(right.shift());
+      }
+    }
+    return array.concat(left).concat(right);
+  };
+
   if (nums.length <= 1) {
     return nums;
   }
@@ -106,27 +102,41 @@ var mergeSort = function (nums) {
   return merge(mergeSort(left), mergeSort(right));
 };
 
-var merge = function (left, right) {
-  const array = [];
-  while (left.length && right.length) {
-    if (left[0] < right[0]) {
-      array.push(left.shift());
-    } else {
-      array.push(right.shift());
+// counting sort -- stable sort: only work for sorting integer array
+// time complexity O(n+k)
+// space complexity O(k)
+var countingSort = function (nums) {
+  const numsMin = Math.min(...nums);
+  const numsMax = Math.max(...nums);
+  const counts = [];
+  const result = [];
+  for (let i = numsMin; i <= numsMax; i++) {
+    counts.push(0);
+  }
+  for (let num of nums) {
+    counts[num - numsMin]++;
+  }
+  for (let i = 0; i < counts.length; i++) {
+    while (counts[i] > 0) {
+      result.push(i + numsMin);
+      counts[i]--;
     }
   }
-  return array.concat(left).concat(right);
+  return result;
 };
-console.log(
-  "merge     sort: ",
-  mergeSort([9, -4, 5, 7, -3, 0, 1, -6, 2, 8, 3, 5, 7, 9, 10, 23, 54, -5])
-);
 
 // shell sort -- unstable sort
 // time complexity O(nlogn) ~ O(n^2)
 // space complexity
 var shellSort = function (nums) {};
-console.log(
-  "shell sort: ",
-  shellSort([9, -4, 5, 7, -3, 0, 1, -6, 2, 8, 3, 5, 7, 9, 10, 23, 54, -5])
-);
+
+// test
+let test = [1, 5, 8, 3, 0, -9, -4, 1, 6, -7, 8, -5, 4];
+// let test = ["a", "s", "d", "f", "g", "q", "w", "e", "r", "t"];
+
+console.log("bubble    sort: ", bubbleSort(test));
+console.log("selection sort: ", selectionSort(test));
+console.log("insertion sort: ", insertionSort(test));
+console.log("quick     sort: ", quickSort(test));
+console.log("merge     sort: ", mergeSort(test));
+console.log("counting  sort: ", countingSort(test));
