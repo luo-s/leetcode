@@ -49,3 +49,28 @@ var sortArray = function (nums) {
   let right = nums.slice(mid);
   return merge(sortArray(left), sortArray(right));
 };
+
+// counting sort -- simplified version
+// time complexity < O(n^2)
+// space complexity O(n)
+var sortArray = function (nums) {
+  const numsMin = Math.min(...nums);
+  const numsMax = Math.max(...nums);
+  const counts = [];
+  const result = [];
+  for (let i = numsMin; i <= numsMax; i++) {
+    counts.push(0);
+  }
+  for (let num of nums) {
+    counts[num - numsMin]++;
+  }
+  console.log(counts);
+  for (let i = 0; i < counts.length; i++) {
+    while (counts[i] > 0) {
+      result.push(i + numsMin);
+      counts[i]--;
+    }
+  }
+
+  return result;
+};
