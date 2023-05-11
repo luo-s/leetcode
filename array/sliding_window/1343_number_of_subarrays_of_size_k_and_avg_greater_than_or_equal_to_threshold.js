@@ -9,15 +9,15 @@ number of sub-arrays of size k and average greater than or equal to threshold.
 var numOfSubarrays = function (arr, k, threshold) {
   let left = 0;
   let right = 0;
-  let window_sum = 0;
+  let windowSum = 0;
   let count = 0;
   while (right < arr.length) {
-    window_sum += arr[right];
+    windowSum += arr[right];
     if (right - left + 1 >= k) {
-      if (window_sum >= k * threshold) {
+      if (windowSum >= k * threshold) {
         count++;
       }
-      window_sum -= arr[left];
+      windowSum -= arr[left];
       left++;
     }
     right++;

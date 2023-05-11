@@ -5,6 +5,10 @@ Find a contiguous subarray whose length is equal to k that has the maximum
 average value and return this value. Any answer with a calculation error 
 less than 10-5 will be accepted.
 */
+
+// sliding window & two pointers
+// time complexity O(n)
+// space complexity O(1)
 var findMaxAverage = function (nums, k) {
   if (nums.length <= 1) return nums;
   let left = 0;
