@@ -64,7 +64,6 @@ var sortArray = function (nums) {
   for (let num of nums) {
     counts[num - numsMin]++;
   }
-  console.log(counts);
   for (let i = 0; i < counts.length; i++) {
     while (counts[i] > 0) {
       result.push(i + numsMin);
