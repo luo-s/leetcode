@@ -20,7 +20,7 @@ Return the maximum number of customers that can be satisfied throughout the day.
 
 // sliding window
 // time complexity O(n)
-// space complexity O(n)
+// space complexity O(1)
 var maxSatisfied = function (customers, grumpy, minutes) {
   let customerSat = 0;
   for (let i = 0; i < customers.length; i++) {

@@ -11,9 +11,30 @@ you can obtain.
 
 1 <= k <= cardPoints.length
 */
-// window sliding -- better version
+
+// window sliding -- best version: fix the overflow and slide
 // time complexity O(n)
-// space complexity O(n)
+// space complexity O(1)
+var maxScore = function (cardPoints, k) {
+  let left = 0;
+  let right = cardPoints.length - k;
+  let sum = 0;
+  for (let i = right; i < cardPoints.length; i++) {
+    sum += cardPoints[i];
+  }
+  let maxSum = sum;
+  while (right < cardPoints.length) {
+    sum += cardPoints[left] - cardPoints[right];
+    maxSum = Math.max(sum, maxSum);
+    right++;
+    left++;
+  }
+  return maxSum;
+};
+
+// window sliding -- better version: min the card didn't pick
+// time complexity O(n)
+// space complexity O(1)
 var maxScore = function (cardPoints, k) {
   if (k === cardPoints.length) return cardPoints.reduce((a, b) => a + b);
   let left = 0;
@@ -32,7 +53,7 @@ var maxScore = function (cardPoints, k) {
   return cardPoints.reduce((a, b) => a + b) - min;
 };
 
-// window sliding
+// window sliding -- make a new array
 // time complexity O(n)
 // space complexity O(n)
 var maxScore = function (cardPoints, k) {
