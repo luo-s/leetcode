@@ -54,12 +54,12 @@ var maxScore = function (cardPoints, k) {
 };
 
 // window sliding -- make a new array
-// time complexity O(n)
+// time complexity O(n^2)
 // space complexity O(n)
 var maxScore = function (cardPoints, k) {
   const arr = [];
   for (let i = 1; i <= k; i++) {
-    arr.unshift(cardPoints[cardPoints.length - i]);
+    arr.unshift(cardPoints[cardPoints.length - i]); // O(n)
     arr.push(cardPoints[i - 1]);
   }
   let left = 0;
