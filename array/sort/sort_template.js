@@ -108,19 +108,20 @@ var mergeSort = function (nums) {
 var countingSort = function (nums) {
   const numsMin = Math.min(...nums);
   const numsMax = Math.max(...nums);
-  const counts = [];
-  const result = [];
-  for (let i = numsMin; i <= numsMax; i++) {
-    counts.push(0);
+  const count = new Array(numsMax - numsMin + 1).fill(0);
+  const result = new Array(nums.length).fill(0);
+  // store the frequency
+  for (let i = 0; i < nums.length; i++) {
+    count[nums[i] - numsMin]++;
   }
-  for (let num of nums) {
-    counts[num - numsMin]++;
+  // accumulate the frequency
+  for (let i = 1; i < count.length; i++) {
+    count[i] += count[i - 1];
   }
-  for (let i = 0; i < counts.length; i++) {
-    while (counts[i] > 0) {
-      result.push(i + numsMin);
-      counts[i]--;
-    }
+  // sort
+  for (let i = 0; i < nums.length; i++) {
+    result[count[nums[i] - numsMin] - 1] = nums[i];
+    count[nums[i] - numsMin]--;
   }
   return result;
 };
