@@ -5,25 +5,19 @@ The majority element is the element that appears more than ⌊n / 2⌋ times.
 You may assume that the majority element always exists in the array.
 */
 
-// hash table
+// brute force
 // time complexity O(n)
 // space complexity O(n)
 var majorityElement = function (nums) {
-  let tracker = {};
-  let majority = [];
-  for (let ele of nums) {
-    if (tracker[ele] === undefined) {
-      tracker[ele] = 1;
+  let checked = {};
+  for (let num of nums) {
+    if (checked[num] !== undefined) {
+      checked[num]++;
     } else {
-      tracker[ele]++;
+      checked[num] = 1;
     }
+    if (checked[num] > nums.length / 2) return num;
   }
-  for (let keys in tracker) {
-    if (tracker[keys] > Math.floor(nums.length / 2)) {
-      majority.push(keys);
-    }
-  }
-  return majority;
 };
 
 // the majority element is unique, after sorting nums[mid] return it;
@@ -55,15 +49,13 @@ var majorityElement = function (nums) {
 // space complexity O(1)
 var majorityElement = function (nums) {
   let candidate = nums[0];
-  let count = 1;
+  let vote = 1;
   for (let i = 1; i < nums.length; i++) {
-    if (count === 0) {
-      candidate = nums[i];
-    }
+    if (vote === 0) candidate = nums[i];
     if (nums[i] === candidate) {
-      count++;
+      vote++;
     } else {
-      count--;
+      vote--;
     }
   }
   return candidate;
