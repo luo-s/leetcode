@@ -10,8 +10,9 @@ Return the maximum amount of water a container can store.
 
 Notice that you may not slant the container.
 */
+// https://leetcode.com/problems/container-with-most-water/
 
-// two pointers
+// two pointers -- move the lower pointer
 // time complexity O(n)
 // space complexity O(1)
 var maxArea = function (height) {
