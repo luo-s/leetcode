@@ -8,8 +8,9 @@ It is guaranteed that the answer is unique.
 */
 // https://leetcode.com/problems/top-k-frequent-elements/
 
+// Array.prototype.sort((a, b) => a - b): sort ascending
 // hash table
-// time complexity O(nlogn) -- quicksort; built-in .sort doesn't work with numbers
+// time complexity O(nlogn) -- quicksort;
 // space complexity O(n)
 var topKFrequent = function (nums, k) {
   const tracker = {};
@@ -21,24 +22,25 @@ var topKFrequent = function (nums, k) {
     }
   }
   const counts = Object.values(tracker);
-  var quickSort = function (nums) {
-    if (nums.length <= 1) {
-      return nums; //base case;
-    } else {
-      let pivot = nums[0];
-      let left = [];
-      let right = [];
-      for (let i = 1; i < nums.length; i++) {
-        if (nums[i] < pivot) {
-          left.push(nums[i]);
-        } else {
-          right.push(nums[i]);
-        }
-      }
-      return quickSort(left).concat(pivot).concat(quickSort(right));
-    }
-  };
-  const countsSorted = quickSort(counts);
+  // var quickSort = function (nums) {
+  //   if (nums.length <= 1) {
+  //     return nums; //base case;
+  //   } else {
+  //     let pivot = nums[0];
+  //     let left = [];
+  //     let right = [];
+  //     for (let i = 1; i < nums.length; i++) {
+  //       if (nums[i] < pivot) {
+  //         left.push(nums[i]);
+  //       } else {
+  //         right.push(nums[i]);
+  //       }
+  //     }
+  //     return quickSort(left).concat(pivot).concat(quickSort(right));
+  //   }
+  // };
+  // const countsSorted = quickSort(counts);
+  const countsSorted = counts.sort((a, b) => a - b);
   const count = countsSorted[counts.length - k];
   const entries = Object.entries(tracker);
   let result = [];
