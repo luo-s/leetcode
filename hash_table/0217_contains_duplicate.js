@@ -19,6 +19,12 @@ var containsDuplicate = function (nums) {
   return false;
 };
 
+// Set feature
+var containsDuplicate = function (nums) {
+  let set = new Set(nums);
+  return nums.length !== set.size;
+};
+
 // sorting
 // time complexity O(nlogn) -- quick sort
 // space complexity O(n)
@@ -81,10 +87,5 @@ var containsDuplicate = function (nums) {
   return false;
 };
 
-// Set feature
-var containsDuplicate = function (nums) {
-  let set = new Set(nums);
-  return nums.length !== set.size;
-};
 console.log(containsDuplicate([1, 2, 3, 1])); // true
 console.log(containsDuplicate([1, 2, 3, 4])); // false
