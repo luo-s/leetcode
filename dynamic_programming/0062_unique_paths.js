@@ -12,6 +12,9 @@ to 2 * 10^9.
 */
 // https://leetcode.com/problems/unique-paths/
 
+// dp
+// time complexity O(m*n)
+// space complexity O(m*n)
 var uniquePaths = function (m, n) {
   const dp = new Array(m).fill(Array(n));
   dp[0][0] = 1;
