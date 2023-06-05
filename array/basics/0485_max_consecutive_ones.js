@@ -3,7 +3,7 @@ Given a binary array nums, return the maximum number of consecutive 1's
 in the array.
 */
 
-//leetcode.com/problems/max-consecutive-ones/
+// http://leetcode.com/problems/max-consecutive-ones/
 
 // better solution O(n)
 https: var findMaxConsecutiveOnes = function (nums) {
