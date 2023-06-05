@@ -10,11 +10,7 @@ You must write an algorithm with O(log n) runtime complexity.
 */
 // https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
-var searchRange = function (nums, target) {
-  let result = [];
-
-  return result;
-};
+var searchRange = function (nums, target) {};
 
 console.log(searchRange([5, 7, 7, 8, 8, 10], 8)); // [3, 4];
 console.log(searchRange([5, 7, 7, 8, 8, 10], 6)); // [-1, -1];
