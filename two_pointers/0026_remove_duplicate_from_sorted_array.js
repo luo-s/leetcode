@@ -10,6 +10,7 @@ you need to do the following things:
 Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
 Return k.
 */
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
 // two pointer
 // time complexity O(n)
