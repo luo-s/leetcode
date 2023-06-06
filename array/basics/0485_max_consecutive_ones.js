@@ -6,7 +6,7 @@ in the array.
 // http://leetcode.com/problems/max-consecutive-ones/
 
 // better solution O(n)
-https: var findMaxConsecutiveOnes = function (nums) {
+var findMaxConsecutiveOnes = function (nums) {
   let count = 0;
   let maxCount = 0;
   for (let i = 0; i < nums.length; i++) {
