@@ -38,6 +38,3 @@ var fourSum = function (nums, target) {
   }
   return res;
 };
-
-// console.log(fourSum([2, 2, 2, 2, 2], 8));
-console.log(fourSum([1, -2, -5, -4, -3, 3, 3, 5], -11));
