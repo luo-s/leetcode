@@ -18,14 +18,10 @@ var fib_dp = function (n) {
   return dp[n];
 };
 
-let start_1 = Date.now();
+console.time("dynamic programming method timer");
 let ans_1 = fib_dp(42);
-let finish_1 = Date.now();
-console.log(
-  `dynamic programming method: ${ans_1}, Total time taken: ${
-    finish_1 - start_1
-  }`
-);
+console.log(`dynamic programming method: ${ans_1}`);
+console.timeEnd("dynamic programming method timer");
 
 var fib_rc = function (n) {
   if (n == 0) return 0;
@@ -33,11 +29,7 @@ var fib_rc = function (n) {
   return fib_rc(n - 1) + fib_rc(n - 2);
 };
 
-let start_2 = Date.now();
+console.time("recursive method timer");
 let ans_2 = fib_rc(42);
-let finish_2 = Date.now();
-console.log(
-  `dynamic programming method: ${ans_2}, Total time taken: ${
-    finish_2 - start_2
-  }`
-);
+console.log(`recursion method: ${ans_2}`);
+console.timeEnd("recursive method timer");
