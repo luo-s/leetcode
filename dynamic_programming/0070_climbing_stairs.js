@@ -36,7 +36,5 @@ let start_2 = Date.now();
 let ans_2 = climbStairs_rc(42);
 let finish_2 = Date.now();
 console.log(
-  `dynamic programming method: ${ans_2}, Total time taken: ${
-    finish_2 - start_2
-  }`
+  `recursion method: ${ans_2}, Total time taken: ${finish_2 - start_2}`
 );
