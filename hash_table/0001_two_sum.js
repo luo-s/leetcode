@@ -10,6 +10,8 @@ You can return the answer in any order.
 */
 
 // hash table
+// time complexity O(n)
+// space complexity O(n)
 var twoSum = function (nums, target) {
   let checked = {};
   for (let i = 0; i < nums.length; i++) {
