@@ -5,8 +5,8 @@ you climb to the top?
 */
 // https://leetcode.com/problems/climbing-stairs/
 
-// dp
-var climbStairs = function (n) {
+// dynamic programming
+var climbStairs_dp = function (n) {
   const dp = new Array(n).fill(0);
   dp[0] = 1;
   dp[1] = 2;
@@ -16,4 +16,13 @@ var climbStairs = function (n) {
   return dp[n - 1];
 };
 
-console.log(climbStairs(8));
+console.log("dynamic programming method: ", climbStairs_dp(8));
+
+// recursion
+var climbStairs_rc = function (n) {
+  if (n == 1) return 1;
+  if (n == 2) return 2;
+  return climbStairs_rc(n - 1) + climbStairs_rc(n - 2);
+};
+
+console.log("recursion method: ", climbStairs_rc(8));
