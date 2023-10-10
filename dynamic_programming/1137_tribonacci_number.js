@@ -16,3 +16,7 @@ var tribonacci = function (n) {
   }
   return dp[n + 1];
 };
+
+console.time("dynamic programming method timer");
+tribonacci(42);
+console.timeEnd("dynamic programming method timer");
