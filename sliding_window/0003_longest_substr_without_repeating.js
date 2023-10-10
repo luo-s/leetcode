@@ -29,28 +29,6 @@ var lengthOfLongestSubstring = function (s) {
   return result;
 };
 
-// sliding window
-// time complexity O(n)
-// space complexity O(n)
-var lengthOfLongestSubstring = function (s) {
-  if (s.length <= 1) return s.length;
-  let result = 0;
-  let left = 0;
-  let right = 0;
-  let tracker = {};
-  while (right < s.length) {
-    if (tracker[s[right]] !== undefined && left <= tracker[s[right]]) {
-      left = tracker[s[right]] + 1;
-      tracker[s[right]] = right;
-    } else {
-      tracker[s[right]] = right;
-    }
-    result = Math.max(result, right - left + 1);
-    right++;
-  }
-  return result;
-};
-
 // sliding window + Set
 // time complexity O(n)
 // space complexity O(n)
