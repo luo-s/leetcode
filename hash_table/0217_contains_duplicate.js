@@ -19,67 +19,17 @@ var containsDuplicate = function (nums) {
   return false;
 };
 
-// Set feature
+// Set object (ES6)
 var containsDuplicate = function (nums) {
   let set = new Set(nums);
   return nums.length !== set.size;
 };
 
 // sorting
-// time complexity O(nlogn) -- quick sort
+// time complexity O(nlogn)
 // space complexity O(n)
 var containsDuplicate = function (nums) {
-  // // bubble sort
-  // var bubbleSort = function (array) {
-  //   for (let i = 0; i < array.length; i++) {
-  //     for (let j = 0; j < array.length - i - 1; j++) {
-  //       if (array[j] > array[j + 1]) {
-  //         let temp = array[j];
-  //         array[j] = array[j + 1];
-  //         array[j + 1] = temp;
-  //       }
-  //     }
-  //   }
-  //   return array;
-  // };
-  // let numsSorted = bubbleSort(nums);
-
-  // // selection sort
-  // var selectionSort = function (nums) {
-  //   for (let i = 0; i < nums.length; i++) {
-  //     let minPosition = i;
-  //     for (let j = i; j < nums.length; j++) {
-  //       if (nums[j] < nums[minPosition]) minPosition = j;
-  //     }
-  //     if (nums[minPosition] < nums[i]) {
-  //       let temp = nums[i];
-  //       nums[i] = nums[minPosition];
-  //       nums[minPosition] = temp;
-  //     }
-  //   }
-  //   return nums;
-  // };
-  // let numsSorted = selectionSort(nums);
-
-  // quick sort
-  var quickSort = function (array) {
-    if (array.length <= 1) {
-      return array;
-    } else {
-      let pivot = array[0];
-      let left = [];
-      let right = [];
-      for (let i = 1; i < array.length; i++) {
-        if (array[i] < pivot) {
-          left.push(array[i]);
-        } else {
-          right.push(array[i]);
-        }
-      }
-      return quickSort(left).concat(pivot).concat(quickSort(right));
-    }
-  };
-  let numsSorted = quickSort(nums);
+  let numsSorted = nums.sort();
 
   for (let i = 0; i < numsSorted.length - 1; i++) {
     if (numsSorted[i] === numsSorted[i + 1]) return true;
