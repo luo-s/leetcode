@@ -32,4 +32,6 @@ var uniquePaths = function (m, n) {
   return dp[m - 1][n - 1];
 };
 
-console.log(uniquePaths(3, 7));
+console.time("timer");
+uniquePaths(20, 20);
+console.timeEnd("timer");
