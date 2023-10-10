@@ -20,28 +20,11 @@ var majorityElement = function (nums) {
   }
 };
 
-// the majority element is unique, after sorting nums[mid] return it;
+// the majority element is unique, after sorting return nums[mid];
 // time complexity O(nlogn)
 // space complexity O(n)
 var majorityElement = function (nums) {
-  var quickSort = function (nums) {
-    if (nums.length <= 1) {
-      return nums;
-    } else {
-      let pivot = nums[0];
-      let left = [];
-      let right = [];
-      for (let i = 1; i < nums.length; i++) {
-        if (nums[i] < pivot) {
-          left.push(nums[i]);
-        } else {
-          right.push(nums[i]);
-        }
-      }
-      return quickSort(left).concat(pivot).concat(quickSort(right));
-    }
-  };
-  return quickSort(nums)[Math.floor(nums.length / 2)];
+  return nums.sort()[Math.floor(nums.length / 2)];
 };
 
 // Boyer-Moore voting algorithm
