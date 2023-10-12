@@ -10,6 +10,8 @@ Return the number that I picked.
 */
 // https://leetcode.com/problems/guess-number-higher-or-lower/
 
+// time complexity O(logn)
+// space complexity O(1)
 var guessNumber = function (n) {
   let left = 0;
   let right = n;
