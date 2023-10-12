@@ -13,7 +13,7 @@ Return the number that I picked.
 // time complexity O(logn)
 // space complexity O(1)
 var guessNumber = function (n) {
-  let left = 0;
+  let left = 1;
   let right = n;
   while (left <= right) {
     let mid = Math.floor((left + right) / 2);
