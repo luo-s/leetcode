@@ -7,7 +7,8 @@ nums contains distinct values sorted in ascending order.
 
 You must write an algorithm with O(log n) runtime complexity.
 */
-// find the 1st index of element > target;
+// find the 1st index of element >= target;
+// left -> the number of elements < target;
 // https://leetcode.com/problems/search-insert-position/
 var searchInsert = function (nums, target) {
   let left = 0;
