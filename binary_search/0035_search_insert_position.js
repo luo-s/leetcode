@@ -11,13 +11,13 @@ You must write an algorithm with O(log n) runtime complexity.
 // https://leetcode.com/problems/search-insert-position/
 var searchInsert = function (nums, target) {
   let left = 0;
-  let right = nums.length - 1;
+  let right = nums.length - 1; //[left, right]
   while (left <= right) {
     let mid = Math.floor((left + right) / 2);
     if (nums[mid] < target) {
-      left = mid + 1;
+      left = mid + 1; //[mid + 1, right]
     } else {
-      right = mid - 1;
+      right = mid - 1; //[left, mid - 1]
     }
   }
   return left;
