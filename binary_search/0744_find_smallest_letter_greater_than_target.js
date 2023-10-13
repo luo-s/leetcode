@@ -21,10 +21,10 @@ var nextGreatestLetter = function (letters, target) {
   }
   let left = 0;
   let right = letters.length - 1;
-  while (left < right) {
+  while (left <= right) {
     let mid = left + Math.floor((right - left) / 2);
     if (letters[mid] > target) {
-      right = mid;
+      right = mid - 1;
     } else {
       left = mid + 1;
     }
