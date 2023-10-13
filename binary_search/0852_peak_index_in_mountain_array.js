@@ -13,16 +13,15 @@ You must solve it in O(log(arr.length)) time complexity.
 */
 // https://leetcode.com/problems/peak-index-in-a-mountain-array/
 
+// time complexity O(logn)
+// space complexity O(1)
 var peakIndexInMountainArray = function (arr) {
   let left = 0;
   let right = arr.length - 1;
   while (left < right) {
     let mid = left + Math.floor((right - left) / 2);
-    if (arr[mid] > arr[mid + 1]) {
-      right = mid;
-    } else {
-      left = mid + 1;
-    }
+    if (arr[mid] > arr[mid - 1]) left = mid;
+    if (arr[mid] > arr[mid + 1]) right = mid;
   }
   return left;
 };
