@@ -10,20 +10,22 @@ For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
 // https://leetcode.com/problems/sqrtx/
 
 // binary search
+// time complexity O(logn)
+// space complexity O(1)
 var mySqrt = function (x) {
-  if (x === 0) return 0;
-  if (x === 1) return 1;
   let left = 0;
   let right = x;
-  while (left < right) {
+  while (left <= right) {
     let mid = left + Math.floor((right - left) / 2);
-    if (mid * mid <= x) {
+    if (mid * mid > x) {
+      right = mid - 1;
+    } else if (mid * mid < x) {
       left = mid + 1;
     } else {
-      right = mid;
+      return mid;
     }
   }
-  return left - 1;
+  return right;
 };
 
 // brute force O(n)
