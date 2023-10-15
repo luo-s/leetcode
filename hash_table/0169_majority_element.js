@@ -43,6 +43,3 @@ var majorityElement = function (nums) {
   }
   return candidate;
 };
-
-console.log(majorityElement([1, 2, 1, 2, 1]));
-console.log(majorityElement([1, 2, 1, 3, 1, 3, 3, 3, 3]));
