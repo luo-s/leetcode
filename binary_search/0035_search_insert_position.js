@@ -24,6 +24,20 @@ var searchInsert = function (nums, target) {
   return left;
 };
 
+var searchInsert = function (nums, target) {
+  let left = 0;
+  let right = nums.length; //[left, right)
+  while (left < right) {
+    let mid = (left + right) >> 1;
+    if (nums[mid] < target) {
+      left = mid + 1; //[mid + 1, right)
+    } else {
+      right = mid; //[left, mid)
+    }
+  }
+  return left; //left == right, can also return right
+};
+
 console.log(searchInsert([1, 3, 5, 6], 5)); // 2
 console.log(searchInsert([1, 3, 5, 6], 2)); // 1
 console.log(searchInsert([1, 3, 5, 6], 7)); // 4
