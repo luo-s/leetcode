@@ -28,7 +28,20 @@ var findDuplicate = function (nums) {
   }
 };
 
-// binary search: man-make an sorted array with a pivot point:
+// counting array
+// time complexity O(n)
+// space complexity O(n)
+var findDuplicate = function (nums) {
+  let cnt = new Array(nums.length).fill(0);
+  for (let num of nums) {
+    cnt[num]++;
+    if (cnt[num] > 1) {
+      return num;
+    }
+  }
+};
+
+// binary search -- make an sorted array with a pivot point:
 // [1, target-1] => count(i) <= i; [target, n] => count(i) > i ;
 // time complexity O(nlogn)
 // space xomplexity O(1)
@@ -36,14 +49,16 @@ var findDuplicate = function (nums) {
   let left = 1;
   let right = nums.length - 1;
   while (left < right) {
-    let mid = left + Math.floor((right - left) / 2);
+    let mid = (left + right) >> 1;
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
       if (nums[i] <= mid) count++;
     }
     if (count <= mid) {
+      // mid belongs to [1, target-1] -> mid < target
       left = mid + 1;
     } else {
+      // mid belongs to [target, n] -> mid >= target
       right = mid;
     }
   }
