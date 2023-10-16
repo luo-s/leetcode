@@ -13,6 +13,7 @@ which appears two or more times.
 */
 
 // https://leetcode.com/problems/find-the-duplicate-number/
+// Related: https://leetcode.com/problems/search-insert-position/
 
 // hash table + Set/ES6
 // time complexity O(n)
