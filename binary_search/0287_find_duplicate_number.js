@@ -48,7 +48,7 @@ var findDuplicate = function (nums) {
 // space xomplexity O(1)
 var findDuplicate = function (nums) {
   let left = 1;
-  let right = nums.length - 1;
+  let right = nums.length;
   while (left < right) {
     let mid = (left + right) >> 1;
     let count = 0;
