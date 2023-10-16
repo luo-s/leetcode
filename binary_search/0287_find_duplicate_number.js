@@ -14,16 +14,16 @@ which appears two or more times.
 
 // https://leetcode.com/problems/find-the-duplicate-number/
 
-// hash table
+// hash table + Set/ES6
 // time complexity O(n)
 // space xomplexity O(n)
 var findDuplicate = function (nums) {
-  let obj = {};
-  for (let ele of nums) {
-    if (obj[ele] !== undefined) {
-      return ele;
+  let set = new Set();
+  for (let num of nums) {
+    if (set.has(num)) {
+      return num;
     } else {
-      obj[ele] = true;
+      set.add(num);
     }
   }
 };
