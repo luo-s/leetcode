@@ -21,7 +21,7 @@ var searchInsert = function (nums, target) {
       right = mid - 1; //[left, mid - 1]
     }
   }
-  return left;
+  return left; //left == right + 1
 };
 
 var searchInsert = function (nums, target) {
