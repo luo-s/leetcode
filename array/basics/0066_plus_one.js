@@ -16,7 +16,6 @@ var plusOne = function (digits) {
 // basic array manipulation
 // time complexity O(n)
 // space complexity O(1)
-
 var plusOne = function (digits) {
   let l = digits.length;
   if (digits[l - 1] < 9) {
@@ -38,26 +37,9 @@ var plusOne = function (digits) {
   return digits;
 };
 
-// recursion
-var plusOne = function (digits) {
-  function overflow(array, index) {
-    if (array[index] < 9) {
-      array[index]++;
-      return array;
-    } else if (array[index] === 9) {
-      array[index] = 0;
-      if (index > 0) {
-        return overflow(array, index - 1);
-      } else if (index === 0) {
-        array.unshift(1);
-        return array;
-      }
-    }
-  }
-  return overflow(digits, digits.length - 1);
-};
-
 // another solution
+// time complexity O(n)
+// space complexity O(1)
 var plusOne = function (digits) {
   // edge case: [9,...,9]
   let result = digits.filter((num) => num === 9).map((num) => (num = 0));
@@ -75,7 +57,3 @@ var plusOne = function (digits) {
     }
   }
 };
-
-console.log(plusOne([1, 2, 3])); // [1,2,4]
-console.log(plusOne([4, 3, 2, 1])); //[4,3,2,2]
-console.log(plusOne([9, 9, 9])); //[1,0,0,0]
