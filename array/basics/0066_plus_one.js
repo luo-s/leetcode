@@ -6,6 +6,13 @@
 
 // https://leetcode.com/problems/plus-one/
 
+// BigInt
+// time complexity O(n)
+// space complexity O(n)
+var plusOne = function (digits) {
+  return (BigInt(digits.join("")) + 1n).toString().split("");
+};
+
 // recursion
 var plusOne = function (digits) {
   function overflow(array, index) {
