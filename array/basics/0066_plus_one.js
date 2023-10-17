@@ -13,6 +13,31 @@ var plusOne = function (digits) {
   return (BigInt(digits.join("")) + 1n).toString().split("");
 };
 
+// basic array manipulation
+// time complexity O(n)
+// space complexity O(1)
+
+var plusOne = function (digits) {
+  let l = digits.length;
+  if (digits[l - 1] < 9) {
+    digits[l - 1]++;
+  } else {
+    let n = l - 1;
+    let carry = 0;
+    while (digits[n] == 9) {
+      digits[n] = 0;
+      carry = 1;
+      n--;
+    }
+    if (n < 0) {
+      digits.unshift(1);
+    } else {
+      digits[n]++;
+    }
+  }
+  return digits;
+};
+
 // recursion
 var plusOne = function (digits) {
   function overflow(array, index) {
