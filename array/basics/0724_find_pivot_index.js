@@ -14,16 +14,11 @@ Return the leftmost pivot index. If no such index exists, return -1.
 //https://leetcode.com/problems/find-pivot-index/
 
 var pivotIndex = function (nums) {
-  let sum = 0;
-  for (ele of nums) {
-    sum += ele;
-  }
-  let leftSum = 0;
+  let sum = nums.reduce((acu, cur) => acu + cur);
+  let sumLeft = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (i > 0) {
-      leftSum += nums[i - 1];
-    }
-    if (leftSum === sum - leftSum - nums[i]) return i;
+    if (sumLeft == sum - sumLeft - nums[i]) return i;
+    sumLeft += nums[i];
   }
   return -1;
 };
