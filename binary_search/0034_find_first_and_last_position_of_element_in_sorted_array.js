@@ -23,6 +23,43 @@ var searchRange = function (nums, target) {
   return [first, last];
 };
 
+// binary search
+// time complexity O(logn)
+// space complexity O(1)
+var searchRange = function (nums, target) {
+  let l1 = 0,
+    r1 = nums.length - 1;
+  let l2 = 0,
+    r2 = nums.length - 1;
+  let first = -1,
+    last = -1;
+  // find the first position
+  while (l1 <= r1) {
+    let mid = (l1 + r1) >> 1;
+    if (nums[mid] < target) {
+      l1 = mid + 1;
+    } else if (nums[mid] > target) {
+      r1 = mid - 1;
+    } else {
+      first = mid;
+      r1 = mid - 1;
+    }
+  }
+  // find the last position
+  while (l2 <= r2) {
+    let mid = (l2 + r2) >> 1;
+    if (nums[mid] < target) {
+      l2 = mid + 1;
+    } else if (nums[mid] > target) {
+      r2 = mid - 1;
+    } else {
+      last = mid;
+      l2 = mid + 1;
+    }
+  }
+  return [first, last];
+};
+
 console.log(searchRange([5, 7, 7, 8, 8, 10], 8)); // [3, 4];
 console.log(searchRange([5, 7, 7, 8, 8, 10], 7)); // [1, 2];
 console.log(searchRange([5, 7, 7, 8, 8, 10], 6)); // [-1, -1];
