@@ -16,17 +16,16 @@ target is a lowercase English letter.
 
 // find first letter greater than target, if non return letters[0]
 var nextGreatestLetter = function (letters, target) {
-  if (letters[letters.length - 1] <= target) {
-    return letters[0];
-  }
+  if (letters[letters.length - 1] <= target) return letters[0];
   let left = 0;
-  let right = letters.length - 1;
-  while (left <= right) {
-    let mid = left + Math.floor((right - left) / 2);
-    if (letters[mid] > target) {
-      right = mid - 1;
-    } else {
+  let right = letters.length;
+  // search [0, l)
+  while (left < right) {
+    let mid = (left + right) >> 1;
+    if (letters[mid] <= target) {
       left = mid + 1;
+    } else {
+      right = mid;
     }
   }
   return letters[left];
