@@ -10,6 +10,7 @@ You must write an algorithm with O(log n) runtime complexity.
 // find the 1st index of element >= target;
 // left -> the number of elements < target;
 // https://leetcode.com/problems/search-insert-position/
+// same problem: https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
 var searchInsert = function (nums, target) {
   let left = 0;
   let right = nums.length - 1; //[left, right]
