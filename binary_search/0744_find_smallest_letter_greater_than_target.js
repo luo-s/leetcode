@@ -13,6 +13,7 @@ letters contains at least two different characters.
 target is a lowercase English letter.
 */
 // https://leetcode.com/problems/find-smallest-letter-greater-than-target/
+// same problem: https://leetcode.com/problems/search-insert-position/
 
 // find first letter greater than target, if non return letters[0]
 var nextGreatestLetter = function (letters, target) {
