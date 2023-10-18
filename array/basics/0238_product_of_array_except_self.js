@@ -10,33 +10,25 @@ the division operation.
 */
 //https://leetcode.com/problems/product-of-array-except-self/
 
+// ans = leftProduct * rightProduct
+// time complexity O(n)
+// space complexity O(n)
 var productExceptSelf = function (nums) {
-  let objStartLeft = {};
-  let productLeft = 1;
-  for (let i = 0; i < nums.length; i++) {
-    productLeft *= nums[i];
-    objStartLeft[i] = productLeft;
+  let left = new Array(nums.length).fill(1);
+  let right = new Array(nums.length).fill(1);
+  let ans = new Array(nums.length).fill(1);
+  let m1 = 1;
+  let m2 = 1;
+  for (let i = 1; i < nums.length; i++) {
+    m1 *= nums[i - 1];
+    left[i] *= m1;
   }
-
-  let objStartRight = {};
-  let productRight = 1;
-  for (let j = nums.length - 1; j >= 0; j--) {
-    productRight *= nums[j];
-    objStartRight[nums.length - j - 1] = productRight;
+  for (let j = nums.length - 2; j >= 0; j--) {
+    m2 *= nums[j + 1];
+    right[j] *= m2;
   }
-
-  let result = [];
   for (let k = 0; k < nums.length; k++) {
-    if (k === 0) {
-      result.push(objStartRight[nums.length - 2]);
-    } else if (k === nums.length - 1) {
-      result.push(objStartLeft[nums.length - 2]);
-    } else {
-      result.push(objStartLeft[k - 1] * objStartRight[nums.length - 2 - k]);
-    }
+    ans[k] = left[k] * right[k];
   }
-  return result;
+  return ans;
 };
-
-console.log(productExceptSelf([1, 2, 3, 4])); // [24,12,8,6]
-console.log(productExceptSelf([-1, 1, 0, 3, -3])); // [0,0,9,0,0]
