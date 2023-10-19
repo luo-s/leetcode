@@ -16,14 +16,17 @@ You must write an algorithm that runs in O(log n) time.
 
 var findPeakElement = function (nums) {
   let left = 0;
-  let right = nums.length - 1;
+  let right = nums.length - 1; // search [0, nums.length - 1]
   while (left < right) {
-    mid = left + Math.floor((right - left) / 2);
+    // break point: left == right
+    mid = (left + (right - left)) >> 1;
     if (nums[mid] > nums[mid + 1]) {
+      // possible peak belongs to [left, mid]
       right = mid;
-    } else {
+    } else if (nums[mid] < nums[mid + 1]) {
+      // possible peak belongs to [mid + 1, right]
       left = mid + 1;
     }
   }
-  return left;
+  return left; // left = mid + 1
 };
