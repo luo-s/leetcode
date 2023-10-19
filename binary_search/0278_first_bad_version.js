@@ -18,17 +18,24 @@ var solution = function (isBadVersion) {
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
+
+  // find the largest N that satisfies isBadVersion(N) == true;
   return function (n) {
-    let left = 1;
-    let right = n;
+    let left = 1,
+      right = n; //search [1, n]
     while (left < right) {
       let mid = left + Math.floor((right - left) / 2);
-      if (!isBadVersion(mid)) {
+      // let mid = Math.floor((left + right) / 2);
+      if (isBadVersion(mid) == false) {
+        // target belongs to [mid + 1, right]
         left = mid + 1;
       } else {
+        // target belongs to [left, mid]
         right = mid;
       }
     }
-    return right;
+    return left;
   };
 };
+
+// why using right shift method for midpoint results in Time Limit Exceeded?
