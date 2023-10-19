@@ -19,14 +19,40 @@ target is a lowercase English letter.
 var nextGreatestLetter = function (letters, target) {
   if (letters[letters.length - 1] <= target) return letters[0];
   let left = 0;
+  let right = letters.length - 1;
+  // search [0, l-1]
+  while (left <= right) {
+    let mid = (left + right) >> 1;
+    if (letters[mid] < target) {
+      // target belongs to [mid + 1, right]
+      left = mid + 1;
+    } else if (letters[mid] > target) {
+      // target belongs to [left, mid - 1]
+      right = mid - 1;
+    } else if (letters[mid] == target) {
+      // target == letters[mid]
+      left = mid + 1;
+    }
+  }
+  return letters[left];
+};
+
+var nextGreatestLetter = function (letters, target) {
+  if (letters[letters.length - 1] <= target) return letters[0];
+  let left = 0;
   let right = letters.length;
   // search [0, l)
   while (left < right) {
     let mid = (left + right) >> 1;
-    if (letters[mid] <= target) {
+    if (letters[mid] < target) {
+      // target belongs to [mid + 1, right)
       left = mid + 1;
-    } else {
+    } else if (letters[mid] > target) {
+      // target belongs to (left, mid)
       right = mid;
+    } else if (letters[mid] == target) {
+      // target == letters[mid]
+      left = mid + 1;
     }
   }
   return letters[left];
