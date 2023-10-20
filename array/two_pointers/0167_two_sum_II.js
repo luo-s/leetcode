@@ -31,18 +31,3 @@ var twoSum = function (numbers, target) {
     }
   }
 };
-
-// hash table
-// time complexity O(n)
-// space complexity O(n)
-var twoSum = function (numbers, target) {
-  let checked = {};
-  for (let i = 0; i < numbers.length; i++) {
-    let number = target - numbers[i];
-    if (checked[number] !== undefined) {
-      return [checked[number] + 1, i + 1];
-    } else {
-      checked[numbers[i]] = i;
-    }
-  }
-};
