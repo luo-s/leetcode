@@ -12,7 +12,7 @@ Return k.
 */
 // https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
-// two pointer
+// fast and slow pointers
 // time complexity O(n)
 // space complexity O(1)
 var removeDuplicates = function (nums) {
@@ -26,21 +26,4 @@ var removeDuplicates = function (nums) {
     fast++;
   }
   return slow + 1;
-};
-
-// brute force: only works when nums[i] >= 0 -- Object key order issue
-var removeDuplicates = function (nums) {
-  let tracker = {};
-  for (let ele of nums) {
-    if (tracker[ele] === undefined) {
-      tracker[ele] = 1;
-    } else {
-      tracker[ele]++;
-    }
-  }
-  for (let i = Object.keys(tracker).length - 1; i >= 0; i--) {
-    nums.unshift(Number(Object.keys(tracker)[i]));
-    nums.pop();
-  }
-  return Object.keys(tracker).length;
 };
