@@ -21,9 +21,7 @@ var maxArea = function (height) {
   let areaMax = 0;
   while (left < right) {
     let area = Math.min(height[left], height[right]) * (right - left);
-    if (area > areaMax) {
-      areaMax = area;
-    }
+    areaMax = Math.max(area, areaMax);
     if (height[left] < height[right]) {
       left++;
     } else {
