@@ -6,6 +6,8 @@ order.
 // https://leetcode.com/problems/intersection-of-two-arrays/
 
 // Set featuers
+// time complexity O(n)
+// space complexity O(n)
 var intersection = function (nums1, nums2) {
   let set1 = new Set(nums1);
   let set2 = new Set(nums2);
@@ -17,6 +19,8 @@ var intersection = function (nums1, nums2) {
 };
 
 // sorting + two pointers
+// time complexity O(nlogn)
+// space complexity O(n)
 var intersection = function (nums1, nums2) {
   nums1.sort((a, b) => a - b);
   nums2.sort((a, b) => a - b);
