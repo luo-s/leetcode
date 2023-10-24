@@ -7,47 +7,46 @@ In other words, return true if one of s1's permutations is the substring of s2.
 
 // https://leetcode.com/problems/permutation-in-string/
 
+var checkInclusion = function (s1, s2) {};
+
 // hash table + sliding window
 // time complexity O(n^2)
 // space complexity O(n)
 var checkInclusion = function (s1, s2) {
-  // make dictionary of s1
-  let tracker1 = {};
-  for (let letter of s1) {
-    if (tracker1[letter]) {
-      tracker1[letter]++;
-    } else {
-      tracker1[letter] = 1;
+  // make a function to check permutation -- time complexity: O(n)
+  function isPermutation(str1, str2) {
+    let tracker1 = {},
+      tracker2 = {};
+    for (let letter of str1) {
+      if (tracker1[letter]) {
+        tracker1[letter]++;
+      } else {
+        tracker1[letter] = 1;
+      }
     }
-  }
-
-  let l1 = s1.length,
-    l2 = s2.length;
-  let left = 0,
-    right = l1;
-  while (right <= l2) {
-    // slice the sliding window substring
-    let substr = s2.slice(left, right);
-    // make the dictionary of substring
-    let tracker2 = {};
-    for (let letter of substr) {
+    for (let letter of str2) {
       if (tracker2[letter]) {
         tracker2[letter]++;
       } else {
         tracker2[letter] = 1;
       }
     }
-    // compare the two dictionaries
-    let indicator = true;
     for (let key of Object.keys(tracker1)) {
       if (tracker2[key] !== tracker1[key]) {
-        indicator = false;
-        break;
+        return false;
       }
     }
-    if (indicator) {
-      return true;
-    }
+    return true;
+  }
+  let l1 = s1.length,
+    l2 = s2.length;
+  let left = 0,
+    right = l1;
+  while (right <= l2) {
+    // slicing the window
+    let substr = s2.slice(left, right);
+    if (isPermutation(s1, substr)) return true;
+    // sliding the window
     left++;
     right++;
   }
