@@ -25,7 +25,7 @@ var searchInsert = function (nums, target) {
       right = mid - 1;
     } else {
       // target == nums[mid]
-      return mid; // nums contains distince values
+      return mid; // nums contains distinc values
     }
   }
   return left;
