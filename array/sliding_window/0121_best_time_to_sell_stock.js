@@ -27,9 +27,9 @@ var maxProfit = function (prices) {
   return result;
 };
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4]));
-
 // Array higher order function
+// time complexity O(n^2)
+// space complexity O(1)
 var maxProfit = function (prices) {
   let result = 0;
   while (prices.length > 1) {
