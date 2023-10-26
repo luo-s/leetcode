@@ -8,6 +8,17 @@ constant extra space.
 
 // https://leetcode.com/problems/single-number/
 
+// XOR : x ^ 0 = x; x ^ x = 0; (a^b)^c = a^(b^c)
+// time complexity O(n)
+// space complexity O(1)
+var singleNumber = function (nums) {
+  let ans = 0;
+  for (let num of nums) {
+    ans ^= num;
+  }
+  return ans;
+};
+
 // hash table
 // time complexity O(n)
 // space complexity O(n)
