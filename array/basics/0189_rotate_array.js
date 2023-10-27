@@ -11,7 +11,7 @@ var rotate = function (nums, k) {
   let numsCopy = nums.slice();
   for (let i = 0; i < l; i++) {
     if (i < step) {
-      nums[i] = numsCopy[i + l - step];
+      nums[i] = numsCopy[i - step + l]; // manage index overflow
     } else {
       nums[i] = numsCopy[i - step];
     }
@@ -19,6 +19,7 @@ var rotate = function (nums, k) {
   return nums;
 };
 
+// slice and assemble
 // time complexity O(n)
 // space complexity O(n)
 var rotate = function (nums, k) {
@@ -26,7 +27,7 @@ var rotate = function (nums, k) {
   let step = k % l;
   let arr1 = nums.slice(0, l - step);
   let arr2 = nums.slice(-step);
-  // nums = arr2.concat(arr1);
+  // nums -> arr2.concat(arr1);
   for (let i = 0; i < l; i++) {
     if (i < arr2.length) {
       nums[i] = arr2[i];
