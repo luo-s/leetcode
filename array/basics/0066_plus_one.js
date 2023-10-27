@@ -8,7 +8,7 @@
 
 // BigInt
 // time complexity O(n)
-// space complexity O(n)
+// space complexity O(1)
 var plusOne = function (digits) {
   return (BigInt(digits.join("")) + 1n).toString().split("");
 };
@@ -18,21 +18,15 @@ var plusOne = function (digits) {
 // space complexity O(1)
 var plusOne = function (digits) {
   let l = digits.length;
-  if (digits[l - 1] < 9) {
-    digits[l - 1]++;
+  let n = l - 1;
+  while (digits[n] == 9) {
+    digits[n] = 0;
+    n--;
+  }
+  if (n < 0) {
+    digits.unshift(1);
   } else {
-    let n = l - 1;
-    let carry = 0;
-    while (digits[n] == 9) {
-      digits[n] = 0;
-      carry = 1;
-      n--;
-    }
-    if (n < 0) {
-      digits.unshift(1);
-    } else {
-      digits[n]++;
-    }
+    digits[n]++;
   }
   return digits;
 };
