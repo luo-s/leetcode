@@ -37,7 +37,7 @@ var isAnagram = function (s, t) {
 };
 
 // sorting
-// time complexity O(n)
+// time complexity O(nlogn)
 // space commplexity O(1)
 var isAnagram = function (s, t) {
   return s.split("").sort().join("") === t.split("").sort().join("");
