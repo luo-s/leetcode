@@ -20,13 +20,16 @@ function maxSubArray(nums) {
   return sumMax;
 }
 
+// dynamic programming
 // time complexity O(n)
 // space commplexity O(1)
 function maxSubArray(nums) {
   let overallMax = nums[0];
   let currentMax = nums[0];
   for (let i = 1; i < nums.length; i++) {
+    // get the possible max of ith element
     currentMax = Math.max(nums[i], nums[i] + currentMax);
+    // compare and get the max of all the maxes
     overallMax = Math.max(currentMax, overallMax);
   }
   return overallMax;
@@ -42,6 +45,7 @@ function maxSubArray(nums) {
   while (pointer < nums.length) {
     currentSum += nums[pointer];
     maxSum = Math.max(currentSum, maxSum);
+    // get rid of neg sum, start subarray again
     if (currentSum < 0) {
       currentSum = 0;
     }
