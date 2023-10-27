@@ -35,3 +35,10 @@ var isAnagram = function (s, t) {
   }
   return true;
 };
+
+// sorting
+// time complexity O(nlogn)
+// space commplexity O(1)
+var isAnagram = function (s, t) {
+  return s.split("").sort().join("") === t.split("").sort().join("");
+};

@@ -34,7 +34,7 @@ var canConstruct = function (ransomNote, magazine) {
   return true;
 };
 
-// higher function
+// higher order function
 // time complexity O(n)
 // space complexity O(1)
 var canConstruct = function (ransomNote, magazine) {
