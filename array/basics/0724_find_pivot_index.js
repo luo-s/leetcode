@@ -13,6 +13,8 @@ Return the leftmost pivot index. If no such index exists, return -1.
 
 //https://leetcode.com/problems/find-pivot-index/
 
+// time complexity O(n)
+// space complexity O(1)
 var pivotIndex = function (nums) {
   let sum = nums.reduce((acu, cur) => acu + cur);
   let sumLeft = 0;
