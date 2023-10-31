@@ -17,7 +17,10 @@ You must write an algorithm with O(log n) runtime complexity.
 */
 // https://leetcode.com/problems/search-in-rotated-sorted-array/
 
-// binary search: 2 section of non-decreasing array, with a breakPoint in middle
+// binary search: 2 section of non-decreasing array,
+// with a breakPoint (highest and lowest) in middle.
+// time complexity O(n)
+// space complexity O(1)
 var search = function (nums, target) {
   let left = 0;
   let right = nums.length - 1;
