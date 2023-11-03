@@ -19,7 +19,7 @@ You must write an algorithm with O(log n) runtime complexity.
 
 // binary search: 2 section of non-decreasing array,
 // with a breakPoint (highest and lowest) in middle.
-// time complexity O(n)
+// time complexity O(logn)
 // space complexity O(1)
 var search = function (nums, target) {
   let left = 0;
@@ -56,7 +56,3 @@ var search = function (nums, target) {
   }
   return -1;
 };
-
-console.log(search([4, 5, 6, 7, 0, 1, 2], 0)); // 4
-console.log(search([4, 5, 6, 7, 0, 1, 2], 3)); // -1
-console.log(search([1], 0)); // -1
