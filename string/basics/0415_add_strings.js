@@ -13,14 +13,14 @@ to integers directly.
 // space complexity O(n)
 var addStrings = function (num1, num2) {
   let p1 = num1.length - 1;
-  (p2 = num2.length - 1), (sum = 0);
+  (p2 = num2.length - 1), (carry = 0);
   let ans = [];
-  while (p1 >= 0 || p2 >= 0 || sum != 0) {
+  while (p1 >= 0 || p2 >= 0 || carry != 0) {
     const n1 = p1 >= 0 ? num1.charAt(p1) - "0" : 0; // coersion to number type
     const n2 = p2 >= 0 ? num2.charAt(p2) - "0" : 0;
-    const res = n1 + n2 + sum;
+    const res = n1 + n2 + carry;
     ans.push(res % 10);
-    sum = Math.floor(res / 10);
+    carry = Math.floor(res / 10);
     p1--;
     p2--;
   }
