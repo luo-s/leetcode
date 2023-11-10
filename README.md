@@ -3,6 +3,12 @@
 - A journey of cracking leetcode problems.
 - Categorized by data structure/algorithms.
   - Array
+    - Basics
+    - Binary search
+    - Sliding window
+    - Sorting
+    - Two pointers
+    - Two dimension array
   - Linked list
   - Stack
   - Queue
