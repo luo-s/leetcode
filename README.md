@@ -14,6 +14,8 @@
   - Queue
   - Hash table
   - String
+    - Basics
+    - Pattern match
   - Tree
   - Graph
   - Algorithms
