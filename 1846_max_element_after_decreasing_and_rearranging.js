@@ -12,18 +12,17 @@ Return the maximum possible value of an element in arr after performing the oper
 
 //https://leetcode.com/problems/maximum-element-after-decreasing-and-rearranging/
 
-
 // sorting
-// time complexity O(n)
+// time complexity O(nlogn)
 // space complexity O(1)
-var maximumElementAfterDecrementingAndRearranging = function(arr) {
-    arr.sort((a, b) => a - b);
-    arr[0] = 1;
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] - arr[i-1] > 1) {
-            arr[i] = arr[i-1] + 1;
-        }
-        // arr[i] = Math.min(arr[i], arr[i-1] + 1);
+var maximumElementAfterDecrementingAndRearranging = function (arr) {
+  arr.sort((a, b) => a - b);
+  arr[0] = 1;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] - arr[i - 1] > 1) {
+      arr[i] = arr[i - 1] + 1;
     }
-    return arr[arr.length - 1];
+    // arr[i] = Math.min(arr[i], arr[i-1] + 1);
+  }
+  return arr[arr.length - 1];
 };
