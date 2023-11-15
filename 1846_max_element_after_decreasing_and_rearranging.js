@@ -23,8 +23,7 @@ var maximumElementAfterDecrementingAndRearranging = function(arr) {
         if (arr[i] - arr[i-1] > 1) {
             arr[i] = arr[i-1] + 1;
         }
+        // arr[i] = Math.min(arr[i], arr[i-1] + 1);
     }
     return arr[arr.length - 1];
 };
-
-var maximumElementAfterDecrementingAndRearranging = function(arr) {}
