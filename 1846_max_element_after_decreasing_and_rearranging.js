@@ -12,7 +12,7 @@ Return the maximum possible value of an element in arr after performing the oper
 
 //https://leetcode.com/problems/maximum-element-after-decreasing-and-rearranging/
 
-// sorting
+// sorting + greedy
 // time complexity O(nlogn)
 // space complexity O(1)
 var maximumElementAfterDecrementingAndRearranging = function (arr) {
