@@ -18,7 +18,13 @@
     - Pattern match
   - Tree
   - Graph
-  - Algorithms
+  - General Algorithms
+    - Backtracking
+    - Bit Operation
+    - Divide and Conquer
+    - Enumeration
+    - Greedy
+    - Recursive
   - Dynamic programming
 - Discussed time complexity and space complexity of different solutions.
 - Written in JavaScript (ES6).
