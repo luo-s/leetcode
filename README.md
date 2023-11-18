@@ -6,7 +6,6 @@
     - Basics
     - Binary search
     - Sliding window
-    - Sorting
     - Two pointers
     - Two dimension array
   - Linked list
@@ -25,6 +24,7 @@
     - Enumeration
     - Greedy
     - Recursive
+    - Sorting
   - Dynamic programming
 - Discussed time complexity and space complexity of different solutions.
 - Written in JavaScript (ES6).
