@@ -20,7 +20,43 @@ The answer is guaranteed to fit in a 32-bit integer.
 */
 
 // https://leetcode.com/problems/basic-calculator-ii/
+// optimized stack
+// time complexity  O(n)
+// space complexity O(n)
+var calculate = function (s) {
+  let stack = [];
+  s = s.replace(/\s/g, ""); // remove white space
+  let currNum = 0;
+  let op = "+";
+  for (let i = 0; i < s.length; i++) {
+    let c = s[i];
+    if (c >= "0" && c <= "9") {
+      currNum = currNum * 10 + Number(c);
+    }
+    if (!(c >= "0" && c <= "9") || i === s.length - 1) {
+      if (op === "+") {
+        stack.push(currNum);
+      } else if (op === "-") {
+        stack.push(-currNum);
+      } else if (op === "*") {
+        stack.push(stack.pop() * currNum);
+      } else if (op === "/") {
+        let n = stack.pop();
+        stack.push(n > 0 ? Math.floor(n / currNum) : Math.ceil(n / currNum));
+      }
+      op = c;
+      currNum = 0;
+    }
+  }
+  let sum = 0;
+  while (stack.length) {
+    sum += stack.pop();
+  }
 
+  return sum;
+};
+
+// stack
 var calculate = function (s) {
   let stack = [];
   let index = 0;
