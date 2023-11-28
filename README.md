@@ -19,6 +19,7 @@
     - Basics
     - Pattern match
   - Tree
+    - Binary Search Tree
   - Graph
   - General Algorithms
     - Backtracking
