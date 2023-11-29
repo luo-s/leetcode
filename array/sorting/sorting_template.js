@@ -9,7 +9,8 @@ var bubbleSort = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length - 1 - i; j++) {
       if (nums[j] > nums[j + 1]) {
-        [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]]; // destructuring assignment
+        // destructuring assignment
+        [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
         // let temp = nums[j];
         // nums[j] = nums[j + 1];
         // nums[j + 1] = temp;
@@ -24,14 +25,14 @@ var bubbleSort = function (nums) {
 // space complexity O(1)
 var selectionSort = function (nums) {
   for (let i = 0; i < nums.length; i++) {
-    let minPosition = i;
-    for (let j = i; j < nums.length; j++) {
-      if (nums[j] < nums[minPosition]) minPosition = j;
+    let minIndex = i;
+    // find the index of minimum after ith element
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] < nums[minIndex]) minIndex = j;
     }
-    if (nums[minPosition] < nums[i]) {
-      let temp = nums[i];
-      nums[i] = minPosition;
-      nums[minPosition] = temp;
+    // swap position if necessary
+    if (nums[minIndex] < nums[i]) {
+      [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
     }
   }
   return nums;
