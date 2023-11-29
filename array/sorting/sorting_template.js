@@ -8,6 +8,7 @@ Given an integer array nums, return sorted array from min to max
 var bubbleSort = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length - 1 - i; j++) {
+      // swap if necessary
       if (nums[j] > nums[j + 1]) {
         // destructuring assignment
         [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
@@ -31,7 +32,7 @@ var selectionSort = function (nums) {
       if (nums[j] < nums[minIndex]) minIndex = j;
     }
     // swap position if necessary
-    if (nums[minIndex] < nums[i]) {
+    if (i !== minIndex) {
       [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
     }
   }
@@ -45,25 +46,30 @@ var insertionSort = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     let temp = nums[i];
     let j = i;
+    // insertion
     while (j > 0 && nums[j - 1] > temp) {
+      // right shift to make space for insertion
       nums[j] = nums[j - 1];
       j--;
     }
+    // insert into the empty slot
     nums[j] = temp;
   }
   return nums;
 };
 
-// quick sort -- unstable sort
+// quick sort -- unstable sort (recursive)
 // time complexity -- O(nlogn)
 // space complexity -- O(n)
 var quickSort = function (nums) {
   if (nums.length <= 1) {
-    return nums; //base case;
+    // base case;
+    return nums;
   } else {
-    let pivot = nums[0];
-    let left = [];
-    let right = [];
+    // recursive case
+    let pivot = nums[0],
+      left = [];
+    right = [];
     for (let i = 1; i < nums.length; i++) {
       if (nums[i] < pivot) {
         left.push(nums[i]);
@@ -75,10 +81,11 @@ var quickSort = function (nums) {
   }
 };
 
-// merge sort -- stable sort
+// merge sort -- stable sort (divide and conquer)
 // time complexity O(nlogn)
 // space complexity O(n)
 var mergeSort = function (nums) {
+  // define the merge function
   var merge = function (left, right) {
     const array = [];
     while (left.length && right.length) {
@@ -90,7 +97,7 @@ var mergeSort = function (nums) {
     }
     return array.concat(left).concat(right);
   };
-
+  // divide and conquer
   if (nums.length <= 1) {
     return nums;
   }
