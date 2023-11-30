@@ -8,7 +8,7 @@
     - Sliding window
     - Sorting
     - Two pointers
-    - Two dimension array
+    - Two dimensions array
   - Linked list
   - Stack
     - Basics
