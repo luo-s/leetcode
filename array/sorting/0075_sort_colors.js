@@ -10,6 +10,27 @@ You must solve this problem without using the library's sort function.
 */
 // https://leetcode.com/problems/sort-colors/
 
+// two pointers
+// time complexity O(n)
+// space complexity O(1)
+var sortColors = function (nums) {
+  let left = 0,
+    right = nums.length - 1;
+  for (let i = 0; i <= right; i++) {
+    if (nums[i] === 0) {
+      swap(nums, i, left);
+      left++;
+    } else if (nums[i] === 2) {
+      swap(nums, i, right);
+      right--;
+      i--;
+    }
+  }
+};
+function swap(nums, i, j) {
+  [nums[i], nums[j]] = [nums[j], nums[i]];
+}
+
 // built-in function
 // time complexity O(nlogn)
 // space complexity O(1)
