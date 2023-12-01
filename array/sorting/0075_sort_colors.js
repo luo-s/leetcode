@@ -18,11 +18,14 @@ var sortColors = function (nums) {
     right = nums.length - 1;
   for (let i = 0; i <= right; i++) {
     if (nums[i] === 0) {
+      // move 0 to the left pointer
       swap(nums, i, left);
       left++;
     } else if (nums[i] === 2) {
+      // move 2 to the right pointer
       swap(nums, i, right);
       right--;
+      // back 1 step since swapped an un-traversed number
       i--;
     }
   }
