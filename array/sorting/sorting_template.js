@@ -48,7 +48,7 @@ var insertionSort = function (nums) {
     let j = i;
     // insertion
     while (j > 0 && nums[j - 1] > temp) {
-      // right shift to make space for insertion
+      // right shift to make space until reaching the slot
       nums[j] = nums[j - 1];
       j--;
     }
