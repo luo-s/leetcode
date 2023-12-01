@@ -7,7 +7,7 @@ Given an integer array nums, return sorted array from min to max
 // space complexity O(1)
 var bubbleSort = function (nums) {
   for (let i = 0; i < nums.length; i++) {
-    for (let j = 0; j < nums.length - 1 - i; j++) {
+    for (let j = 0; j < nums.length - i; j++) {
       // swap if necessary
       if (nums[j] > nums[j + 1]) {
         // destructuring assignment
