@@ -29,10 +29,11 @@ var sortColors = function (nums) {
       i--;
     }
   }
+  function swap(nums, i, j) {
+    [nums[i], nums[j]] = [nums[j], nums[i]];
+  }
+  return nums;
 };
-function swap(nums, i, j) {
-  [nums[i], nums[j]] = [nums[j], nums[i]];
-}
 
 // built-in function
 // time complexity O(nlogn)
