@@ -21,5 +21,13 @@ var findKthLargest = function(nums, k) {
     return Math.max(...nums);
 };
 
+// sorting
+// time complexity O(nlogn)
+// space complexity O(1)
+var findKthLargest = function(nums, k) {
+    nums.sort((a, b) => (b - a));
+    return nums[k-1];
+  };
+
 // 
 var findKthLargest = function(nums, k) {}
