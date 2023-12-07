@@ -1,6 +1,6 @@
 # leetcode
 
-- A journey of cracking leetcode problems.
+- An exited journey of cracking leetcode problems.
 - Categorized by data structure/algorithms.
   - Array
     - Basics
