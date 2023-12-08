@@ -25,5 +25,17 @@ var sortArray = function(nums) {
 // time compleixty O(nlogn)
 // space complexity 
 var sortArray = function(nums) {
-    
+    if (nums.length <= 1) return nums;
+    let mid = Math.floor(nums.length / 2);
+    let left = nums.slice(0, mid);
+    let right = nums.slice(mid);
+    return merge(sortArray(left), sortArray(right));
+    function merge (left, right) {
+        const array = [];
+        while (left.length && right.length) {
+            if (left[0] < right[0]) array.push(left.shift());
+            else array.push(right.shift());
+        }
+        return array.concat(left).concat(right);
+    }
 };
