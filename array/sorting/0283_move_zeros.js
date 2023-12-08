@@ -27,6 +27,4 @@ var moveZeroes = function (nums) {
   return nums;
 };
 
-console.log(moveZeroes([1, 2, 3, 0, 4, 5]));
-console.log(moveZeroes([0, 1, 0, 3, 12]));
-console.log(moveZeroes([0, 0, 1]));
+
