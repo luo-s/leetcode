@@ -29,5 +29,25 @@ var findKthLargest = function(nums, k) {
     return nums[k-1];
   };
 
-// 
-var findKthLargest = function(nums, k) {}
+// optimized solution: utilize index
+// time compleixty O(n)
+// space complexity O(n)
+var findKthLargest = function(nums, k) {
+    let numsMax = Math.max(...nums);
+    let numsMin = Math.min(...nums);
+    let count = new Array(numsMax - numsMin + 1).fill(0);
+    let result = [];
+    for (let num of nums) {
+        count[num - numsMin]++;
+    }
+    for (let i = count.length - 1; i >= 0; i--) {
+        while (count[i] > 0) {
+            result.push(i + numsMin);
+            count[i]--;
+            if (result.length == k) {
+                return result[k-1];
+            }
+        }
+
+    }
+}
