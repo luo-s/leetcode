@@ -8,8 +8,24 @@ It is guaranteed that the answer is unique.
 */
 // https://leetcode.com/problems/top-k-frequent-elements/
 
+// hash table + sorting
+// time complexity O(n * k)
+// space complexity O(n)
+var topKFrequent = function (nums, k) {
+  const map = new Map();
+  const res = [];
+  // make a dictionary of nums
+  nums.forEach((num) => map.set(num, (map.get(num) || 0) + 1));
+  // sorting
+  const store = [...map.entries()].sort((a, b) => b[1] - a[1]);
+  for (let i = 0; i < k; i++) {
+    res.push(store[i][0]);
+  }
+  return res;
+};
+
 // counting sort
-// time complexity O(nlogn)
+// time complexity O(n * k)
 // space complexity O(n)
 var topKFrequent = function (nums, k) {
   const numsMin = Math.min(...nums);
