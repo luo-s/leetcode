@@ -5,6 +5,27 @@ You must solve the problem without using any built-in functions in O(nlog(n)) ti
 */
 // https://leetcode.com/problems/sort-an-array/
 
+// optimized solution: utilize index
+// time complexity O(n)
+// space complexity O(n)
+var sortArray = function (nums) {
+    const numsMin = Math.min(...nums);
+    const numsMax = Math.max(...nums);
+    let counts = new Array(numsMax - numsMin + 1).fill(0);
+    const result = [];
+    for (let num of nums) {
+      counts[num - numsMin]++;
+    }
+    for (let i = 0; i < counts.length; i++) {
+      while (counts[i] > 0) {
+        result.push(i + numsMin);
+        counts[i]--;
+      }
+    }
+    return result;
+  };
+
+
 // quick sort
 // time complexity O(nlogn)
 // space complexity O(n)
@@ -23,7 +44,7 @@ var sortArray = function(nums) {
 
 // merge sort
 // time compleixty O(nlogn)
-// space complexity 
+// space complexity O(n)
 var sortArray = function(nums) {
     if (nums.length <= 1) return nums;
     let mid = Math.floor(nums.length / 2);
