@@ -114,19 +114,15 @@ var countingSort = function (nums) {
   const numsMin = Math.min(...nums);
   const numsMax = Math.max(...nums);
   const count = new Array(numsMax - numsMin + 1).fill(0);
-  const result = new Array(nums.length).fill(0);
-  // store the frequency
-  for (let i = 0; i < nums.length; i++) {
-    count[nums[i] - numsMin]++;
+  const result = [];
+  for (let num of nums) {
+    count[num - numsMin]++;
   }
-  // accumulate the frequency
-  for (let i = 1; i < count.length; i++) {
-    count[i] += count[i - 1];
-  }
-  // sort
-  for (let i = 0; i < nums.length; i++) {
-    result[count[nums[i] - numsMin] - 1] = nums[i];
-    count[nums[i] - numsMin]--;
+  for (let i = 0; i < count.length; i++) {
+    while (count[i] > 0) {
+      result.push(i + numsMin);
+      count[i]--;
+    }
   }
   return result;
 };
