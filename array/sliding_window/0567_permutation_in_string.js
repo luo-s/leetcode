@@ -18,6 +18,7 @@ var checkInclusion = function (s1, s2) {
     cnt2[s2[i].charCodeAt() - "a".charCodeAt()]++;
   }
   if (cnt1.toString() === cnt2.toString()) return true;
+  // start sliding
   for (let i = s1.length; i < s2.length; i++) {
     cnt2[s2[i].charCodeAt() - "a".charCodeAt()]++;
     cnt2[s2[i - s1.length].charCodeAt() - "a".charCodeAt()]--;
