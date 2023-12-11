@@ -18,6 +18,22 @@ All the values in score are unique.
 
 // https://leetcode.com/problems/relative-ranks/
 
+// time complexity O(nlogn)
+// space complexity O(n)
+var findRelativeRanks = (score) => {
+  const place = {};
+  [...score]
+    .sort((a, b) => b - a)
+    .map((ele, idx) => {
+      if (idx === 0) place[ele] = "Gold Medal";
+      else if (idx === 1) place[ele] = "Silver Medal";
+      else if (idx === 2) place[ele] = "Bronze Medal";
+      else place[ele] = (idx + 1).toString();
+    });
+  return score.map((ele) => place[ele]);
+};
+
+// counting sort
 // time complexity O(n)
 // space complexity O(n)
 var findRelativeRanks = function (score) {
@@ -46,12 +62,9 @@ var findRelativeRanks = function (score) {
   for (let ele of sss) {
     rank[ele[0]] = ele[1];
   }
-  console.log(rank);
   const res = score.map((ele) => rank[ele]);
   res[res.indexOf("1")] = "Gold Medal";
   res[res.indexOf("2")] = "Silver Medal";
   res[res.indexOf("3")] = "Bronze Medal";
   return res;
 };
-
-console.log(findRelativeRanks([10, 3, 8, 9, 4]));
