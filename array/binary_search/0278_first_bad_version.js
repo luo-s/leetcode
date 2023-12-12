@@ -26,6 +26,7 @@ var solution = function (isBadVersion) {
     while (left < right) {
       let mid = left + Math.floor((right - left) / 2);
       // let mid = Math.floor((left + right) / 2);
+      console.log(mid);
       if (isBadVersion(mid) == false) {
         // target belongs to [mid + 1, right]
         left = mid + 1;
@@ -38,4 +39,6 @@ var solution = function (isBadVersion) {
   };
 };
 
-// why using right shift method for midpoint results in Time Limit Exceeded?
+// Using right shift method for midpoint results in Time Limit Exceeded
+// let mid = left + (right - left) >> 1;
+// Has something to do with API.
