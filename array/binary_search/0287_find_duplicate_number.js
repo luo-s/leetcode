@@ -17,7 +17,7 @@ which appears two or more times.
 
 // hash table + Set/ES6
 // time complexity O(n)
-// space xomplexity O(n)
+// space complexity O(n)
 var findDuplicate = function (nums) {
   let set = new Set();
   for (let num of nums) {
@@ -45,7 +45,7 @@ var findDuplicate = function (nums) {
 // binary search -- make an sorted array with a pivot point:
 // [1, target-1] => count(i) <= i; [target, n] => count(i) > i ;
 // time complexity O(nlogn)
-// space xomplexity O(1)
+// space complexity O(1)
 var findDuplicate = function (nums) {
   let left = 1;
   let right = nums.length;
@@ -66,6 +66,6 @@ var findDuplicate = function (nums) {
   return left;
 };
 
-// Two pointers: Floyd Cycle Detection Algorithm/Tortoise and Hare Algorithm
+// Two pointers method: Floyd Cycle Detection Algorithm/Tortoise and Hare Algorithm
 // time complexity O(n)
 // space xomplexity O(1)
