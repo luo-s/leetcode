@@ -18,8 +18,8 @@ piles.length <= h <= 10^9
 
 // https://leetcode.com/problems/koko-eating-bananas/
 
-// traverse
-// time complexity O(n) -- time limit exceeded
+// linear search
+// time complexity O(Math.max(...piles)) -- time limit exceeded
 // space complexity O(1)
 var minEatingSpeed = function (piles, h) {
   let max = Math.max(...piles);
@@ -27,16 +27,39 @@ var minEatingSpeed = function (piles, h) {
   while (ans <= max) {
     let hour = 0;
     piles.forEach((element) => {
-      if (element % ans == 0) {
-        hour += element / ans;
-      } else {
-        hour += Math.floor(element / ans) + 1;
-      }
+      hour += Math.ceil(element / ans);
     });
-    console.log(ans, hour);
     if (hour <= h) return ans;
     ans++;
   }
 };
 
-//
+// find the smallest ans that makes hour <= h
+// binary search
+// time complexity O(n) vs. O(log(Math.max(...piles)))
+// space complexity O(1)
+var minEatingSpeed = function (piles, h) {
+  let max = Math.max(...piles);
+  let min = 1;
+  let ans;
+  while (min < max + 1) {
+    // [min, max]
+    let mid = Math.floor((max + min) / 2);
+    let hour = 0;
+    piles.forEach((element) => {
+      hour += Math.ceil(element / mid);
+    });
+    console.log(mid, hour);
+    if (hour > h) {
+      // too slow
+      min = mid + 1;
+    } else if (hour <= h) {
+      // might too fast, might not
+      ans = mid; // placeholder
+      max = mid - 1;
+    }
+  }
+  return ans;
+};
+
+console.log(minEatingSpeed([30, 11, 23, 4, 20], 5));
