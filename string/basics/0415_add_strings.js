@@ -12,8 +12,9 @@ to integers directly.
 // time complexity O(n)
 // space complexity O(n)
 var addStrings = function (num1, num2) {
-  let p1 = num1.length - 1;
-  (p2 = num2.length - 1), (carry = 0);
+  let p1 = num1.length - 1,
+    p2 = num2.length - 1,
+    carry = 0;
   let ans = [];
   while (p1 >= 0 || p2 >= 0 || carry != 0) {
     const n1 = p1 >= 0 ? num1.charAt(p1) - "0" : 0; // coersion to number type
