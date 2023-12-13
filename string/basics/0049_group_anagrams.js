@@ -9,7 +9,7 @@ strs[i] consists of lowercase English letters.
 */
 // https://leetcode.com/problems/group-anagrams/
 
-// sort
+// sorting
 // time complexity O(nlogn)
 // space complexity O(n)
 var groupAnagrams = function (strs) {
