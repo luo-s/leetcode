@@ -13,19 +13,37 @@ on the conveyor belt being shipped within days days.
 */
 
 // https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
+// related 0875 https://leetcode.com/problems/koko-eating-bananas/
 
 // slowest method: ans == Math.max(...weight)
 // linear search
-// time complexity O(n) -- time limit exceeded
+// time complexity O(n^2) -- time limit exceeded
 // space complexity O(1)
 var shipWithinDays = function (weights, days) {
   let ans = Math.max(...weights);
   while (ans < Infinity) {
-    console.log(ans, numberOfDay(weights, ans));
     if (numberOfDay(weights, ans) <= days) return ans;
     ans++;
   }
 };
+
+// binary search
+// time complexity O(nlogn)
+// space complexity O(1)
+var shipWithinDays = function (weights, days) {
+  let min = Math.max(...weights);
+  let max = weights.reduce((acc, cur) => acc + cur);
+  while (min <= max) {
+    let mid = Math.floor((min + max) / 2);
+    if (numberOfDay(weights, mid) > days) {
+      min = mid + 1;
+    } else {
+      max = mid - 1;
+    }
+  }
+  return min;
+};
+
 // define a funciton calculate the ship days based on loadCapacity
 function numberOfDay(weights, loadCapacity) {
   let sum = 0;
