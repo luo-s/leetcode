@@ -17,6 +17,7 @@ piles.length <= h <= 10^9
 */
 
 // https://leetcode.com/problems/koko-eating-bananas/
+// related 1011 https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
 
 // linear search
 // time complexity O(Math.max(...piles)) -- time limit exceeded
