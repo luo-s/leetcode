@@ -62,4 +62,26 @@ var minEatingSpeed = function (piles, h) {
   return ans;
 };
 
+// optimized binary search
+var minEatingSpeed = function (piles, h) {
+  let min = 1;
+  let max = Math.max(...piles);
+  while (min <= max) {
+    let hour = 0;
+    let mid = Math.floor((min + max) / 2);
+    for (let pile of piles) {
+      hour += Math.ceil(pile / mid);
+    }
+    console.log(min, max, mid, hour);
+    if (hour <= h) {
+      // might too fast, might not: so move the max index, and return min later
+      max = mid - 1;
+    } else {
+      // too slow
+      min = mid + 1;
+    }
+  }
+  return min;
+};
+
 console.log(minEatingSpeed([30, 11, 23, 4, 20], 5));
