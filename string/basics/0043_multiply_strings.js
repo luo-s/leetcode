@@ -8,23 +8,22 @@ integer directly.
 
 // https://leetcode.com/problems/multiply-strings/
 
-var multiply = function (num1, num2) {};
-
-// brute force -- integer overflow
+// multiply simulation
 var multiply = function (num1, num2) {
-  let arr1 = num1.split("");
-  let arr2 = num2.split("");
-  for (let i = 0; i < num1.length; i++) {
-    arr1[i] *= Math.pow(10, num1.length - 1 - i);
-  }
-  for (let i = 0; i < num2.length; i++) {
-    arr2[i] *= Math.pow(10, num2.length - 1 - i);
-  }
-  let res = 0;
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      res += arr1[i] * arr2[j];
+  if (num1 === "0" || num2 === "0") return "0";
+  const l1 = num1.length,
+    l2 = num2.length,
+    res = new Array(l1 + l2).fill(0);
+
+  for (let i = l1 - 1; i >= 0; i--) {
+    for (let j = l2 - 1; j >= 0; j--) {
+      const p1 = i + j,
+        p2 = i + j + 1;
+      let sum = res[p2] + Number(num1[i]) * Number(num2[j]);
+      res[p2] = sum % 10;
+      res[p1] += Math.floor(sum / 10);
     }
   }
-  return res.toString();
+  if (res[0] === 0) res.shift();
+  return res.join("");
 };
