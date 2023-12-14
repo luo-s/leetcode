@@ -9,6 +9,9 @@ integer directly.
 // https://leetcode.com/problems/multiply-strings/
 
 // multiply simulation
+// num1[i] * num2[j] will be placed at indices [i + j, i + j + 1]
+// time complexity O(l1 * l2)
+// space complexity O(l1 + l2)
 var multiply = function (num1, num2) {
   if (num1 === "0" || num2 === "0") return "0";
   const l1 = num1.length,
