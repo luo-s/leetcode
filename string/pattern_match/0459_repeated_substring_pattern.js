@@ -5,6 +5,9 @@ and appending multiple copies of the substring together.
 
 // https://leetcode.com/problems/repeated-substring-pattern/
 
+// brute force
+// time complexity: O(n^2)
+// space complexity: O(n)
 var repeatedSubstringPattern = function (s) {
   let length = s.length;
   let mid = Math.floor(length / 2);
@@ -19,4 +22,9 @@ var repeatedSubstringPattern = function (s) {
     if (temp === s) return true;
   }
   return false;
+};
+
+// optimized
+var repeatedSubstringPattern = function (s) {
+  return (s + s).slice(1, -1).includes(s);
 };
