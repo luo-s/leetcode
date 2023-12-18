@@ -55,7 +55,3 @@ var maxRepeating = function(sequence, word) {
     }
     return ans;
 }
-
-
-
-console.log(maxRepeating("ababc", "ab")); // 2
