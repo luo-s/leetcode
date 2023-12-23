@@ -27,7 +27,7 @@
     - Divide and Conquer
     - Enumeration
     - Greedy
-    - Recursive
+    - Recursion 
   - Dynamic programming
 - Discussed time complexity and space complexity of different solutions.
 - Written in JavaScript (ES6).
