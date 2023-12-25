@@ -14,6 +14,30 @@ n == matrix[0].length
 
 // brute force
 // time: O(m * n)
+// space: O(m + n)
+var setZeroes = function (matrix) {
+  const m = matrix.length,
+    n = matrix[0].length;
+  const row = new Array(m).fill(false);
+  const col = new Array(n).fill(false);
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (matrix[i][j] === 0) {
+        row[i] = col[j] = true;
+      }
+    }
+  }
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (row[i] || col[j]) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
+};
+
+// brute force
+// time: O(m * n)
 // space: O(m * n)
 var setZeroes = function (matrix) {
   // find all the 0s
@@ -26,14 +50,11 @@ var setZeroes = function (matrix) {
       }
     }
   }
-  // set all the rows and cols to 0
   for (let k = 0; k < zeroPositions.length; k++) {
     let [row, col] = zeroPositions[k];
-    // set row to 0
     for (let j = 0; j < matrix[row].length; j++) {
       matrix[row][j] = 0;
     }
-    // set col to 0
     for (let i = 0; i < matrix.length; i++) {
       matrix[i][col] = 0;
     }
