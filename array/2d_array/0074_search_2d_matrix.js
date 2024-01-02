@@ -9,6 +9,8 @@ Given an integer target, return true if target is in matrix or false otherwise.
 You must write a solution in O(log(m * n)) time complexity.
 */
 
+// https://leetcode.com/problems/search-a-2d-matrix/description/
+
 // binery search
 var searchMatrix = function (matrix, target) {
   let row = matrix.length;
