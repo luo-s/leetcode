@@ -16,6 +16,8 @@ board[i].length == 9
 board[i][j] is a digit 1-9 or '.'.
 */
 
+// https://leetcode.com/problems/valid-sudoku/description/
+
 var isValidSudoku = function (board) {
   // validate the rows
   for (let i = 0; i < 9; i++) {
