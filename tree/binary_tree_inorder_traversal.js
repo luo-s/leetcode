@@ -20,3 +20,16 @@ var inorderTraversal = function (root) {
   if (root.right) result = result.concat(inorderTraversal(root.right));
   return result;
 };
+
+// modularized recursive solution
+var inorderTraversal = function (root) {
+  function traverse(node, result) {
+    if (!node) return;
+    traverse(node.left, result);
+    result.push(node.val);
+    traverse(node.right, result);
+  }
+  let result = [];
+  traverse(root, result);
+  return result;
+};
