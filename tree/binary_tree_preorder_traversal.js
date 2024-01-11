@@ -33,3 +33,18 @@ var preorderTraversal = function (root) {
   traverse(root, result);
   return result;
 };
+
+// iterative solution + stack
+var preorderTraversal = function (root) {
+  if (!root) return [];
+  let result = [];
+  let stack = [root];
+  while (stack.length) {
+    let node = stack.pop();
+    result.push(node.val);
+    // first in last out, thus push right first
+    if (node.right) stack.push(node.right);
+    if (node.left) stack.push(node.left);
+  }
+  return result;
+};
