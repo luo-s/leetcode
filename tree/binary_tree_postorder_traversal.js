@@ -20,3 +20,16 @@ var postorderTraversal = function (root) {
   result.push(root.val);
   return result;
 };
+
+// modularized recursive solution
+var postorderTraversal = function (root) {
+  function traverse(node, result) {
+    if (!node) return;
+    traverse(node.left, result);
+    traverse(node.right, result);
+    result.push(node.val);
+  }
+  let result = [];
+  traverse(root, result);
+  return result;
+};
