@@ -11,7 +11,7 @@ function TreeNode(val, left, right) {
 
 // https://leetcode.com/problems/binary-tree-preorder-traversal/description/
 
-// recursive
+// recursive solution
 var preorderTraversal = function (root) {
   if (!root) return [];
   let result = [];
