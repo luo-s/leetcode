@@ -35,7 +35,7 @@ var inorderTraversal = function (root) {
 };
 
 // iterative solution + stack
-// pop node only after its left subtree is traversed
+// pop node only after its left subtree is visited
 var inorderTraversal = function (root) {
   if (!root) return [];
   let result = [];
