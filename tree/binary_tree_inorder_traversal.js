@@ -33,3 +33,25 @@ var inorderTraversal = function (root) {
   traverse(root, result);
   return result;
 };
+
+// iterative solution + stack
+// pop node only after its left subtree is traversed
+var inorderTraversal = function (root) {
+  if (!root) return [];
+  let result = [];
+  let stack = [];
+  while (root || stack.length) {
+    // push all root nodes into stack
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    // traverse to the most left untraversed subtree
+    let curr = stack.pop();
+    // visit the node
+    result.push(curr.val);
+    // traverse the right subtree
+    root = curr.right;
+  }
+  return result;
+};
