@@ -33,3 +33,32 @@ var postorderTraversal = function (root) {
   traverse(root, result);
   return result;
 };
+
+// iterative solution + stack
+// pop node only after both left and right subtree are visited
+var postorderTraversal = function (root) {
+  if (!root) return [];
+  let result = [];
+  let stack = [];
+  let prev = null;
+  while (root || stack.length) {
+    // push all root nodes into stack
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    let curr = stack.pop();
+    // if right subtree is not visited yet, push the root back into stack
+    // and traverse the right subtree
+    if (curr.right && curr.right !== prev) {
+      stack.push(curr);
+      root = curr.right;
+    } else {
+      // if right subtree is visited, visit the node
+      result.push(curr.val);
+      prev = curr;
+      root = null;
+    }
+  }
+  return result;
+};
