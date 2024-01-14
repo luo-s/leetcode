@@ -12,3 +12,18 @@ var maxDepth = function (root) {
   if (!root) return 0;
   return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
+
+// iterative solution
+var maxDepth = function (root) {
+  if (!root) return 0;
+  let max = 1,
+    depth = 1;
+  let stack = [[root, depth]];
+  while (stack.length) {
+    let [node, depth] = stack.pop();
+    max = Math.max(max, depth);
+    if (node.left) stack.push([node.left, depth + 1]);
+    if (node.right) stack.push([node.right, depth + 1]);
+  }
+  return max;
+};
