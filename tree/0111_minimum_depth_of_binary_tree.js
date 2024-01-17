@@ -17,3 +17,18 @@ var minDepth = function (root) {
   if (root.left && !root.right) return 1 + minDepth(root.left);
   return 1 + Math.min(minDepth(root.left), minDepth(root.right));
 };
+
+// iterative solution
+var minDepth = function (root) {
+  if (!root) return 0;
+  let min = Infinity,
+    depth = 1;
+  let stack = [[root, depth]];
+  while (stack.length) {
+    let [node, depth] = stack.pop();
+    if (!node.left && !node.right) min = Math.min(min, depth);
+    if (node.left) stack.push([node.left, depth + 1]);
+    if (node.right) stack.push([node.right, depth + 1]);
+  }
+  return min;
+};
