@@ -6,4 +6,12 @@ the path equals targetSum.
 A leaf is a node with no children.
 */
 
-var hasPathSum = function (root, targetSum) {};
+// recursive solution
+var hasPathSum = function (root, targetSum) {
+  if (!root) return false;
+  if (!root.left && !root.right && targetSum === root.val) return true;
+  return (
+    hasPathSum(root.left, targetSum - root.val) ||
+    hasPathSum(root.right, targetSum - root.val)
+  );
+};
