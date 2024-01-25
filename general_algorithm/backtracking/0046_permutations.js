@@ -6,14 +6,20 @@ You can return the answer in any order.
 // https://leetcode.com/problems/permutations/
 
 var permute = function (nums) {
+  // all possible permutations
   let result = [];
+  // current permutation
   let path = [];
+  // define backtracking function
   var backtracking = function (nums) {
+    // if current permutation's length is equal to nums' length, push to result
     if (path.length === nums.length) {
       result.push([...path]);
       return;
     }
+    // loop through nums
     for (let i = 0; i < nums.length; i++) {
+      // if current permutation already includes nums[i], skip
       if (path.includes(nums[i])) continue;
       path.push(nums[i]);
       backtracking(nums);
