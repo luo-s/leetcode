@@ -20,6 +20,8 @@ The replacement must be in place and use only constant extra memory.
 */
 // https://leetcode.com/problems/next-permutation/
 
+// time complexity: O(n^2)
+// space complexity: O(1)
 var nextPermutation = function (nums) {
   for (let i = nums.length - 1; i > 0; i--) {
     if (nums[i] > nums[i - 1]) {
