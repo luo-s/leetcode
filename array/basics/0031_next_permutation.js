@@ -20,62 +20,21 @@ The replacement must be in place and use only constant extra memory.
 */
 // https://leetcode.com/problems/next-permutation/
 
-// // time complexity O(n^2)
-// // space complexity O(n)
-// var nextPermutation = function (nums) {
-//   const n = nums.length;
-//   for (let i = n - 1; i > 0; i--) {
-//     if (nums[i] > nums[i - 1]) {
-//       for (let j = n - 1; j > i - 1; j--) {
-//         if (nums[j] > nums[i - 1]) {
-//           let temp = nums[i - 1];
-//           nums[i - 1] = nums[j];
-//           nums[j] = temp;
-//           break;
-//         }
-//       }
-//       let nums1 = nums.slice(0, i);
-//       let nums2 = nums.slice(i);
-//       nums2.sort((a, b) => a - b);
-//       return nums1.concat(nums2);
-//     } else {
-//       if (i == 1) {
-//         return nums.sort((a, b) => a - b);
-//       }
-//     }
-//   }
-// };
-
 var nextPermutation = function (nums) {
-  const n = nums.length;
-  for (let i = n - 1; i > 0; i--) {
+  for (let i = nums.length - 1; i > 0; i--) {
     if (nums[i] > nums[i - 1]) {
-      for (let j = n - 1; j > i - 1; j--) {
-        if (nums[j] > nums[i - 1]) {
-          let temp = nums[i - 1];
-          nums[i - 1] = nums[j];
-          nums[j] = temp;
-          break;
-        }
-      }
-      console.log(nums, i);
-      for (let j = i; j < n; j++) {
-        for (let k = i; k < n - j + i - 1; k++) {
+      let j = nums.length - 1;
+      while (nums[j] <= nums[i - 1]) j--;
+      [nums[i - 1], nums[j]] = [nums[j], nums[i - 1]];
+      for (let j = i; j < nums.length; j++) {
+        for (let k = i; k < nums.length - (j - i); k++) {
           if (nums[k] > nums[k + 1]) {
-            let temp = nums[k];
-            nums[k] = nums[k + 1];
-            nums[k + 1] = temp;
+            [nums[k], nums[k + 1]] = [nums[k + 1], nums[k]];
           }
         }
       }
       return nums;
-    } else {
-      if (i == 1) {
-        return nums.sort((a, b) => a - b);
-      }
     }
   }
+  return nums.reverse();
 };
-
-// console.log(nextPermutation([1, 3, 2])); // [2,1,3]
-console.log(nextPermutation([5, 4, 7, 5, 3, 2])); // [5,5,2,3,4,7]
