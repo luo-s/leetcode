@@ -8,6 +8,28 @@ A leaf is a node with no children.
 */
 
 // https://leetcode.com/problems/path-sum-ii/description/
+// related https://leetcode.com/problems/combination-sum/description/
+
 var pathSum = function(root, targetSum) {
-    
+    let result = [];
+    let path = [];
+    // define backtracking function
+    var backtracking = function(root, targetSum) {
+        if (!root) return;
+        path.push(root.val);
+        // push possible solution to result
+        if (!root.left && !root.right && targetSum === root.val) {
+            result.push([...path]);
+            // pop last element to backtrack
+            path.pop();
+            return;
+        }
+        // recursively call backtracking function (go left or right)
+        backtracking(root.left, targetSum - root.val);
+        backtracking(root.right, targetSum - root.val);
+        // pop last element to backtrack
+        path.pop();
+    }
+    backtracking(root, targetSum);
+    return result;
 };
