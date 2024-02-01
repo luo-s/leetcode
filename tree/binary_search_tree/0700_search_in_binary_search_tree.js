@@ -5,4 +5,10 @@ Find the node in the BST that the node's value equals val and return the
 subtree rooted with that node. If such a node does not exist, return null.
 */
 
-var searchBST = function (root, val) {};
+// recursive solution
+var searchBST = function (root, val) {
+  if (!root) return null;
+  if (root.val === val) return root;
+  else if (root.val > val) return searchBST(root.left, val);
+  else return searchBST(root.right, val);
+};
