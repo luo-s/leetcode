@@ -6,6 +6,8 @@ subtree rooted with that node. If such a node does not exist, return null.
 */
 
 // recursive solution
+// Time complexity: O(logN) - average case, O(N) - worst case
+// Space complexity: O(logN) - average case, O(N) - worst case
 var searchBST = function (root, val) {
   if (!root) return null;
   if (root.val === val) return root;
