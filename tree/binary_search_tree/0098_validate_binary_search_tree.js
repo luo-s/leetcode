@@ -8,4 +8,14 @@ The right subtree of a node contains only nodes with keys greater than the node'
 Both the left and right subtrees must also be binary search trees.
 */
 
-var isValidBST = function (root) {};
+var isValidBST = function (root) {
+  var preorderTraversal = function (root, min, max) {
+    if (!root) return true;
+    if (root.val <= min || root.val >= max) return false;
+    return (
+      preorderTraversal(root.left, min, root.val) &&
+      preorderTraversal(root.right, root.val, max)
+    );
+  };
+  return preorderTraversal(root, -Infinity, Infinity);
+};
