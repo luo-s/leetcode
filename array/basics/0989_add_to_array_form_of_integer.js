@@ -14,4 +14,20 @@ num does not contain any leading zeros except for the zero itself.
 
 // https://leetcode.com/problems/add-to-array-form-of-integer/
 
-var addToArrayForm = function (num, k) {};
+// time complexity: O(n)
+// space complexity: O(n)
+var addToArrayForm = function (num, k) {
+  let ans = "";
+  k = k.toString().split("");
+  let i = num.length - 1,
+    j = k.length - 1;
+  let carry = 0;
+  while (i >= 0 || j >= 0 || carry > 0) {
+    let sum = carry;
+    if (i >= 0) sum += parseInt(num[i--]);
+    if (j >= 0) sum += parseInt(k[j--]);
+    ans = (sum % 10) + ans;
+    carry = Math.floor(sum / 10);
+  }
+  return ans.split("");
+};
