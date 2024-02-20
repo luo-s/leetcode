@@ -13,6 +13,7 @@ num does not contain any leading zeros except for the zero itself.
 */
 
 // https://leetcode.com/problems/add-to-array-form-of-integer/
+// related https://leetcode.com/problems/add-binary/description/
 
 // time complexity: O(n)
 // space complexity: O(n)
