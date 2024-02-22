@@ -52,3 +52,31 @@ var findKthLargest = function (nums, k) {
     }
   }
 };
+
+// quick select -- time limit exceeded
+// time complexity O(n); worst case O(n^2)
+// space complexity O(1)
+var findKthLargest = function (nums, k) {
+  k = nums.length - k;
+  var quickSelect = function (left, right) {
+    // set pivot to the rightmost element, and pointer to left
+    let pivot = nums[right],
+      pointer = left;
+    for (let i = left; i < right; i++) {
+      if (nums[i] < pivot) {
+        [nums[i], nums[pointer]] = [nums[pointer], nums[i]];
+        pointer++;
+      }
+    }
+    // swap pivot with pointer
+    [nums[right], nums[pointer]] = [nums[pointer], nums[right]];
+    if (pointer > k) {
+      return quickSelect(left, pointer - 1);
+    } else if (pointer < k) {
+      return quickSelect(pointer + 1, right);
+    } else {
+      return nums[pointer];
+    }
+  };
+  return quickSelect(0, nums.length - 1);
+};
