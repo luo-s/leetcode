@@ -57,6 +57,7 @@ var findKthLargest = function (nums, k) {
 // time complexity O(n); worst case O(n^2)
 // space complexity O(1)
 var findKthLargest = function (nums, k) {
+  // kth largest is the (n - k)th smallest
   k = nums.length - k;
   var quickSelect = function (left, right) {
     // set pivot to the rightmost element, and pointer to left
