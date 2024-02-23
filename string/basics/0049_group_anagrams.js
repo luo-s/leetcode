@@ -14,21 +14,16 @@ strs[i] consists of lowercase English letters.
 // space complexity O(n)
 var groupAnagrams = function (strs) {
   if (strs.length <= 1) return [strs];
-  let tracker = {};
+  let map = new Map();
   for (let str of strs) {
     const strSort = str.split("").sort().join("");
-    if (tracker[strSort] === undefined) {
-      tracker[strSort] = new Array();
-      tracker[strSort].push(str);
+    if (!map.has(strSort)) {
+      map.set(strSort, [str]);
     } else {
-      tracker[strSort].push(str);
+      map.get(strSort).push(str);
     }
   }
-  let result = [];
-  for (let val of Object.values(tracker)) {
-    result.push(val);
-  }
-  return result;
+  return Array.from(Object.values(tracker));
 };
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
