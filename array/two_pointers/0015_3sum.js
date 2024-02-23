@@ -6,29 +6,37 @@ nums[k] == 0.
 Notice that the solution set must not contain duplicate triplets.
 */
 
-// sorting + two pointer
-// time complexity O(n^2)
-// space complexity O(n)
+// https://leetcode.com/problems/3sum/
+
+// sort + two pointers
+// time complexity: O(n^2)
+// space complexity: O(n)
 var threeSum = function (nums) {
-  let res = [];
-  const n = nums.length;
-  if (n < 3) return res;
+  // corner case
+  if (nums.length < 3) return [];
+  // sort the array
   nums.sort((a, b) => a - b);
-  for (let i = 0; i < n - 2; i++) {
-    if (nums[i] > 0) break;
-    if (i > 0 && nums[i] == nums[i - 1]) continue;
-    let left = i + 1;
-    let right = n - 1;
-    while (left < right) {
-      const sum = nums[i] + nums[left] + nums[right];
-      if (sum == 0) {
-        res.push([nums[i], nums[left], nums[right]]);
-        while (left < right && nums[left] == nums[left + 1]) left++;
-        while (left < right && nums[right] == nums[right - 1]) right--;
-        left++;
-        right--;
-      } else if (sum < 0) left++;
-      else if (sum > 0) right--;
+  let res = [];
+  for (let first = 0; first < nums.length - 2; first++) {
+    // skip the duplicate
+    if (first > 0 && nums[first] === nums[first - 1]) continue;
+    // set two pointers
+    let second = first + 1;
+    let third = nums.length - 1;
+    while (second < third) {
+      let sum = nums[first] + nums[second] + nums[third];
+      if (sum < 0) {
+        second++;
+      } else if (sum > 0) {
+        third--;
+      } else {
+        res.push([nums[first], nums[second], nums[third]]);
+        // skip the duplicate
+        while (second < third && nums[second] === nums[second + 1]) second++;
+        while (second < third && nums[third] === nums[third - 1]) third--;
+        second++;
+        third--;
+      }
     }
   }
   return res;
