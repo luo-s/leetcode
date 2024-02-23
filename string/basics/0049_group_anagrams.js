@@ -9,7 +9,7 @@ strs[i] consists of lowercase English letters.
 */
 // https://leetcode.com/problems/group-anagrams/
 
-// sorting
+// sorting + hash
 // time complexity O(nlogn)
 // space complexity O(n)
 var groupAnagrams = function (strs) {
@@ -23,7 +23,7 @@ var groupAnagrams = function (strs) {
       map.get(strSort).push(str);
     }
   }
-  return Array.from(Object.values(tracker));
+  return Array.from(map.values());
 };
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
