@@ -13,16 +13,26 @@ appears once.
 
 // https://leetcode.com/problems/single-number-ii/
 
-// hash table
+// consider every bit: 3 x 0s or 3 x 1s, and 1 x 0 or 1 x 1
+// thus each bit is (sum of 1s) % 3
+// use 2 bits to represent 3 states: 00, 01, 10
+// 01 -> 10 -> 00 -> 01
+// change state for each 1, not change for 0
 // time complexity O(n)
-// space complexity O(n)
+// space complexity O(1)
 var singleNumber = function (nums) {
-  let map = new Map();
+  let ones = 0,
+    twos = 0;
   for (let num of nums) {
-    if (map.has(num)) map.set(num, map.get(num) + 1);
-    else map.set(num, 1);
+    /*
+    if (two === 0) {  
+      if (n === 0) one = one;   // not change state
+      if (n === 1) one = ~one;  // 01 -> 10 or 00 -> 01: toggle one
+    }
+    if (two === 1) one = 0;   // 10 -> 00 or 10 -> 10; one is always 0
+    */
+    ones = (ones ^ num) & ~twos; // update ones first
+    twos = (twos ^ num) & ~ones;
   }
-  for (let num of nums) {
-    if (map.get(num) === 1) return num;
-  }
+  return ones;
 };
