@@ -4,11 +4,19 @@ one. Find that single one.
 
 You must implement a solution with a linear runtime complexity and use only 
 constant extra space.
+
+1 <= nums.length <= 3 * 10^4
+-3 * 10^4 <= nums[i] <= 3 * 10^4
+Each element in the array appears twice except for one element which appears only once.
 */
 
 // https://leetcode.com/problems/single-number/
 
-// bit operation XOR : x ^ 0 = x; x ^ x = 0; (a^b)^c = a^(b^c)
+// consider every bit, 2 x 0s or 2 x 1s, and 1 x 0 or 1 x 1
+// thus each bit is (sum of 1s) % 2 (binary system)
+// toggle the bit for each 1, not toggle for 0: XOR operation
+// 0^1 = 1; 1^1 = 0; 0^0 = 0; 1^0 = 1
+// bit operation XOR : x^0 = x; x^x = 0; (a^b)^c = a^(b^c)
 // time complexity O(n)
 // space complexity O(1)
 var singleNumber = function (nums) {
@@ -17,29 +25,4 @@ var singleNumber = function (nums) {
     ans ^= num;
   }
   return ans;
-};
-
-// hash table
-// time complexity O(n)
-// space complexity O(n)
-var singleNumber = function (nums) {
-  let dict = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    if (dict.has(nums[i])) {
-      dict.delete(nums[i]);
-    } else {
-      dict.set(nums[i], 1);
-    }
-  }
-  return dict.keys().next().value;
-};
-
-// sorting
-// time complexity O(nlogn)
-// space complexity O(1)
-var singleNumber = function (nums) {
-  nums.sort((a, b) => a - b);
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[i + 1] && nums[i] !== nums[i - 1]) return nums[i];
-  }
 };
