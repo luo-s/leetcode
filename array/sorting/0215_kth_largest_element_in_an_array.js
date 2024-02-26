@@ -53,31 +53,43 @@ var findKthLargest = function (nums, k) {
   }
 };
 
-// quick select -- time limit exceeded
+// quick select
 // time complexity O(n); worst case O(n^2)
 // space complexity O(1)
 var findKthLargest = function (nums, k) {
-  // kth largest is the (n - k)th smallest
-  k = nums.length - k;
-  var quickSelect = function (left, right) {
-    // set pivot to the rightmost element, and pointer to left
-    let pivot = nums[right],
-      pointer = left;
-    for (let i = left; i < right; i++) {
-      if (nums[i] < pivot) {
-        [nums[i], nums[pointer]] = [nums[pointer], nums[i]];
-        pointer++;
-      }
+  // run quickSelect algorithm
+  quickSelect(nums, 0, nums.length - 1, k);
+  return nums[k - 1];
+};
+
+var quickSelect = (arr, left, right, k) => {
+  // randomize pivot and swap to the end/right
+  let rPivot = Math.floor(Math.random() * (right - left + 1)) + left;
+  [arr[rPivot], arr[right]] = [arr[right], arr[rPivot]];
+  // get the pivot index
+  let pivotIndex = partition(arr, left, right);
+  let leftLength = pivotIndex - left + 1;
+  if (k > leftLength) {
+    // kth largest is on the right
+    quickSelect(arr, pivotIndex + 1, right, k - leftLength);
+  } else if (k < leftLength) {
+    // kth largest is on the left
+    quickSelect(arr, left, pivotIndex - 1, k);
+  } else {
+    // kth largest is the pivot
+    return;
+  }
+};
+
+var partition = (arr, left, right) => {
+  let pivot = arr[right];
+  for (let i = left; i < right; i++) {
+    if (arr[i] > pivot) {
+      [arr[i], arr[left]] = [arr[left], arr[i]];
+      left++;
     }
-    // swap pivot with pointer
-    [nums[right], nums[pointer]] = [nums[pointer], nums[right]];
-    if (pointer > k) {
-      return quickSelect(left, pointer - 1);
-    } else if (pointer < k) {
-      return quickSelect(pointer + 1, right);
-    } else {
-      return nums[pointer];
-    }
-  };
-  return quickSelect(0, nums.length - 1);
+  }
+  // swap pivot to the correct position
+  [arr[left], arr[right]] = [arr[right], arr[left]];
+  return left;
 };
