@@ -14,6 +14,8 @@ Return the number of triplets (i, j and k) Where a == b.
 
 // brute force
 // 0 <= i < j <= k < arr.length
+// time complexity: O(n^3)
+// space complexity: O(1)
 var countTriplets = function (arr) {
   let count = 0;
   for (let i = 0; i < arr.length - 1; i++) {
@@ -25,6 +27,22 @@ var countTriplets = function (arr) {
         b ^= arr[k];
         if (a === b) count++;
       }
+    }
+  }
+  return count;
+};
+
+// if a == b -> a ^ b = arr[i] ^ ... ^ arr[k] = 0
+// j cound be any index between (i, k], so count += k - i
+// time complexity: O(n^2)
+// space complexity: O(1)
+var countTriplets = function (arr) {
+  let count = 0;
+  for (let i = 0; i < arr.length - 1; i++) {
+    let xor = arr[i];
+    for (let k = i + 1; k < arr.length; k++) {
+      xor ^= arr[k];
+      if (xor === 0) count += k - i;
     }
   }
   return count;
