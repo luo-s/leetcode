@@ -24,6 +24,16 @@ var singleNumber = function (nums) {
   let ones = 0,
     twos = 0;
   for (let num of nums) {
+    // update ones and twos both at the same time
+    [ones, twos] = [(ones ^ num) & ~twos, (twos ^ num) & (twos | ones)];
+  }
+  return ones;
+};
+
+var singleNumber = function (nums) {
+  let ones = 0,
+    twos = 0;
+  for (let num of nums) {
     /*
     if (two === 0) {  
       if (n === 0) one = one;   // not change state
