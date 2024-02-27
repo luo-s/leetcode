@@ -15,6 +15,8 @@ nums.length == n
 nums​​​ is sorted in ascending order.
 */
 
+// https://leetcode.com/problems/maximum-xor-for-each-query/description/
+
 // brute force  -- time limit exceeded
 // time complexity: O(n * (2 ** maximumBit))
 // spapce complexity: O(n)
