@@ -22,3 +22,17 @@ var xorQueries = function (arr, queries) {
   });
   return answer;
 };
+
+// prefix sum
+// a ^ b ^ c = a ^ (b ^ c); x ^ x = 0; x ^ 0 = x;
+var xorQueries = function (arr, queries) {
+  let prefix = new Array(arr.length).fill(0);
+  arr.forEach((ele, i) => {
+    prefix[i] = (prefix[i - 1] || 0) ^ ele;
+  });
+  let answer = [];
+  queries.forEach(([left, right]) => {
+    answer.push(prefix[right] ^ (prefix[left - 1] || 0));
+  });
+  return answer;
+};
