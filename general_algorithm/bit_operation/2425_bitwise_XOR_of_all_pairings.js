@@ -10,6 +10,8 @@ Return the bitwise XOR of all integers in nums3.
 // https://leetcode.com/problems/bitwise-xor-of-all-pairings/description/
 
 // x ^ x = 0, x ^ 0 = x
+// time complexity: O(n + m)
+// space complexity: O(1)
 var xorAllNums = function (nums1, nums2) {
   let xor1 = 0,
     xor2 = 0;
@@ -20,4 +22,14 @@ var xorAllNums = function (nums1, nums2) {
     xor2 ^= nums2[i];
   }
   return (nums1.length % 2 ? xor2 : 0) ^ (nums2.length % 2 ? xor1 : 0);
+};
+
+// optimized
+// time complexity: O(n + m)
+// space complexity: O(1)
+var xorAllNums = function (nums1, nums2) {
+  let ans = 0;
+  if (nums1.length % 2) ans ^= nums2.reduce((acc, cur) => acc ^ cur, 0);
+  if (nums2.length % 2) ans ^= nums1.reduce((acc, cur) => acc ^ cur, 0);
+  return ans;
 };
