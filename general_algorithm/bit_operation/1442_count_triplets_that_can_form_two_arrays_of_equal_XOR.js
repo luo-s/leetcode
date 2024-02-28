@@ -32,7 +32,7 @@ var countTriplets = function (arr) {
   return count;
 };
 
-// if a == b -> a ^ b = arr[i] ^ ... ^ arr[k] = 0
+// if a == b -> a ^ b == arr[i] ^ ... ^ arr[k] == 0
 // j cound be any index between (i, k], so count += k - i
 // time complexity: O(n^2)
 // space complexity: O(1)
@@ -47,3 +47,25 @@ var countTriplets = function (arr) {
   }
   return count;
 };
+
+// prefix sum function: prefix[i] = arr[0] ^ ... ^ arr[i]
+// a ^ b == 0 -> arr[i] ^ ... ^ arr[k] == 0
+// -> prefix[k] ^ prefix[i - 1] = 0 -> prefix[k] = prefix[i - 1]
+// time complexity: O(n^2)
+// space complexity: O(n)
+var countTriplets = function (arr) {
+  // prefix sum function: prefix[i] = arr[0] ^ ... ^ arr[i]
+  let prefix = new Array(arr.length).fill(0);
+  arr.forEach((ele, i) => {
+    prefix[i] = (prefix[i - 1] || 0) ^ ele;
+  });
+  let count = 0;
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let k = i + 1; k < arr.length; k++) {
+      if (prefix[k] === (prefix[i - 1] || 0)) count += k - i;
+    }
+  }
+  return count;
+};
+
+var countTriplets = function (arr) {};
