@@ -68,4 +68,28 @@ var countTriplets = function (arr) {
   return count;
 };
 
-var countTriplets = function (arr) {};
+// hash map + prefix sum
+// prefix[k] = prefix[i - 1] -> count += k - i
+// for certain k, if there are n pairs [i, k] that makes
+// prefix[k] = prefix[i - 1], then count += k - i for each pair
+// count += (k - i1) + ... + (k - in) == n * k - (i1 + ... + in)
+// time complexity: O(n)
+// space complexity: O(n)
+var countTriplets = function (arr) {
+  let prefixTrack = new Map(),
+    total = new Map(),
+    count = 0,
+    prefix = 0;
+  for (const [k, val] of arr.entries()) {
+    // update n
+    prefixTrack.set(prefix, (prefixTrack.get(prefix) || 0) + 1);
+    // update i1 + ... + in
+    total.set(prefix, (total.get(prefix) || 0) + k);
+    // update prefix sum
+    prefix ^= val;
+    if (prefixTrack.has(prefix)) {
+      count += prefixTrack.get(prefix) * k - total.get(prefix);
+    }
+  }
+  return count;
+};
