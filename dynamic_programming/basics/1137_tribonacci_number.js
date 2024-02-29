@@ -6,8 +6,8 @@ Given n, return the value of Tn.
 */
 //https://leetcode.com/problems/n-th-tribonacci-number/description/
 
-//dp
-var tribonacci = function (n) {
+// bottom-up dp
+var tribonacci_dp = function (n) {
   const dp = new Array(n + 1).fill(0);
   dp[1] = 1;
   dp[2] = 1;
@@ -17,6 +17,25 @@ var tribonacci = function (n) {
   return dp[n + 1];
 };
 
+// memoization: top-down dp
+// extra call stack consumption
+var tribonacci_memo = function (n) {
+  let memo = new Map();
+  var helper = function (n) {
+    if (n === 0) return 0;
+    if (n === 1 || n === 2) return 1;
+    if (memo.has(n)) return memo.get(n);
+    let result = helper(n - 1) + helper(n - 2) + helper(n - 3);
+    memo.set(n, result);
+    return result;
+  };
+  return helper(n);
+};
+
 console.time("dynamic programming method timer");
-tribonacci(42);
+tribonacci_dp(42);
+console.timeEnd("dynamic programming method timer");
+
+console.time("dynamic programming method timer");
+tribonacci_memo(42);
 console.timeEnd("dynamic programming method timer");
