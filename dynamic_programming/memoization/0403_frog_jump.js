@@ -19,21 +19,25 @@ stones[0] == 0
 stones is sorted in a strictly increasing order.
 */
 
-// brute force dfs
+// memoization dfs
 var canCross = function (stones) {
-  let result = false;
-  var dfs = function (index, move) {
-    if (index === stones.length - 1) {
-      result = true;
-      return;
+  if (stones[1] !== 1) return false;
+  let memo = new Map();
+  // jump k units from index - 1 to index
+  var dfs = function (index, k) {
+    if (k <= 0) return false;
+    if (stones.indexOf(index) === -1) return false;
+    if (index === stones[stones.length - 1]) {
+      return true;
     }
-    for (let i = index + 1; i < stones.length; i++) {
-      let gap = stones[i] - stones[index];
-      if (gap >= move - 1 && gap <= move + 1) {
-        dfs(i, gap);
-      }
-    }
+    let key = index + "," + k;
+    if (memo.has(key)) return memo.get(key);
+    let ans =
+      dfs(index + k, k) ||
+      dfs(index + k + 1, k + 1) ||
+      dfs(index + k - 1, k - 1);
+    memo.set(key, ans);
+    return ans;
   };
-  dfs(0, 1);
-  return result;
+  return dfs(1, 1);
 };
