@@ -25,11 +25,16 @@ var canCross = function (stones) {
   let memo = new Map();
   // jump k units from index - 1 to index
   var dfs = function (index, k) {
+    // base case
+    // k must be positive
     if (k <= 0) return false;
+    // did not land on a stone
     if (stones.indexOf(index) === -1) return false;
+    // landed on the last stone
     if (index === stones[stones.length - 1]) {
       return true;
     }
+    // recursive case
     let key = index + "," + k;
     if (memo.has(key)) return memo.get(key);
     let ans =
