@@ -29,5 +29,25 @@ var findTargetSumWays = function (nums, target) {
     }
     return dfs(i + 1, curSum + nums[i]) + dfs(i + 1, curSum - nums[i]);
   };
-  dfs(0, 0);
+  return dfs(0, 0);
+};
+
+// dfs with memoization (top-down dp)
+// time complexity: O(2^n)
+// space complexity: O(n)
+var findTargetSumWays = function (nums, target) {
+  let memo = new Map();
+  var dfs = function (i, curSum) {
+    if (i === nums.length) {
+      return curSum === target ? 1 : 0;
+    }
+    let key = `${i} & ${curSum}`;
+    if (memo.has(key)) {
+      return memo.get(key);
+    }
+    let result = dfs(i + 1, curSum + nums[i]) + dfs(i + 1, curSum - nums[i]);
+    memo.set(key, result);
+    return result;
+  };
+  return dfs(0, 0);
 };
