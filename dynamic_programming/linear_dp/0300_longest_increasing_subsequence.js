@@ -35,17 +35,17 @@ var lengthOfLIS = function (nums) {
 
 // memoization
 var lengthOfLIS = function (nums) {
-  let map = new Map();
+  let memo = new Map();
   var findLISStartAtIndex = function (nums, index) {
     if (index === nums.length - 1) return 1;
-    if (map.has(index)) return map.get(index);
+    if (memo.has(index)) return memo.get(index);
     let max = 1;
     for (let i = index + 1; i < nums.length; i++) {
       if (nums[index] < nums[i]) {
         max = Math.max(max, 1 + findLISStartAtIndex(nums, i));
       }
     }
-    map.set(index, max);
+    memo.set(index, max);
     return max;
   };
   let ans = 1;
@@ -73,6 +73,6 @@ var lengthOfLIS = function (nums) {
 };
 
 console.log(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]), 4);
-// console.log(lengthOfLIS([0, 1, 3, 5, 2, 3]), 4);
-// console.log(lengthOfLIS([7, 7, 7, 7, 7, 7, 7]), 1);
-// console.log(lengthOfLIS([4, 10, 9, 3, 8, 9]), 3);
+console.log(lengthOfLIS([0, 1, 3, 5, 2, 3]), 4);
+console.log(lengthOfLIS([7, 7, 7, 7, 7, 7, 7]), 1);
+console.log(lengthOfLIS([4, 10, 9, 3, 8, 9]), 3);
