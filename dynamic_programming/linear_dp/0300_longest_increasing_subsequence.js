@@ -11,4 +11,5 @@ some or no elements without changing the order of the remaining elements.
 
 // https://leetcode.com/problems/longest-increasing-subsequence/
 
+// dynamic programming
 var lengthOfLIS = function (nums) {};
