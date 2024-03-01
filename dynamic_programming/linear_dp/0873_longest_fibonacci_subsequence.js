@@ -27,13 +27,20 @@ var lenLongestFibSubseq = function (arr) {
     .fill("placeholder")
     .map(() => new Array(arr.length).fill(2));
   for (let k = 2; k < arr.length; k++) {
-    for (let j = k - 1; j > 0; j--) {
-      for (let i = j - 1; i >= 0; i--) {
-        if (arr[i] + arr[j] === arr[k]) {
-          dp[j][k] = Math.max(dp[j][k], dp[i][j] + 1);
-        }
+    let i = 0,
+      j = k - 1;
+    while (i < j) {
+      if (arr[i] + arr[j] < arr[k]) {
+        i++;
+      } else if (arr[i] + arr[j] > arr[k]) {
+        j--;
+      } else {
+        dp[j][k] = Math.max(dp[j][k], dp[i][j] + 1);
+        i++;
+        j--;
       }
     }
   }
-  return Math.max(...dp.map((row) => Math.max(...row)));
+  let ans = Math.max(...dp.map((row) => Math.max(...row)));
+  return ans > 2 ? ans : 0;
 };
