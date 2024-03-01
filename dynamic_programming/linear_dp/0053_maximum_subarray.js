@@ -46,3 +46,16 @@ var maxSubArray = function (nums) {
   }
   return Math.max(...nums);
 };
+
+// Kadane's algorithm
+// time complexity: O(n)
+// space complexity: O(1)
+var maxSubArray = function (nums) {
+  let sum = 0,
+    max = -Infinity;
+  for (let i = 0; i < nums.length; i++) {
+    sum = Math.max(nums[i], sum + nums[i]);
+    max = Math.max(max, sum);
+  }
+  return max;
+};
