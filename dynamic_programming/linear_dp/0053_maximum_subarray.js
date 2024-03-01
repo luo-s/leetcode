@@ -22,3 +22,27 @@ var maxSubArray = function (nums) {
   }
   return max;
 };
+
+// dynamic programming
+// dp[i] is the maximum subarray sum ending at index i
+// dp[i] = max(dp[i-1] + nums[i], nums[i])
+// time complexity: O(n)
+// space complexity: O(n)
+var maxSubArray = function (nums) {
+  let dp = new Array(nums.length).fill(0);
+  dp[0] = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+  }
+  return Math.max(...dp);
+};
+
+// optimized dp
+// time complexity: O(n)
+// space complexity: O(1)
+var maxSubArray = function (nums) {
+  for (let i = 1; i < nums.length; i++) {
+    nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
+  }
+  return Math.max(...nums);
+};
