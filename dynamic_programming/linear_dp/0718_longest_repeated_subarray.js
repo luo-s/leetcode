@@ -11,7 +11,7 @@ subarray that appears in both arrays.
 // let dp[i][j] be the length of the longest common subarray of
 // nums1[0:i) and nums2[0:j)
 // if (nums1[i] === nums2[j]) dp[i][j] = dp[i-1][j-1] + 1
-// else dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+// else dp[i][j] === 0 (no common subarray)
 var findLength = function (nums1, nums2) {
   if (nums1.length === 0 || nums2.length === 0) return 0;
   let dp = Array(nums1.length + 1)
