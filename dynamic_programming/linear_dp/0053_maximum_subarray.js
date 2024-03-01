@@ -8,6 +8,8 @@ A subarray is a contiguous non-empty sequence of elements within an array.
 -10^4 <= nums[i] <= 10^4
 */
 
+// https://leetcode.com/problems/maximum-subarray/description/
+
 // brute force -- TLE
 // time complexity: O(n^2)
 // space complexity: O(1)

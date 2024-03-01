@@ -18,6 +18,8 @@ For example, [3, 5, 8] is a subsequence of [3, 4, 5, 6, 7, 8].
 1 <= arr[i] < arr[i + 1] <= 10^9
 */
 
+// https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/description/
+
 // dynamic programming
 // dp[j][k] is the length of the longest fib subsequence ending with
 // [arr[j], arr[k]] that dp[j][k] = max(dp[j][k], dp[i][j] + 1)
