@@ -8,6 +8,7 @@ Return the maximum product you can get.
 
 // https://leetcode.com/problems/integer-break/description/
 
+// dynamic programming
 // let dp[i] be the maximum product of breaking i
 // for every j that, 0 < j < i, we can break i into j and i - j
 // we further break j into two parts, if and only if dp[j] > j
@@ -23,4 +24,30 @@ var integerBreak = function (n) {
     }
   }
   return dp[n];
+};
+
+/* math
+1)
+if we break n into k parts, the maximum product is (n / k) ^ k
+when k is e, the maximum product is (n / e) ^ e
+e = 2.71828, thus we can break n into 2 or 3
+since 3 * 3 > 2 * 2 * 2, thus we should break n into 3 as much as possible
+
+2)
+for n = n1  + n2 + ... + nk, we need to maximize p = n1 * n2 * ... * nk
+f(2) = 1, f(3) = 2, f(4) = 4, f(5) = 6, f(6) = 9...
+if x >= 4, f(x) >= x
+for any ni > 4, we can get larget product by breaking it smaller pieces
+thus, we can break n into 2 or 3 (breaking into 1 doesn't make sense)
+since 3 * 3 > 2 * 2 * 2, thus we should break n into 3 as much as possible
+*/
+var integerBreak = function (n) {
+  if (n === 2) return 1;
+  if (n === 3) return 2;
+  let product = 1;
+  while (n > 4) {
+    product *= 3;
+    n -= 3;
+  }
+  return product * n;
 };
