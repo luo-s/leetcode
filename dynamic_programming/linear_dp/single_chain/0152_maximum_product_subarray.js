@@ -10,6 +10,8 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 // https://leetcode.com/problems/maximum-product-subarray/
 
 // math solution
+// time complexity: O(n)
+// space complexity: O(1)
 /*
 handle 0s: if ni is 0 
 maxProduct = Math.max(0, maxProduct(nums.slice(0, i), nums.slice(i+1)))
@@ -45,4 +47,47 @@ var maxProduct = function (nums) {
         : -Infinity
     );
   }
+};
+
+// dynamic programming
+// time complexity: O(n)
+// space complexity: O(n)
+/*
+need to handle negative numbers: neg * neg = pos 
+let dpMax[i] be the maximum product of subarray that ends with nums[i]
+let dpMin[i] be the minimum product of subarray that ends with nums[i]
+dpMax[i] = Math.max(nums[i], dpMax[i-1] * nums[i], dpMin[i-1] * nums[i)
+dpMin[i] = Math.min(nums[i], dpMax[i-1] * nums[i], dpMin[i-1] * nums[i)
+*/
+var maxProduct = function (nums) {
+  let dpMax = new Array(nums.length),
+    dpMin = new Array(nums.length);
+  (dpMax[0] = nums[0]), (dpMin[0] = nums[0]);
+  for (let i = 1; i < nums.length; i++) {
+    dpMax[i] = Math.max(
+      nums[i],
+      dpMax[i - 1] * nums[i],
+      dpMin[i - 1] * nums[i]
+    );
+    dpMin[i] = Math.min(
+      nums[i],
+      dpMax[i - 1] * nums[i],
+      dpMin[i - 1] * nums[i]
+    );
+  }
+  return Math.max(...dpMax);
+};
+
+// dynamic programming with space optimization
+var maxProduct = function (nums) {
+  let max = nums[0],
+    min = nums[0],
+    ans = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    let tempMax = max;
+    max = Math.max(nums[i], tempMax * nums[i], min * nums[i]);
+    min = Math.min(nums[i], tempMax * nums[i], min * nums[i]);
+    ans = Math.max(ans, max);
+  }
+  return ans;
 };
