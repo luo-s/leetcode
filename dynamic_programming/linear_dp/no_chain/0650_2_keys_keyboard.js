@@ -40,3 +40,25 @@ var minSteps = function (n) {
   }
   return dp[n];
 };
+
+// memoization
+var minSteps = function (n) {
+  let memo = new Map();
+  var dp = function (n) {
+    // base cases
+    if (n === 1) return 0;
+    if (n === 2) return 2;
+    if (n === 3) return 3;
+    if (memo.has(n)) return memo.get(n);
+    // recursive cases
+    for (let i = 2; i * i <= n; i++) {
+      if (n % i === 0) {
+        memo.set(n, dp(i) + dp(n / i));
+        return memo.get(n);
+      }
+    }
+    memo.set(n, n);
+    return memo.get(n);
+  };
+  return dp(n);
+};
