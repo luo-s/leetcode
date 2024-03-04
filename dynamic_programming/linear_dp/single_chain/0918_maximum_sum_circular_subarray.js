@@ -16,8 +16,8 @@ n == nums.length
 */
 
 // https://leetcode.com/problems/maximum-sum-circular-subarray/
+// related: https://leetcode.com/problems/maximum-subarray/description/
 
-// ciruclar: nums[n-1] -> nums[0]
 // brute force: for each subarray, calculate the sum, and find the max
 // time complexity: O(n^2)
 // space complexity: O(n)
@@ -36,4 +36,41 @@ var maxSubarraySumCircular = function (nums) {
     max = Math.max(max, maxSubArray(subarray.slice(i, i + nums.length)));
   }
   return max;
+};
+
+/*
+two cases:
+1. the max subarray is not circular same as 0053_maximum_subarray
+2. the max subarray is circular, thus we need to minimize the mid subarray
+*/
+var maxSubarraySumCircular = function (nums) {
+  let sum = nums.reduce((acc, cur) => acc + cur),
+    dpMax = new Array(nums.length).fill(0),
+    dpMin = new Array(nums.length).fill(0);
+  (dpMax[0] = nums[0]), (dpMin[0] = nums[0]);
+  for (let i = 1; i < nums.length; i++) {
+    dpMax[i] = Math.max(dpMax[i - 1] + nums[i], nums[i]);
+    dpMin[i] = Math.min(dpMin[i - 1] + nums[i], nums[i]);
+  }
+  let max = Math.max(...dpMax),
+    min = Math.min(...dpMin);
+  // corner case: if all elements are negative, min will include all elements
+  // sum - min will result in an empty subarray, thus return max;
+  return max < 0 ? max : Math.max(max, sum - min);
+};
+
+// optimized dp
+var maxSubarraySumCircular = function (nums) {
+  let sum = nums.reduce((acc, cur) => acc + cur),
+    dpMax = nums[0],
+    dpMin = nums[0],
+    max = nums[0],
+    min = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    dpMax = Math.max(dpMax + nums[i], nums[i]);
+    dpMin = Math.min(dpMin + nums[i], nums[i]);
+    max = Math.max(max, dpMax);
+    min = Math.min(min, dpMin);
+  }
+  return max < 0 ? max : Math.max(max, sum - min);
 };
