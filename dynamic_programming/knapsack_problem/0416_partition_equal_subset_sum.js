@@ -49,9 +49,10 @@ var canPartition = function (nums) {
 /* dynamic programming
 this is a 0/1 knapsack problem
 sum / 2 is the capacity of the knapsack
-let dp[i][w] be true if there is a subset of the first i elements that has a sum of w
-if w < nums[i - 1], dp[i][w] = dp[i - 1][w]
-else, dp[i][w] = dp[i - 1][w] || dp[i - 1][w - nums[i - 1]]
+let dp[i][w] be true if there is a subset of the first i elements that 
+has a sum of w: check dp[n][sum / 2] === true
+1) if w < nums[i - 1], dp[i][w] = dp[i - 1][w]
+2) else, dp[i][w] = dp[i - 1][w] || dp[i - 1][w - nums[i - 1]]
 time complexity: O(n * sum)
 space complexity: O(n * sum)
 */
@@ -85,4 +86,70 @@ var canPartition = function (nums) {
     }
   }
   return dp[n][target];
+};
+
+/* another approach: 
+let dp[i][w] be the maximum sum of a subset of the first i elements that 
+with the limit of w = sum / 2: check dp[n][sum / 2] === sum / 2
+1) if w < nums[i - 1], dp[i][w] = dp[i - 1][w]
+2) else, dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - nums[i - 1]] + nums[i - 1])
+*/
+var canPartition = function (nums) {
+  let sum = nums.reduce((acc, cur) => acc + cur, 0);
+  if (sum % 2) return false;
+  let target = sum / 2;
+  let n = nums.length;
+  let dp = new Array(n + 1).fill(0).map(() => new Array(target + 1).fill(0));
+  // dp[i][0] is always 0: empty subset -> sum == 0
+  for (let i = 0; i <= n; i++) {
+    dp[i][0] = 0;
+  }
+  // dp[0][w] is always 0: empty subset -> sum == 0
+  for (let w = 0; w <= target; w++) {
+    dp[0][w] = 0;
+  }
+  // loop throuth all elements
+  for (let i = 1; i <= n; i++) {
+    // loop throuth all possible sum
+    for (let w = 1; w <= target; w++) {
+      // if nums[i-1] > limit, we can't include it
+      if (w < nums[i - 1]) {
+        dp[i][w] = dp[i - 1][w];
+        // else we can include or not include
+      } else {
+        dp[i][w] = Math.max(
+          dp[i - 1][w],
+          dp[i - 1][w - nums[i - 1]] + nums[i - 1]
+        );
+      }
+    }
+  }
+  return dp[n][target] === target;
+};
+
+/* optimized space complexity
+let dp[w] be the max sum of subset with the limit of w = sum / 2
+1) if w < nums[i], dp[w] = dp[w]
+2) else, dp[w] = max(dp[w], dp[w - nums[i - 1] + nums[i - 1]])
+*/
+var canPartition = function (nums) {
+  let sum = nums.reduce((acc, cur) => acc + cur, 0);
+  if (sum % 2) return false;
+  let target = sum / 2;
+  let dp = new Array(target + 1).fill(0);
+  // loop throuth all elements
+  for (let i = 0; i < nums.length; i++) {
+    // reverse loop the weight
+    // we don't need to update dp[w] if w < nums[i - 1]
+    // technically, we can only loop from target to nums[i - 1]
+    for (let w = target; w >= 0; w--) {
+      if (w >= nums[i])
+        dp[w] = Math.max(dp[w], dp[w - nums[i - 1]] + nums[i - 1]);
+      else dp[w] = dp[w];
+    }
+    // for (let w = target; w >= nums[i - 1]; w--) {
+    //   dp[w] = Math.max(dp[w], dp[w - nums[i - 1]] + nums[i - 1]);
+    // }
+  }
+  return dp[target] === target;
 };
