@@ -27,3 +27,15 @@ var rob = function (nums) {
   }
   return dp[nums.length - 1];
 };
+
+// dp with optimized space
+var rob = function (nums) {
+  let prev = 0,
+    curr = 0;
+  for (let i = 0; i < nums.length; i++) {
+    let next = Math.max(curr, prev + nums[i]);
+    prev = curr;
+    curr = next;
+  }
+  return curr;
+};
