@@ -5,8 +5,8 @@ which appears exactly once. Find the single element and return it.
 You must implement a solution with a linear runtime complexity and use only 
 constant extra space.
 
-1 <= nums.length <= 3 * 10^4
--2^31 <= nums[i] <= 2^31 - 1
+1 <= nums.length <= 3 * 10 ** 4
+-2 ** 31 <= nums[i] <= 2 ** 31 - 1
 Each element in nums appears exactly three times except for one element which 
 appears once.
 */
@@ -46,3 +46,8 @@ var singleNumber = function (nums) {
   }
   return ones;
 };
+
+// what if the number appears 5 times?
+// each bit is (sum of 1s) % 5
+// use 3 bits to represent 5 states
+// 000 -> 001 -> 010 -> 011 -> 100 -> 000
