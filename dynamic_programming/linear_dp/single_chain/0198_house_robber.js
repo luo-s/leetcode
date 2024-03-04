@@ -19,6 +19,7 @@ let dp[i] be the maximum robbed money from the first i - 1 houses
 dp[i] = max(dp[i-1], dp[i-2] + nums[i])
 */
 var rob = function (nums) {
+  if (nums.length === 1) return nums[0];
   let dp = new Array(nums.length).fill(0);
   dp[0] = nums[0];
   dp[1] = Math.max(nums[0], nums[1]);
