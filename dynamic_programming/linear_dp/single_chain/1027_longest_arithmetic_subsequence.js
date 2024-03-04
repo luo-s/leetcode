@@ -27,6 +27,8 @@ dp[j][k] = max(dp[j][k], dp[i][j] + 1) for every i, j, k that
 */
 
 // brute force -- time limit exceeded
+// time complexity: O(n^3)
+// space complexity: O(n^2)
 var longestArithSeqLength = function (nums) {
   // corner case
   if (nums.length === 2) return 2;
@@ -43,4 +45,25 @@ var longestArithSeqLength = function (nums) {
     }
   }
   return Math.max(...dp.map((row) => Math.max(...row)));
+};
+
+// optimized dp + hash map
+// we can use diff and starting index to represent a subsequence
+// diff -> length
+// time complexity: O(n^2)
+// space complexity: O(n^2)
+var longestArithSeqLength = function (nums) {
+  if (nums.length === 2) return 2;
+  let dp = new Array(nums.length).fill().map(() => new Map());
+  dp[1].set(nums[1] - nums[0], 2);
+  let max = 2;
+  for (let i = 2; i < nums.length; i++) {
+    for (let j = 0; j < i; j++) {
+      let diff = nums[i] - nums[j];
+      let len = (dp[j].get(diff) || 1) + 1;
+      max = Math.max(max, len);
+      dp[i].set(diff, len);
+    }
+  }
+  return max;
 };
