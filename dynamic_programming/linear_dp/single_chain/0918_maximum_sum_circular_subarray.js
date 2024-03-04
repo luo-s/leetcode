@@ -62,15 +62,15 @@ var maxSubarraySumCircular = function (nums) {
 // optimized dp
 var maxSubarraySumCircular = function (nums) {
   let sum = nums.reduce((acc, cur) => acc + cur),
-    dpMax = nums[0],
-    dpMin = nums[0],
+    sumMax = nums[0],
+    sumMin = nums[0],
     max = nums[0],
     min = nums[0];
   for (let i = 1; i < nums.length; i++) {
-    dpMax = Math.max(dpMax + nums[i], nums[i]);
-    dpMin = Math.min(dpMin + nums[i], nums[i]);
-    max = Math.max(max, dpMax);
-    min = Math.min(min, dpMin);
+    sumMax = Math.max(sumMax + nums[i], nums[i]);
+    sumMin = Math.min(sumMin + nums[i], nums[i]);
+    max = Math.max(max, sumMax);
+    min = Math.min(min, sumMin);
   }
   return max < 0 ? max : Math.max(max, sum - min);
 };
