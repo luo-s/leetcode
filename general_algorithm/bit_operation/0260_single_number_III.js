@@ -12,18 +12,31 @@ Each integer in nums will appear twice, only two integers will appear once.
 
 // https://leetcode.com/problems/single-number-iii/
 
-// hash table
+// bit operation
 // time complexity O(n)
-// space complexity O(n)
+// space complexity O(1)
 var singleNumber = function (nums) {
-  let map = new Map();
+  // xorSum = a ^ b
+  let xorSum = 0;
   for (let num of nums) {
-    if (!map.has(num)) map.set(num, 1);
-    else map.set(num, map.get(num) + 1);
+    xorSum ^= num;
   }
-  let ans = [];
+  // since a !== b, there must be a bit that is different between a and b
+  // which xorSum has 1 at that bit
+  // in this case, find the least significant bit of xorSum
+  const leastSignificantBit = xorSum & -xorSum;
+  let type1 = 0, // has 1 at the least significant bit
+    type2 = 0; // has 0 at the least significant bit
+  // go through the array again, divide the numbers into two groups
+  // a and b will be in different groups
   for (let num of nums) {
-    if (map.get(num) === 1) ans.push(num);
+    // for each group, there will be only one number that appears once
+    // do the xor operation, the result will be a and b
+    if (num & leastSignificantBit) {
+      type1 ^= num;
+    } else {
+      type2 ^= num;
+    }
   }
-  return ans;
+  return [type1, type2];
 };
