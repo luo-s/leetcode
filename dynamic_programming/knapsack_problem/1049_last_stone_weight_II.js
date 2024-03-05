@@ -30,7 +30,7 @@ sum1 - sum2 = result (assume sum1 >= sum2, result >= 0)
 then: sum2 = (sum(stones) - result) / 2 <= sum(stones) / 2
 0-1 knapsack problem: find an subset that max(sum2) <= sum(stones) / 2 
 let dp[w] be the max sum of a subset that has sum <= w
-dp[w] = max(dp[w], dp[w - stones[i - 1] + stones[i - 1])
+dp[w] = max(dp[w], dp[w - stones[i] + stones[i])
 */
 var lastStoneWeightII = function (stones) {
   let sum = stones.reduce((acc, cur) => acc + cur, 0);
