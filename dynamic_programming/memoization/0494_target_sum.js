@@ -61,6 +61,8 @@ then: sumX = (target + sum(nums)) / 2
 let dp[w] be there are dp[w] ways to fill a knapsack of size w
 dp[w] = dp[w] + dp[w - nums[i]]
 */
+// time complexity: O(n * sum) ~ O(n)
+// space complexity: O(sum) ~ O(1)
 var findTargetSumWays = function (nums, target) {
   let sum = nums.reduce((acc, cur) => acc + cur, 0);
   // corner cases
