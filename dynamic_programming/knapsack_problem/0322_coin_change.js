@@ -21,6 +21,7 @@ dp[i] = min(dp[i], dp[i - coins[i]] + 1)
 */
 var coinChange = function (coins, amount) {
   let dp = new Array(amount + 1).fill(Infinity);
+  // initialization: need 0 (fewest) coins to make up amount 0
   dp[0] = 0;
   for (let i = 0; i < coins.length; i++) {
     for (let w = coins[i]; w <= amount; w++) {

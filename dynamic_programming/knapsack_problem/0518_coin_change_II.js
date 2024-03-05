@@ -22,7 +22,7 @@ All the values of coins are unique.
 // dp[w] = dp[w] + dp[w - coins[i]]
 var change = function (amount, coins) {
   let dp = new Array(amount + 1).fill(0);
-  // base case: empty subset
+  // initialization: only 1 way to make up amount 0
   dp[0] = 1;
   for (let i = 0; i < coins.length; i++) {
     for (let w = coins[i]; w <= amount; w++) {
