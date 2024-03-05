@@ -51,3 +51,32 @@ var findTargetSumWays = function (nums, target) {
   };
   return dfs(0, 0);
 };
+
+/* knapsack problem
+let elements with + be x, and elements with - be y:
+so, sumX - sumY = target
+also, sumX + sumY = sum(nums)
+then: sumX = (target + sum(nums)) / 2
+0-1 knapsack problem: find an subset of nums that has sum equal to (target + sum(nums)) / 2
+let dp[w] be there are dp[w] ways to fill a knapsack of size w
+dp[w] = dp[w] + dp[w - nums[i]]
+*/
+var findTargetSumWays = function (nums, target) {
+  let sum = nums.reduce((acc, cur) => acc + cur, 0);
+  // corner cases
+  if (Math.abs(target) > Math.abs(sum)) return 0;
+  if ((sum + target) % 2 !== 0) return 0;
+  // 0-1 knapsack problem, with weight = (sum + target) / 2
+  let dp = new Array((sum + target) / 2 + 1).fill(0);
+  // base case: empty subset
+  dp[0] = 1;
+  // fill the knapsack, loop through the first i elements
+  for (let i = 0; i < nums.length; i++) {
+    // reverse loop through the weight
+    // if w < nums[i], dp[w] is not changed
+    for (let w = (sum + target) / 2; w >= nums[i]; w--) {
+      dp[w] += dp[w - nums[i]];
+    }
+  }
+  return dp[(sum + target) / 2];
+};
