@@ -23,13 +23,13 @@ var numRollsToTarget = function (n, k, target) {
   const MOD = 10 ** 9 + 7;
   function dfs(dice, sum) {
     // base cases
-      if (sum < 0) return 0;
-      if (dice === 0) return sum === 0;
-      let res = 0;
-      for (let diceFaceValue = 1; diceFaceValue <= k; diceFaceValue++) { 
-          res += (dfs(dice - 1, sum - diceFaceValue)) % MOD;
-      }
-      return res;
+    if (sum < 0) return 0;
+    if (dice === 0) return sum === 0;
+    let res = 0;
+    for (let diceFaceValue = 1; diceFaceValue <= k; diceFaceValue++) {
+      res += dfs(dice - 1, sum - diceFaceValue) % MOD;
+    }
+    return res;
   }
   return dfs(n, target);
 };
@@ -38,25 +38,28 @@ var numRollsToTarget = function (n, k, target) {
 // time complexity: O(n * target * k)
 // space complexity: O(n * target)
 var numRollsToTarget = function (n, k, target) {
-    // corner cases
-    if (target < n || target > n * k) return 0;
-    const MOD = 10 ** 9 + 7;
-    let memo = new Map();
-    function dfs(dice, sum) {
-        // base cases
-        if (sum < 0) return 0;
-        if (dice === 0) return sum === 0;
-        let key = `${dice}-${sum}`;
-        if (memo.has(key)) return memo.get(key);
-        let res = 0;
-        for (let diceFaceValue = 1; diceFaceValue <= k; diceFaceValue++) {
-          res = (res + dfs(dice - 1, sum - diceFaceValue)) % MOD;
-        }
-        memo.set(key, res);
-        return res;
+  // corner cases
+  if (target < n || target > n * k) return 0;
+  const MOD = 10 ** 9 + 7;
+  let memo = new Map();
+  function dfs(dice, sum) {
+    // base cases
+    if (dice === 0) return sum === 0;
+    let key = `${dice}-${sum}`;
+    if (memo.has(key)) return memo.get(key);
+    let res = 0;
+    for (
+      let diceFaceValue = 1;
+      diceFaceValue <= k && diceFaceValue <= sum; // ganrantee sum - diceFaceValue >= 0
+      diceFaceValue++
+    ) {
+      res = (res + dfs(dice - 1, sum - diceFaceValue)) % MOD;
     }
-    return dfs(n, target);
-}
+    memo.set(key, res);
+    return res;
+  }
+  return dfs(n, target);
+};
 
 /* bottom-up dynamic programming
 let dp[i][j] be the number of ways to get sum j with i dices
@@ -72,12 +75,14 @@ var numRollsToTarget = function (n, k, target) {
   dp[0][0] = 1;
   for (let i = 1; i <= n; i++) {
     for (let j = 1; j <= target; j++) {
-      for (let diceFaceValue = 1; diceFaceValue <= k; diceFaceValue++) {
-        if (j - diceFaceValue >= 0) {
-          dp[i][j] = (dp[i][j] + dp[i - 1][j - diceFaceValue]) % MOD;
-        }
+      for (
+        let diceFaceValue = 1;
+        diceFaceValue <= k && diceFaceValue <= j;
+        diceFaceValue++
+      ) {
+        dp[i][j] = (dp[i][j] + dp[i - 1][j - diceFaceValue]) % MOD;
       }
     }
   }
   return dp[n][target];
-}
+};
