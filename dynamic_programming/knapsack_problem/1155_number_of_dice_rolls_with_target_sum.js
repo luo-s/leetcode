@@ -49,8 +49,8 @@ var numRollsToTarget = function (n, k, target) {
         let key = `${dice}-${sum}`;
         if (memo.has(key)) return memo.get(key);
         let res = 0;
-        for (let value = 1; value <= k; value++) {
-          res = (res + dfs(dice - 1, sum - value)) % MOD;
+        for (let diceFaceValue = 1; diceFaceValue <= k; diceFaceValue++) {
+          res = (res + dfs(dice - 1, sum - diceFaceValue)) % MOD;
         }
         memo.set(key, res);
         return res;
