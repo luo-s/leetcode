@@ -15,7 +15,7 @@ The test cases are generated such that you can reach nums[n - 1].
 /* dynamic programming
 let dp[i] be the minimum number of jumps to reach nums[i]
 dp[i] = Math.min(dp[i], dp[j] + 1) for all j < i and j + nums[j] >= i;
-if nums[i] cannot be reached, dp[i] = Infinity
+if nums[i] cannot be reached, dp[i] = Infinity, don't need to update
 */
 // time complexity: O(n^2)
 // space complexity: O(n)
@@ -31,4 +31,26 @@ var jump = function (nums) {
     }
   }
   return dp[nums.length - 1];
+};
+
+/* greedy
+everytime jump to the position that can reach the farthest the next jump 
+*/
+// time complexity: O(n)
+// space complexity: O(1)
+var jump = function (nums) {
+  let jumps = 0,
+    end = 0,
+    farthest = 0;
+  // i < nums.length - 1, avoid jump when i landed on the end
+  for (let i = 0; i < nums.length - 1; i++) {
+    // update the farthest position that can be reached
+    farthest = Math.max(farthest, i + nums[i]);
+    // if i reaches the end, update jumps, farthest is the new end
+    if (i === end) {
+      jumps++;
+      end = farthest;
+    }
+  }
+  return jumps;
 };
