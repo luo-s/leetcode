@@ -31,13 +31,16 @@ var canCompleteCircuit = function (gas, cost) {
   let gasLeft = 0,
     count = 0;
   for (let i = 0; i < gas.length; i++) {
+    // if cannot reach the next station, reset the process
     if (gas[i] + gasLeft < cost[i]) {
       gasLeft = 0;
       count = 0;
       continue;
     } else {
+      // if can reach the next station, update gasLeft and count
       gasLeft += gas[i] - cost[i];
       count++;
+      // if continuously success for gas.length / 2 times, return the index
       if (count === gas.length / 2) return i - count + 1;
     }
   }
