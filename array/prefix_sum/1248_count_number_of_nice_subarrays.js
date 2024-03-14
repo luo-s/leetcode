@@ -18,3 +18,16 @@ var numberOfSubarrays = function (nums, k) {
   }
   return ans;
 };
+
+// another way
+var numberOfSubarrays = function (nums, k) {
+  nums = nums.map((num) => num % 2);
+  let count = new Map(),
+    preSum = 0,
+    ans = 0;
+  for (let num of nums) {
+    count.set(preSum, (count.get(preSum) || 0) + 1);
+    preSum += num;
+    ans += count.get(preSum - k) || 0;
+  }
+};
