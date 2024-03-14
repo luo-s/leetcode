@@ -12,15 +12,11 @@ linked list sorted as well.
  *     this.next = (next===undefined ? null : next)
  * }
  */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
+
 // dummy node technique
 // time compleixty O(n)
 // space complexity O(1)
 var deleteDuplicates = function (head) {
-  if (head === null) return null;
   const dummyNode = new ListNode(0, head);
   let cur = dummyNode;
   while (cur.next && cur.next.next) {
