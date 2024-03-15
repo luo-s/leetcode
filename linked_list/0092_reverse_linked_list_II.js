@@ -44,3 +44,23 @@ var reverseBetween = function (head, left, right) {
   // return head;
   return dummyNode.next;
 };
+
+// optimized
+var reverseBetween = function (head, left, right) {
+  // need dummy node to handle the case when left = 1
+  let dummyNode = new ListNode(0, head);
+  let prev = dummyNode;
+  // move to the left - 1 node
+  for (let i = 0; i < left - 1; i++) {
+    prev = prev.next;
+  }
+  let curr = prev.next;
+  // reverse the list from left to right: need right - left steps
+  for (let i = 0; i < right - left; i++) {
+    let next = curr.next;
+    curr.next = next.next;
+    next.next = prev.next;
+    prev.next = next;
+  }
+  return dummyNode.next;
+};
