@@ -23,25 +23,4 @@ All the integers in s are in the range [1, 300].
 // stack
 // time complexity O(n)
 // space complexity O(n)
-var decodeString = function (s) {
-  let stack = [];
-  let ans = "";
-  let rep = 0;
-  for (let char of s) {
-    if (char == "[") {
-      // every '[', push to stack
-      stack.push([rep, ans]);
-      ans = "";
-      rep = 0;
-    } else if (char == "]") {
-      // every ']' pop out and resolve
-      let pop = stack.pop();
-      ans = pop[1] + ans.repeat(pop[0]);
-    } else if (char >= "0" && char <= "9") {
-      rep = rep * 10 + Number(char);
-    } else {
-      ans += char;
-    }
-  }
-  return ans;
-};
+var decodeString = function (s) {};
