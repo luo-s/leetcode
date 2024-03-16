@@ -23,3 +23,5 @@ path is a valid absolute Unix path.
 */
 
 // https://leetcode.com/problems/simplify-path/description/
+
+var simplifyPath = function (path) {};

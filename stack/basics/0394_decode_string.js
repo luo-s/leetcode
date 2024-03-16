@@ -20,7 +20,6 @@ All the integers in s are in the range [1, 300].
 
 // https://leetcode.com/problems/decode-string/
 
-// stack
 // time complexity O(n)
 // space complexity O(n)
 var decodeString = function (s) {};

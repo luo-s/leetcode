@@ -23,4 +23,6 @@ The answer is guaranteed to fit in a 32-bit integer.
 
 // time complexity  O(n)
 // space complexity O(n)
-var calculate = function (s) {};
+var calculate = function (s) {
+  let stack = [];
+};
