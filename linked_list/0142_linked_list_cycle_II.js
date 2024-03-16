@@ -13,4 +13,15 @@ Do not modify the linked list.
 
 // https://leetcode.com/problems/linked-list-cycle-ii/description/
 
-var detectCycle = function (head) {};
+// return the index of node which two pointers meet
+var detectCycle = function (head) {
+  if (!head || !head.next) return null;
+  let set = new Set();
+  curr = head;
+  while (curr) {
+    if (set.has(curr)) return curr;
+    set.add(curr);
+    curr = curr.next;
+  }
+  return null;
+};
