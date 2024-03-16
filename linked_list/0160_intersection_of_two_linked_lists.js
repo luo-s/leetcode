@@ -21,3 +21,13 @@ var getIntersectionNode = function (headA, headB) {
   }
   return null;
 };
+// optimized
+var getIntersectionNode = function (headA, headB) {
+  let currA = headA,
+    currB = headB;
+  while (currA !== currB) {
+    currA = currA ? currA.next : headB;
+    currB = currB ? currB.next : headA;
+  }
+  return currA;
+};
