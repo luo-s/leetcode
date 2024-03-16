@@ -11,4 +11,35 @@ Only nodes themselves may be changed.
 
 // https://leetcode.com/problems/reorder-list/
 
-var reorderList = function (head) {};
+// reverse the second half, cut and merge
+var reorderList = function (head) {
+  let slow = head,
+    fast = head;
+  // find the node before the middle node
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  // cut the list into two halves
+  let secondHalf = slow.next;
+  slow.next = null;
+  // reverse the second half
+  let prev = null;
+  while (secondHalf) {
+    let next = secondHalf.next;
+    secondHalf.next = prev;
+    prev = secondHalf;
+    secondHalf = next;
+  }
+  // merge two lists
+  let firstHalf = head;
+  secondHalf = prev;
+  while (secondHalf) {
+    let next = firstHalf.next;
+    firstHalf.next = secondHalf;
+    secondHalf = secondHalf.next;
+    firstHalf.next.next = next;
+    firstHalf = next;
+  }
+  return head;
+};
