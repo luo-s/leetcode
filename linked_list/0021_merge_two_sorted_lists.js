@@ -11,15 +11,36 @@ Return the head of the merged linked list.
 
 // recursion
 var mergeTwoLists = function (list1, list2) {
-  let head1 = list1,
-    head2 = list2;
-  if (!head1) return head2;
-  if (!head2) return head1;
-  if (head1.val < head2.val) {
-    head1.next = mergeTwoLists(head1.next, head2);
-    return head1;
+  if (!list1) return list2;
+  if (!list2) return list1;
+  if (list1.val < list2.val) {
+    list1.next = mergeTwoLists(list1.next, list2);
+    return list1;
   } else {
-    head2.next = mergeTwoLists(head1, head2.next);
-    return head2;
+    list2.next = mergeTwoLists(list1, list2.next);
+    return list2;
   }
+};
+
+// two pointers
+var mergeTwoLists = function (list1, list2) {
+  if (!list1) return list2;
+  if (!list2) return list1;
+  let dummy = new ListNode(-1);
+  let curr = dummy;
+  while (list1 && list2) {
+    console.log(dummy);
+    if (list1.val < list2.val) {
+      curr.next = list1;
+      curr = curr.next;
+      list1 = list1.next;
+    } else {
+      curr.next = list2;
+      curr = curr.next;
+      list2 = list2.next;
+    }
+    if (list1) curr.next = list1;
+    if (list2) curr.next = list2;
+  }
+  return dummy.next;
 };
