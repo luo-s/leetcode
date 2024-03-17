@@ -24,5 +24,25 @@ The answer is guaranteed to fit in a 32-bit integer.
 // time complexity  O(n)
 // space complexity O(n)
 var calculate = function (s) {
-  let stack = [];
+  let stack = [],
+    num = "",
+    preOperator = "+";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === " ") continue;
+    else if (!isNaN(s[i])) {
+      num += s[i];
+    } else if (isNaN(s[i]) || i === s.length - 1) {
+      if (preOperator === "+") stack.push(Number(num));
+      else if (preOperator === "-") stack.push(-Number(num));
+      else if (preOperator === "*") stack.push(stack.pop() * Number(num));
+      else if (preOperator === "/")
+        stack.push(Math.trunc(stack.pop() / Number(num)));
+      preOperator = s[i];
+      num = "";
+    }
+  }
+  console.log(stack);
+  return stack.reduce((acc, cur) => acc + cur);
 };
+
+console.log(calculate("3+2*2"));
