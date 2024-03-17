@@ -24,25 +24,65 @@ The answer is guaranteed to fit in a 32-bit integer.
 // time complexity  O(n)
 // space complexity O(n)
 var calculate = function (s) {
-  let stack = [],
-    num = "",
-    preOperator = "+";
+  let array = [],
+    num = "";
   for (let i = 0; i < s.length; i++) {
     if (s[i] === " ") continue;
-    else if (!isNaN(s[i])) {
+    else if (s[i] === "+" || s[i] === "-" || s[i] === "*" || s[i] === "/") {
+      array.push(s[i]);
+    } else {
       num += s[i];
-    } else if (isNaN(s[i]) || i === s.length - 1) {
-      if (preOperator === "+") stack.push(Number(num));
-      else if (preOperator === "-") stack.push(-Number(num));
-      else if (preOperator === "*") stack.push(stack.pop() * Number(num));
-      else if (preOperator === "/")
-        stack.push(Math.trunc(stack.pop() / Number(num)));
-      preOperator = s[i];
-      num = "";
+      if (isNaN(parseInt(s[i + 1])) || i === s.length - 1) {
+        array.push(parseInt(num));
+        num = "";
+      }
     }
   }
-  console.log(stack);
-  return stack.reduce((acc, cur) => acc + cur);
+  let stack = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === "*") {
+      stack.push(stack.pop() * array[i + 1]);
+      i++;
+    } else if (array[i] === "/") {
+      stack.push(Math.trunc(stack.pop() / array[i + 1]));
+      i++;
+    } else if (array[i] === "-") {
+      stack.push(-array[i + 1]);
+      i++;
+    } else if (array[i] === "+") {
+      continue;
+    } else {
+      stack.push(array[i]);
+    }
+  }
+  return stack.reduce((a, b) => a + b);
 };
 
-console.log(calculate("3+2*2"));
+// optimized solution
+var calculate = function (s) {
+  var isNum = (char) => char >= "0" && char <= "9";
+  var isOp = (char) =>
+    char === "+" || char === "-" || char === "*" || char === "/";
+  let stack = [],
+    num = 0,
+    sign = "+";
+  for (let i = 0; i < s.length; i++) {
+    if (isNum(s[i])) {
+      num = num * 10 + parseInt(s[i]);
+    }
+    if (isOp(s[i]) || i === s.length - 1) {
+      if (sign === "+") {
+        stack.push(num);
+      } else if (sign === "-") {
+        stack.push(-num);
+      } else if (sign === "*") {
+        stack.push(stack.pop() * num);
+      } else if (sign === "/") {
+        stack.push(Math.trunc(stack.pop() / num));
+      }
+      sign = s[i];
+      num = 0;
+    }
+  }
+  return stack.reduce((a, b) => a + b);
+};
