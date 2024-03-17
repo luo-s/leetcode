@@ -17,37 +17,20 @@ The answer and all the intermediate calculations can be represented in a 32-bit 
 // https://leetcode.com/problems/evaluate-reverse-polish-notation/
 
 var evalRPN = function (tokens) {
-  const calculator = [];
+  let stack = [];
   for (let i = 0; i < tokens.length; i++) {
-    if (Number.isNaN(Number(tokens[i]))) {
-      operand2 = Number(calculator.pop());
-      operand1 = Number(calculator.pop());
-      switch (tokens[i]) {
-        case "+":
-          calculator.push(operand1 + operand2);
-          break;
-        case "-":
-          calculator.push(operand1 - operand2);
-          break;
-        case "*":
-          calculator.push(operand1 * operand2);
-          break;
-        case "/":
-          if (operand1 / operand2 > 0) {
-            calculator.push(Math.floor(operand1 / operand2));
-          } else {
-            calculator.push(Math.ceil(operand1 / operand2));
-          }
-      }
+    if (tokens[i] === "+") {
+      stack.push(stack.pop() + stack.pop());
+    } else if (tokens[i] === "-") {
+      stack.push(-stack.pop() + stack.pop());
+    } else if (tokens[i] === "*") {
+      stack.push(stack.pop() * stack.pop());
+    } else if (tokens[i] === "/") {
+      let num = (1 / stack.pop()) * stack.pop();
+      stack.push(num < 0 ? Math.ceil(num) : Math.floor(num));
     } else {
-      calculator.push(Number(tokens[i]));
+      stack.push(parseInt(tokens[i]));
     }
   }
-  return calculator[0];
+  return stack[0];
 };
-
-console.log(evalRPN(["2", "1", "+", "3", "*"])); //((2 + 1) * 3) = 9
-console.log(evalRPN(["4", "13", "5", "/", "+"])); //(4 + (13 / 5)) = 6
-console.log(
-  evalRPN(["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"])
-); // ((10 * (6 / ((9 + 3) * -11))) + 17) + 5 = 22
