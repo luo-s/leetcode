@@ -24,4 +24,25 @@ path is a valid absolute Unix path.
 
 // https://leetcode.com/problems/simplify-path/description/
 
-var simplifyPath = function (path) {};
+/*
+split path by "/":
+1) "//" -> "", do nothing
+2) "/../" -> ".." element -> go up one level, stack.pop()
+3) "/./" -> "." element -> stay at the same level, do nothing
+4) begining "/" -> "", do nothing
+5) ending "/" -> "", do nothing
+*/
+var simplifyPath = function (path) {
+  let stack = [];
+  let pathArr = path.split("/");
+  for (let dir of pathArr) {
+    if (dir === "" || dir === ".") {
+      continue;
+    } else if (dir === "..") {
+      stack.pop();
+    } else {
+      stack.push(dir);
+    }
+  }
+  return "/" + stack.join("/");
+};
