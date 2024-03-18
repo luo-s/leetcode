@@ -9,23 +9,17 @@ for which this is possible, keep answer[i] == 0 instead.
 // time complexity O(n)
 // space complexity O(n)
 var dailyTemperatures = function (temperatures) {
-  let l = temperatures.length;
-  let ans = new Array(l).fill(0);
+  let ans = new Array(temperatures.length).fill(0);
   let stack = [];
-  for (let i = l - 1; i >= 0; i--) {
+  for (let i = 0; i < temperatures.length; i++) {
     while (
       stack.length &&
-      temperatures[i] >= temperatures[stack[stack.length - 1]]
+      temperatures[i] > temperatures[stack[stack.length - 1]]
     ) {
-      stack.pop();
-    }
-    if (stack.length) {
-      ans[i] = stack[stack.length - 1] - i;
+      let j = stack.pop();
+      ans[j] = i - j;
     }
     stack.push(i);
-    console.log(i, stack, ans);
   }
   return ans;
 };
-
-dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]);
