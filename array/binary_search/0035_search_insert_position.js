@@ -15,7 +15,7 @@ var searchInsert = function (nums, target) {
   let left = 0;
   let right = nums.length - 1;
   while (left <= right) {
-    // search [0, nums.length - 1]
+    // search [0, nums.length - 1] ends when left > right
     let mid = (left + right) >> 1;
     if (nums[mid] < target) {
       // target belongs to [mid + 1, right]
@@ -28,9 +28,25 @@ var searchInsert = function (nums, target) {
       return mid; // nums contains distinc values
     }
   }
+  // not found, left if the 1st index of element >= target
   return left;
 };
 
-console.log(searchInsert([1, 3, 5, 6], 5)); // 2
-console.log(searchInsert([1, 3, 5, 6], 2)); // 1
-console.log(searchInsert([1, 3, 5, 6], 7)); // 4
+// another version
+var searchInsert = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    // stop condition: left === right
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] < target) {
+      // exclude [left, mid], search in [mid + 1, right]
+      left = mid + 1;
+    } else {
+      // exclude [mid + 1, right], search in [left, mid]
+      right = mid;
+    }
+  }
+  // final search: [left, left], take care of left === nums.length - 1
+  return nums[left] >= target ? left : left + 1;
+};
