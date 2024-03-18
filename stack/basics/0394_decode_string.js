@@ -18,8 +18,32 @@ s is guaranteed to be a valid input.
 All the integers in s are in the range [1, 300].
 */
 
+const { is } = require("@babel/types");
+
 // https://leetcode.com/problems/decode-string/
 
 // time complexity O(n)
 // space complexity O(n)
-var decodeString = function (s) {};
+var decodeString = function (s) {
+  var isNum = (char) => char >= "0" && char <= "9";
+  var isLetter = (char) => char >= "a" && char <= "z";
+  let stack = [],
+    num = "",
+    str = "";
+  for (let i = 0; i < s.length; i++) {
+    if (isNum(s[i])) {
+      num += s[i];
+    } else if (s[i] === "[") {
+      stack.push([Number(num), str]);
+      str = "";
+      num = "";
+    } else if (s[i] === "]") {
+      let [n, preStr] = stack.pop();
+      console.log(n, preStr);
+      str = preStr + str.repeat(n);
+    } else if (isLetter(s[i])) {
+      str += s[i];
+    }
+  }
+  return str;
+};
