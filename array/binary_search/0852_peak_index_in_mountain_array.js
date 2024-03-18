@@ -16,14 +16,26 @@ You must solve it in O(log(arr.length)) time complexity.
 // time complexity O(logn)
 // space complexity O(1)
 var peakIndexInMountainArray = function (arr) {
-  // since arr.legnth >= 3, thus 0 < target < arr.length - 1
-  let left = 1;
-  let right = arr.length - 1;
-  // search [1, arr.length - 1)
+  let left = 0,
+    right = arr.length - 1;
+  // search [0, arr.length - 1], ends at left === right
   while (left < right) {
     let mid = left + Math.floor((right - left) / 2);
-    if (arr[mid] > arr[mid - 1]) left = mid;
-    if (arr[mid] > arr[mid + 1]) right = mid;
+    if (arr[mid] > arr?.[mid - 1]) left = mid;
+    if (arr[mid] > arr?.[mid + 1]) right = mid;
+  }
+  return left;
+};
+
+// different approach
+var peakIndexInMountainArray = function (arr) {
+  let left = 0,
+    right = arr.length - 1;
+  // search [0, arr.length - 1], ends at left === right
+  while (left < right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (arr[mid] < arr[mid + 1]) left = mid + 1;
+    else if (arr[mid] > arr[mid + 1]) right = mid;
   }
   return left;
 };
