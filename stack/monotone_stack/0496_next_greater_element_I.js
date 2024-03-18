@@ -18,6 +18,8 @@ All integers in nums1 and nums2 are unique.
 All the integers of nums1 also appear in nums2.
 */
 
+// https://leetcode.com/problems/next-greater-element-i/description/
+
 // brute force
 // time complexity: O(n^2)
 // space complexity: O(n)
@@ -37,7 +39,7 @@ var nextGreaterElement = function (nums1, nums2) {
   return result;
 };
 
-// monotone stack
+// monotone stack + hash map (only because nums1 and nums2 are unique)
 // time complexity: O(n)
 // space complexity: O(n)
 var nextGreaterElement = function (nums1, nums2) {
