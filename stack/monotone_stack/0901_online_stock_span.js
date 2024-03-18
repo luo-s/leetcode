@@ -9,6 +9,45 @@ was less than or equal to the price of that day.
 
 // https://leetcode.com/problems/online-stock-span/
 
-var StockSpanner = function () {};
+// brute force -- time limit exceeded
+var StockSpanner = function () {
+  this.array = [];
+};
 
-StockSpanner.prototype.next = function (price) {};
+StockSpanner.prototype.next = function (price) {
+  if (this.array.length === 0 || price < this.array[this.array.length - 1]) {
+    this.array.push(price);
+    return 1;
+  } else {
+    let count = 1,
+      i = this.array.length - 1;
+    while (i >= 0 && this.array[i] <= price) {
+      count++;
+      i--;
+    }
+    this.array.push(price);
+    return count;
+  }
+};
+
+/* optimized
+let span be the array of the span of the stock price, initialized with 1
+if price[i+1] >= price[i], then span[i+1] += span[i], move back span[i] steps
+if price[i+1] >= price[i-span[i]], then span[i+1] += span[i-span[i]], and so on...
+*/
+var StockSpanner = function () {
+  this.stock = [];
+  this.span = [];
+};
+
+StockSpanner.prototype.next = function (price) {
+  let count = 1,
+    index = this.stock.length - 1;
+  while (index >= 0 && this.stock[index] <= price) {
+    count += this.span[index];
+    index -= this.span[index];
+  }
+  this.stock.push(price);
+  this.span.push(count);
+  return count;
+};
