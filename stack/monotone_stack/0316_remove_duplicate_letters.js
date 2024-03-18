@@ -36,6 +36,5 @@ var removeDuplicateLetters = function (s) {
     }
     stack.push(char);
   }
-
   return stack.join("");
 };
