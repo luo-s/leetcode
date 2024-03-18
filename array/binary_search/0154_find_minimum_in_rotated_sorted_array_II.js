@@ -21,4 +21,23 @@ You must decrease the overall operation steps as much as possible.
 /*
 same problem compared to 0153, except nums contains duplicates
 */
-var findMin = function (nums) {};
+var findMin = function (nums) {
+  let left = 0,
+    right = nums.length - 1;
+  // search [0, nums.length - 1], ends when left === right
+  while (left < right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (nums[mid] < nums[right]) {
+      // mid is in the right part
+      right = mid;
+    } else if (nums[mid] > nums[right]) {
+      // mid is in the left part
+      left = mid + 1;
+    } else if (nums[mid] === nums[right]) {
+      // nums contains duplicates, can't decide which part mid is in
+      // since mid is the same as right, so we can remove right
+      right--;
+    }
+  }
+  return nums[left];
+};
