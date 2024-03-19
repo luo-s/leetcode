@@ -42,24 +42,34 @@ var findDuplicate = function (nums) {
   }
 };
 
-// binary search -- make an sorted array with a pivot point:
-// [1, target-1] => count(i) <= i; [target, n] => count(i) > i ;
-// time complexity O(nlogn)
-// space complexity O(1)
+/* binary search -- make an sorted array with a pivot point:
+let count(i) be the number of elements in the array which are less than or
+equal to i. If there are no duplicates, then count(i) === i.
+Since there is a duplicate, let's say the duplicate number is target, then
+1) [1, target-1] => count(i) <= i; 
+2) [target, n] => count(i) > i ;
+
+Note: binary search [1, n] instead of [nums[0], nums[nums.length-1]]
+
+time complexity O(nlogn)
+space complexity O(1)
+*/
 var findDuplicate = function (nums) {
+  // nums.length = n + 1 -> n = nums.length - 1
   let left = 1;
-  let right = nums.length;
+  let right = nums.length - 1;
+  // search [1, n]
   while (left < right) {
-    let mid = (left + right) >> 1;
+    let mid = left + Math.floor((right - left) / 2);
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
       if (nums[i] <= mid) count++;
     }
     if (count <= mid) {
-      // mid belongs to [1, target-1] -> mid < target
+      // mid is in [1, target-1] -> search [mid + 1, right]
       left = mid + 1;
-    } else {
-      // mid belongs to [target, n] -> mid >= target
+    } else if (count > mid) {
+      // mid is in [target, n] -> search [target, mid]
       right = mid;
     }
   }
@@ -68,4 +78,5 @@ var findDuplicate = function (nums) {
 
 // Two pointers method: Floyd Cycle Detection Algorithm/Tortoise and Hare Algorithm
 // time complexity O(n)
-// space xomplexity O(1)
+// space complexity O(1)
+var findDuplicate = function (nums) {};
