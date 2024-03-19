@@ -26,7 +26,6 @@ var solution = function (isBadVersion) {
     while (left < right) {
       let mid = left + Math.floor((right - left) / 2);
       // let mid = Math.floor((left + right) / 2);
-      console.log(mid);
       if (isBadVersion(mid) == false) {
         // target belongs to [mid + 1, right]
         left = mid + 1;
