@@ -18,15 +18,15 @@ var findPeakElement = function (nums) {
   let left = 0;
   let right = nums.length - 1; // search [0, nums.length - 1]
   while (left < right) {
-    // break point: left == right
-    mid = (left + (right - left)) >> 1;
+    // ends when left == right
+    mid = left + Math.floor((right - left) / 2);
     if (nums[mid] > nums[mid + 1]) {
-      // possible peak belongs to [left, mid]
+      // going down, peak is in [left, mid]
       right = mid;
     } else if (nums[mid] < nums[mid + 1]) {
-      // possible peak belongs to [mid + 1, right]
+      // going up, peak is in [mid + 1, right]
       left = mid + 1;
     }
   }
-  return left; // left = mid + 1
+  return left;
 };
