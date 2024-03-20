@@ -13,9 +13,7 @@ var moveZeroes = function (nums) {
     fast = 0;
   while (fast < nums.length) {
     if (nums[fast] !== 0) {
-      let temp = nums[slow];
-      nums[slow] = nums[fast];
-      nums[fast] = temp;
+      [nums[fast], nums[slow]] = [nums[slow], nums[fast]];
       slow++;
     }
     fast++;
@@ -27,19 +25,18 @@ var moveZeroes = function (nums) {
 // time complexity O(n)
 // space complexity O(1)
 var moveZeroes = function (nums) {
-  let left = 0;
-  let right = nums.length - 1;
-  while (left < right) {
+  let left = 0,
+    right = 0;
+  while (right < nums.length) {
     if (nums[left] !== 0) {
       left++;
+      right++;
     } else if (nums[right] === 0) {
-      right--;
+      right++;
     } else {
-      for (let i = left; i < right; i++) {
-        let temp = nums[i];
-        nums[i] = nums[i + 1];
-        nums[i + 1] = temp;
-      }
+      [nums[left], nums[right]] = [nums[right], nums[left]];
+      left++;
+      right++;
     }
   }
   return nums;
