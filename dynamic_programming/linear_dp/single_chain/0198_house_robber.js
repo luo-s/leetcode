@@ -15,7 +15,7 @@ return the maximum amount of money you can rob tonight without alerting the poli
 // https://leetcode.com/problems/house-robber/description/
 
 /*
-let dp[i] be the maximum robbed money from the first i - 1 houses
+let dp[i] be the maximum robbed money from the first i + 1 houses
 dp[i] = max(dp[i-1], dp[i-2] + nums[i])
 */
 var rob = function (nums) {
