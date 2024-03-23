@@ -27,3 +27,23 @@ var longestPalindrome = function (s) {
   }
   return res;
 };
+
+// center spread
+var longestPalindrome = function (s) {
+  if (s.legnth <= 2) return s;
+  let res = "";
+  for (let i = 0; i < s.length; i++) {
+    centerSpread(i, i);
+    centerSpread(i, i + 1);
+  }
+  function centerSpread(start, end) {
+    while (start >= 0 && end < s.length && s[start] == s[end]) {
+      start--;
+      end++;
+    }
+    if (end - start - 1 > res.length) {
+      res = s.slice(start + 1, end);
+    }
+  }
+  return res;
+};
