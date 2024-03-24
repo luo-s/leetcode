@@ -24,3 +24,42 @@ var increasingTriplet = function (nums) {
   }
   return Math.max(...dp) >= 3;
 };
+
+// optimized solution
+// time complexity: O(n)
+// space complexity: O(1)
+var increasingTriplet = function (nums) {
+  let triplet = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (triplet.length === 0) {
+      triplet.push(nums[i]);
+    }
+    if (triplet.length === 1) {
+      if (nums[i] > triplet[0]) {
+        triplet.push(nums[i]);
+      } else {
+        triplet[0] = nums[i];
+      }
+    }
+    if (triplet.length === 2) {
+      if (nums[i] > triplet[1]) {
+        return true;
+      } else if (nums[i] > triplet[0]) {
+        triplet[1] = nums[i];
+      } else {
+        triplet.push(nums[i]);
+      }
+    }
+    if (triplet.length === 3) {
+      if (nums[i] > triplet[1]) {
+        return true;
+      } else if (nums[i] > triplet[2]) {
+        triplet[0] = triplet[2];
+        triplet[1] = nums[i];
+      } else {
+        triplet[2] = nums[i];
+      }
+    }
+  }
+  return false;
+};
