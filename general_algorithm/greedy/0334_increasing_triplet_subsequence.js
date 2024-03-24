@@ -63,3 +63,24 @@ var increasingTriplet = function (nums) {
   }
   return false;
 };
+
+// greedy solution
+var increasingTriplet = function (nums) {
+  let first = nums[0],
+    second = Infinity;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] > second) {
+      // [first, second, nums[i]] is the increasing triplet
+      return true;
+    } else if (nums[i] > first) {
+      // update second
+      second = nums[i];
+    } else {
+      // at this point, first < nums[i] < second
+      // after updating first, the new first will be after second, and first < second
+      // but doesn't matter since we only need to find number > second
+      first = nums[i];
+    }
+  }
+  return false;
+};
