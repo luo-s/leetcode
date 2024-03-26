@@ -5,24 +5,35 @@ You must implement an algorithm that runs in O(n) time and uses O(1)
 auxiliary space.
 */
 
-// make a hash table based on nums array to satisfy space complexity O(1)
+/* there are n positive integers, so the answer is in range [1, n + 1]
+store all numbers between [1, n] in a hash table, then iterate from 1 to n
+  1) if missing: return i
+  2) if not missing: return n + 1
+make a hash table based on nums array to satisfy space complexity O(1)
+*/
 // time complexity O(n)
 // space complexity O(1)
 var firstMissingPositive = function (nums) {
-  let l = nums.length;
-  for (let i = 0; i < l; i++) {
-    if (nums[i] <= 0) nums[i] = l + 1;
+  let n = nums.length;
+  // change all non-pos numbers to n + 1; we don't care about them and
+  // we will use negative value to mark the number as seen
+  for (let i = 0; i < n; i++) {
+    if (nums[i] <= 0) nums[i] = n + 1;
   }
-  for (let i = 0; i < l; i++) {
+  // once we see a number in [1, n], change nums[num - 1] to negative (but
+  // with same abs value) to mark it as seen
+  for (let i = 0; i < n; i++) {
     let num = Math.abs(nums[i]);
-    if (num <= l) {
+    if (num <= n) {
       nums[num - 1] = -Math.abs(nums[num - 1]);
     }
   }
-  for (let i = 0; i < l; i++) {
+  // loop through nums array, which is now a hash table
+  // if i has been seen, nums[i - 1] will be negative
+  for (let i = 0; i < n; i++) {
     if (nums[i] > 0) return i + 1;
   }
-  return l + 1;
+  return n + 1;
 };
 
 // array manipulation
