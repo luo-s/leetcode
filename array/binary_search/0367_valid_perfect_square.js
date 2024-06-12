@@ -12,16 +12,36 @@ You must not use any built-in library function, such as sqrt.
 // time complexity O(logn)
 // space complexity O(1)
 var isPerfectSquare = function (num) {
+  if (num < 2) return true;
   let left = 1,
     right = num;
   while (left <= right) {
-    let mid = left + Math.floor((right - left) / 2);
-    if (mid * mid > num) {
-      right = mid - 1;
-    } else if (mid * mid < num) {
+    let mid = Math.floor(left + (right - left) / 2);
+    let square = mid * mid;
+    if (square === num) {
+      return true;
+    } else if (square < num) {
       left = mid + 1;
     } else {
-      return true;
+      right = mid - 1;
+    }
+  }
+  return false;
+};
+
+// binary search
+var isPerfectSquare = function (num) {
+  if (num < 2) return true;
+  let left = 1,
+    right = num;
+  while (left < right) {
+    let mid = Math.floor(left + (right - left) / 2);
+    let square = mid * mid;
+    if (square === num) return true;
+    if (square < num) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
   }
   return false;
