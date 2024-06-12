@@ -35,12 +35,6 @@ var plusOne = function (digits) {
 // time complexity O(n)
 // space complexity O(1)
 var plusOne = function (digits) {
-  // edge case: [9,...,9]
-  let result = digits.filter((num) => num === 9).map((num) => (num = 0));
-  if (result.length === digits.length) {
-    result.unshift(1);
-    return result;
-  }
   // find the first not 9 digit, add 1, reassign all 9 digit to 0;
   for (let i = digits.length - 1; i >= 0; i--) {
     if (digits[i] < 9) {
@@ -50,4 +44,7 @@ var plusOne = function (digits) {
       digits[i] = 0;
     }
   }
+  // edge case: [9,...,9] => [1,0,...,0]
+  digits.unshift(1);
+  return digits;
 };
