@@ -13,22 +13,23 @@ For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
 // time complexity O(logn)
 // space complexity O(1)
 var mySqrt = function (x) {
-  let left = 0;
-  let right = x;
-  while (left <= right) {
-    let mid = left + Math.floor((right - left) / 2);
-    if (mid * mid > x) {
-      right = mid - 1;
-    } else if (mid * mid < x) {
+  if (x < 2) return x;
+  let left = 1,
+    right = x;
+  while (left < right) {
+    // end condition: left === right
+    let mid = Math.floor(left + (right - left) / 2);
+    if (mid * mid === x) return mid;
+    if (mid * mid < x) {
       left = mid + 1;
     } else {
-      return mid;
+      right = mid;
     }
   }
-  return right;
+  return left - 1;
 };
 
-// brute force O(n)
+// brute force O(n^(0.5))
 var mySqrt = function (x) {
   let i = 1;
   while (i * i <= x) {
