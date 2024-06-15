@@ -21,11 +21,8 @@ which appears two or more times.
 var findDuplicate = function (nums) {
   let set = new Set();
   for (let num of nums) {
-    if (set.has(num)) {
-      return num;
-    } else {
-      set.add(num);
-    }
+    if (set.has(num)) return num;
+    else set.add(num);
   }
 };
 
@@ -62,6 +59,7 @@ var findDuplicate = function (nums) {
   while (left < right) {
     let mid = left + Math.floor((right - left) / 2);
     let count = 0;
+    // counstruct the binary search variable
     for (let i = 0; i < nums.length; i++) {
       if (nums[i] <= mid) count++;
     }
@@ -75,8 +73,3 @@ var findDuplicate = function (nums) {
   }
   return left;
 };
-
-// Two pointers method: Floyd Cycle Detection Algorithm/Tortoise and Hare Algorithm
-// time complexity O(n)
-// space complexity O(1)
-var findDuplicate = function (nums) {};
