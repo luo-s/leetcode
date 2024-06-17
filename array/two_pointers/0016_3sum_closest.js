@@ -29,3 +29,34 @@ var threeSumClosest = function (nums, target) {
   }
   return closest;
 };
+
+// two pointers
+// time complexity: O(n^2)
+// space complexity: O(1)
+var threeSumClosest = function (nums, target) {
+  // sort the array
+  nums.sort((a, b) => a - b);
+  let closest = Infinity;
+  let diff = Infinity;
+  for (let i = 0; i < nums.length; i++) {
+    // define two pointers
+    let left = i + 1;
+    let right = nums.length - 1;
+    // end condition: left === right
+    while (left < right) {
+      let sum = nums[i] + nums[left] + nums[right];
+      let newDiff = Math.abs(target - sum);
+      if (newDiff < diff) {
+        diff = newDiff;
+        closest = sum;
+      }
+      // move the pointers
+      if (sum < target) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+  }
+  return closest;
+};
