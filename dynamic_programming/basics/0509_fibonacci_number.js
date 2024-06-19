@@ -18,7 +18,7 @@ var fib_rc = function (n) {
   return fib_rc(n - 1) + fib_rc(n - 2);
 };
 
-// tabulation: bottom-up dynamic programming
+// tabulation: bottom-up dynamic programming: use an array to store the fibonacci number
 // time complexity: O(n)
 // space complexity: O(n)
 var fib_dp = function (n) {
@@ -30,7 +30,7 @@ var fib_dp = function (n) {
   return dp[n];
 };
 
-// memoization: top-down dynamic programming
+// memoization: top-down dynamic programming: use a map to store the fibonacci number
 // time complexity: O(n)
 // space complexity: O(n)
 var fib_memo = function (n) {

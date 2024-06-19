@@ -6,7 +6,7 @@ Given n, return the value of Tn.
 */
 //https://leetcode.com/problems/n-th-tribonacci-number/description/
 
-// bottom-up dp
+// bottom-up dp: use an array to store the tribonacci number
 var tribonacci_dp = function (n) {
   const dp = new Array(n + 1).fill(0);
   dp[1] = 1;
@@ -17,7 +17,7 @@ var tribonacci_dp = function (n) {
   return dp[n + 1];
 };
 
-// memoization: top-down dp
+// memoization: top-down dp: use a map to store the tribonacci number
 // extra call stack consumption
 var tribonacci_memo = function (n) {
   let memo = new Map();
