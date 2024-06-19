@@ -16,8 +16,9 @@ nums is guaranteed to be rotated at some pivot.
 You must decrease the overall operation steps as much as possible.
 */
 // https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+// related: https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 
-// traversal
+// brute force
 // time complexity O(n)
 // space complexity O(1)
 var search = function (nums, target) {
@@ -25,32 +26,6 @@ var search = function (nums, target) {
   return set.has(target) ? true : false;
 };
 
-// segmental binary search: need to locate segmental breakpoint
-var search = function (nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
-  while (left <= right) {
-    let mid = left + Math.floor((right - left) / 2);
-    if (nums[mid] === target) {
-      return true;
-    }
-    if (nums[mid] === nums[left]) {
-      left++;
-      continue;
-    }
-    if (nums[left] <= nums[mid]) {
-      if (nums[left] <= target && target < nums[mid]) {
-        right = mid - 1;
-      } else {
-        left = mid + 1;
-      }
-    } else {
-      if (nums[mid] < target && target <= nums[right]) {
-        left = mid + 1;
-      } else {
-        right = mid - 1;
-      }
-    }
-  }
-  return false;
-};
+// segmental binary search
+// same problem like 0033, except nums contains duplicates
+var search = function (nums, target) {};
