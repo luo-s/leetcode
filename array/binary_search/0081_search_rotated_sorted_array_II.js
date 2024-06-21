@@ -27,5 +27,44 @@ var search = function (nums, target) {
 };
 
 // segmental binary search
-// same problem like 0033, except nums contains duplicates
-var search = function (nums, target) {};
+// similar problem like 0033, but nums contains duplicates
+// time complexity O(logn) in average, O(n) in worst case
+var search = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    let mid = left + Math.floor((right - left) / 2);
+    // found target
+    if (nums[mid] === target) {
+      return true;
+    }
+    // skip duplicates
+    if (nums[mid] === nums[left]) {
+      left++;
+      continue;
+    }
+    // binary search
+    if (nums[left] <= nums[mid]) {
+      // left section is non-decreasing
+      if (nums[left] <= target && target < nums[mid]) {
+        // target is in left section
+        // nums[left] <= target < nums[mid]
+        right = mid - 1;
+      } else {
+        // target is in right section
+        left = mid + 1;
+      }
+    } else {
+      // right section is non-decreasing
+      if (nums[mid] < target && target <= nums[right]) {
+        // target is in right section
+        // nums[mid] < target <= nums[right]
+        left = mid + 1;
+      } else {
+        // target is in left section
+        right = mid - 1;
+      }
+    }
+  }
+  return false;
+};
