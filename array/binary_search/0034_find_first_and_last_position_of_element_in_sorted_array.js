@@ -27,44 +27,47 @@ var searchRange = function (nums, target) {
 // time complexity O(logn)
 // space complexity O(1)
 var searchRange = function (nums, target) {
-  let l1 = 0,
-    r1 = nums.length - 1;
-  let l2 = 0,
-    r2 = nums.length - 1;
-  let first = -1,
-    last = -1;
-  // find the first position
-  while (l1 <= r1) {
-    let mid = (l1 + r1) >> 1;
-    if (nums[mid] < target) {
-      l1 = mid + 1;
-    } else if (nums[mid] > target) {
-      r1 = mid - 1;
-    } else {
-      first = mid;
-      r1 = mid - 1;
-    }
-  }
-  // find the last position
-  while (l2 <= r2) {
-    let mid = (l2 + r2) >> 1;
-    if (nums[mid] < target) {
-      l2 = mid + 1;
-    } else if (nums[mid] > target) {
-      r2 = mid - 1;
-    } else {
-      last = mid;
-      l2 = mid + 1;
-    }
-  }
+  let first = findFirst(nums, target);
+  let last = findLast(nums, target);
   return [first, last];
 };
 
-// two pointers
-var searchRange = function (nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
+var findFirst = function (nums, target) {
+  let first = -1;
+  let left = 0,
+    right = nums.length - 1;
+  while (left < right) {
+    // end when left === right
+    let mid = Math.floor((left + right) / 2); // rounding down
+    if (nums[mid] < target) {
+      left = mid + 1; // move left pointer, pairing with rounding down
+    } else {
+      right = mid;
+    }
+  }
+  if (nums[left] === target) first = left;
+  return first;
 };
+
+var findLast = function (nums, target) {
+  let last = -1;
+  let left = 0,
+    right = nums.length - 1;
+  while (left < right) {
+    // end when left === right
+    let mid = Math.floor((left + right + 1) / 2); // rounding up
+    if (nums[mid] > target) {
+      right = mid - 1; // move right pointer, pairing with rounding up
+    } else {
+      left = mid;
+    }
+  }
+  if (nums[right] === target) last = right;
+  return last;
+};
+
+// // two pointers
+// var searchRange = function (nums, target) {};
 
 console.log(searchRange([5, 7, 7, 8, 8, 10], 8)); // [3, 4];
 console.log(searchRange([5, 7, 7, 8, 8, 10], 7)); // [1, 2];
