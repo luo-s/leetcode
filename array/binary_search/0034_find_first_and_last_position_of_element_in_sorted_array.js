@@ -66,9 +66,6 @@ var findLast = function (nums, target) {
   return last;
 };
 
-// // two pointers
-// var searchRange = function (nums, target) {};
-
 console.log(searchRange([5, 7, 7, 8, 8, 10], 8)); // [3, 4];
 console.log(searchRange([5, 7, 7, 8, 8, 10], 7)); // [1, 2];
 console.log(searchRange([5, 7, 7, 8, 8, 10], 6)); // [-1, -1];
