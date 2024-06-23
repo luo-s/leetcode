@@ -25,15 +25,23 @@ var checkSubarraySum = function (nums, k) {
   if (nums.length < 2) return false;
   let preSum = 0,
     map = new Map();
+  // create a map to store preSum % k and its index
   map.set(0, -1);
   for (let i = 0; i < nums.length; i++) {
+    // edge case: two 0s in a row, return true
     if (nums[i] === 0 && nums[i + 1] === 0) return true;
+    // edge case: zero doesn't change preSum
     if (nums[i] === 0) continue;
+    // calculate preSum
     preSum += nums[i];
+    // get the remainder of preSum divided by k
     let key = preSum % k;
+    // if preSum(i) and preSum(j) have the same remainder, then preSum(i+1, j) is divisible by k
     if (map.has(key)) {
+      // if the subarray length >= 2, return true
       if (i - map.get(key) > 1) return true;
     } else {
+      // store preSum % k and its index
       map.set(key, i);
     }
   }
