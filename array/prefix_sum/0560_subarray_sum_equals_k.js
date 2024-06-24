@@ -17,10 +17,13 @@ var subarraySum = function (nums, goal) {
     ans = 0;
   // loop through the array
   for (let i = 0; i < nums.length; i++) {
-    // count how many times the same preSum appears from nums[0] to nums[i]
+    // count the times the same preSum appears from nums[0] to nums[n-1]
     cnt.set(preSum, (cnt.get(preSum) || 0) + 1);
     // update the prefix sum
     preSum += nums[i];
+    // if the sum of nums[i] to nums[j] equals to goal,
+    // then preSum[j] - preSum[i] = goal => preSum[i] = preSum[j] - goal
+    // so preSum[i] is the key to find the number of subarrays that satisfy the condition
     // cnt.get(preSum - goal) is the number of subarrays that satisfy the condition
     ans += cnt.get(preSum - goal) || 0;
   }
