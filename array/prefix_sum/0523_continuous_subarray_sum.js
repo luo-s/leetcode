@@ -20,8 +20,10 @@ A subarray is a contiguous part of the array.
 
 // https://leetcode.com/problems/continuous-subarray-sum/description/
 
-// if there is subarray that sum is divisible by k and length >= 2
+// subarray problems are usually solved by prefix sum
+// utilize the property of the remainder of the prefix sum
 var checkSubarraySum = function (nums, k) {
+  // edge case: if the array length < 2, return false
   if (nums.length < 2) return false;
   let preSum = 0,
     map = new Map();
