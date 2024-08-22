@@ -1,5 +1,6 @@
-
 -- https://leetcode.com/problems/confirmation-rate
+
+-- Table: Signups
 -- +----------------+----------+
 -- | Column Name    | Type     |
 -- +----------------+----------+
@@ -9,9 +10,7 @@
 -- user_id is the column of unique values for this table.
 -- Each row contains information about the signup time for the user with ID user_id.
  
-
 -- Table: Confirmations
-
 -- +----------------+----------+
 -- | Column Name    | Type     |
 -- +----------------+----------+
