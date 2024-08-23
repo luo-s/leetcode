@@ -87,8 +87,7 @@ var numRollsToTarget = function (n, k, target) {
 };
 
 /*
-knapsack problem:
-
+knapsack problem
 */
 var numRollsToTarget = function (n, k, target) {
   // corner cases

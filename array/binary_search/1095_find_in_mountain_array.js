@@ -32,9 +32,4 @@ var findInMountainArray = function (target, mountainArr) {
 };
 
 // divide and conquer
-
-var findInMountainArray = function (target, mountainArr) {
-  let left = 0,
-    right = mountainArr.length();
-  let mid = left + Math.floor((right - left) / 2);
-};
+var findInMountainArray = function (target, mountainArr) {};
