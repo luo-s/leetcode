@@ -19,6 +19,8 @@ stones[0] == 0
 stones is sorted in a strictly increasing order.
 */
 
+// https://leetcode.com/problems/frog-jump/description/
+
 // memoization dfs
 var canCross = function (stones) {
   if (stones[1] !== 1) return false;
