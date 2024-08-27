@@ -10,8 +10,8 @@ class Solution:
         for i in nums:
             if i == 1:
                 cnt += 1
-            else:
                 max_cnt = max(max_cnt, cnt)
+            else:
                 cnt = 0
-        return max(max_cnt, cnt)
+        return max_cnt
             
