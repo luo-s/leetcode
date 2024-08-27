@@ -47,6 +47,27 @@ def insertion_sort(nums):
         nums[j] = temp
     return nums
 
+# shell sort -- unstable
+# time complexity < O(n^2)
+# space complexity O(1)
+def shell_sort(nums):
+    l = len(nums)
+    gap = l // 2
+    # grouping upon gap
+    while gap > 0:
+        # insertion sort for every group
+        for i in range(gap, l):
+            temp = nums[i]
+            j = i
+            while j > 0 and nums[j - gap] > temp:
+                nums[j] = nums[j - gap]
+                j -= gap
+            else:
+                nums[j] = temp
+        # lower the gap
+        gap //= 2
+    return nums
+
 # quick sort -- unstable
 # time complexity O(nlogn)
 # space complexity O(n)

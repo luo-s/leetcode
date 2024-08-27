@@ -9,7 +9,8 @@ s_nums = sorted(nums)
      ("sorting_template.selection_sort(nums)", s_nums),
      ("sorting_template.insertion_sort(nums)", s_nums),
      ("sorting_template.quick_sort(nums)", s_nums),
-     ("sorting_template.merge_sort(nums)", s_nums)])
+     ("sorting_template.merge_sort(nums)", s_nums),
+     ("sorting_template.shell_sort(nums)", s_nums)])
 
 def test_eval(test_input, expected):
     assert eval(test_input) == expected
