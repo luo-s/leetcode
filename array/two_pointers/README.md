@@ -20,6 +20,7 @@
 
 快慢指针一般用于处理数组中的移动、删除元素问题，或者链表中的判断是否有环、长度问题。
     + [Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+    + [Sort Colors](https://leetcode.com/problems/sort-colors/) (本质是同时两次快慢指针处理数组的移动)
     + [Remove Element](https://leetcode.com/problems/remove-element/)
     + [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
