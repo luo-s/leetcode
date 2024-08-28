@@ -20,3 +20,25 @@ class Solution:
             count += cnt[i]
             if count >= k:
                 return i + mi
+
+# quick selection
+# no need to sort the entire list, we just need the top k sorted
+# time complexity O(n); worst case O(n^2)
+# space complexity O(1)
+import random
+class Solution:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
+        return self.quick_select(nums, k)
+    def quick_select(self, nums: list[int], k: int) -> int:
+        pivot = random.choice(nums)
+        left = [num for num in nums if num < pivot]
+        middle = [num for num in nums if num == pivot]
+        right = [num for num in nums if num > pivot]
+        # top k is in right
+        if k <= len(right):
+            return self.quick_select(right, k)
+        # top k is in left
+        if k > len(right) + len(middle):
+            return self.quick_select(left, k - len(right) - len(middle))
+        # top k is in middle, which is pivot
+        return pivot
