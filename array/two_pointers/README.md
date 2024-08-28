@@ -9,11 +9,19 @@
 对撞指针一般用来解决有序数组或者字符串问题：
 
 + 查找有序数组中满足某些约束条件的一组元素问题：比如二分查找、数字之和等问题。
+    + [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+
 + 字符串反转问题：反转字符串、回文数、颠倒二进制等问题。
+    + [Reverse String](https://leetcode.com/problems/reverse-string/)
+    + [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/)
+    + [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
 ## 快慢指针
 
 快慢指针一般用于处理数组中的移动、删除元素问题，或者链表中的判断是否有环、长度问题。
+    + [Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+    + [Remove Element](https://leetcode.com/problems/remove-element/)
+    + [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 ## 分离双指针
 
