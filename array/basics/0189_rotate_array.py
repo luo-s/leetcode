@@ -10,9 +10,6 @@ class Solution:
         l = len(nums)
         k %= l
         nums[:] = nums[l - k:] + nums[:l - k]
-        """
-        Do not return anything, modify nums in-place instead.
-        """
 
 # time complexity: O(n)
 # space complexity: O(1)
@@ -28,6 +25,3 @@ class Solution:
         reverse(nums, 0, l - 1)
         reverse(nums, 0, k - 1)
         reverse(nums, k, l - 1)
-        """
-        Do not return anything, modify nums in-place instead.
-        """
