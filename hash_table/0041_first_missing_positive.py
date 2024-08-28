@@ -3,7 +3,6 @@
 # You must implement an algorithm that runs in O(n) time and uses O(1) auxiliary space.
 
 # https://leetcode.com/problems/first-missing-positive/description/
-# https://leetcode.cn/problems/first-missing-positive/solutions/304743/que-shi-de-di-yi-ge-zheng-shu-by-leetcode-solution/
 
 # there are at most n positive integers, so the answer is in range [1, n + 1]
 # store all numbers between [1, n] in a hash table, then iterate from 1 to n
