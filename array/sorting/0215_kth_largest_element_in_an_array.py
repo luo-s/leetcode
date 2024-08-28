@@ -42,3 +42,8 @@ class Solution:
             return self.quick_select(left, k - len(right) - len(middle))
         # top k is in middle, which is pivot
         return pivot
+
+
+# heap sort
+class Solution:
+    def findKthLargest(self, nums: list[int], k: int) -> int:
