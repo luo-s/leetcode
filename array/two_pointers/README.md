@@ -11,6 +11,9 @@
 - 查找有序数组中满足某些约束条件的一组元素问题：比如二分查找、数字之和等问题。
 
   - [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+  - [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
+  - [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+  - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
 
 - 字符串反转问题：反转字符串、回文数、颠倒二进制等问题。
   - [Reverse String](https://leetcode.com/problems/reverse-string/)
@@ -27,6 +30,7 @@
   - [Sort Colors](https://leetcode.com/problems/sort-colors/) (本质是两套快慢指针同时处理数组移动)
   - [Remove Element](https://leetcode.com/problems/remove-element/)
   - [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+  - [String Compression](https://leetcode.com/problems/string-compression/)
 
 - 环形链表、链表长度问题。
   - [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
