@@ -13,13 +13,25 @@
 
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
+        l = len(nums)
+        if l <= 1:
+            return l
+        slow, fast = 1, 1
+        while fast < l:
+            if nums[slow - 1] != nums[fast]:
+                nums[slow] = nums[fast]
+                slow += 1
+            fast += 1
+        return slow
+        
+class Solution:
+    def removeDuplicates(self, nums: list[int]) -> int:
         slow, fast, l = 0, 1, len(nums)
         while fast < l:
-            if nums[fast] == nums[slow]:
-                fast += 1
-            else:
+            if nums[fast] != nums[slow]:
                 slow += 1
                 nums[slow] = nums[fast]
+            else:
+                fast += 1
+
         return slow + 1
-        
-                
