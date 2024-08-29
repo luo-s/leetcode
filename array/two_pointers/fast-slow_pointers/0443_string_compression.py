@@ -16,23 +16,6 @@
 class Solution:
     def compress(self, chars: list[str]) -> int:
         l = len(chars)
-        slow, cnt = 0, 1
-        for fast in range(1, l + 1):
-            if fast < l and chars[fast] == chars[fast - 1]:
-                cnt += 1
-            else:
-                chars[slow] = chars[fast - 1]
-                slow += 1
-                if cnt > 1:
-                    for c in str(cnt):
-                        chars[slow] = c
-                        slow += 1
-                cnt = 1
-        return slow
-
-class Solution:
-    def compress(self, chars: list[str]) -> int:
-        l = len(chars)
         if l == 1:
             return 1
         slow, fast, cnt = 0, 1, 1
@@ -56,6 +39,24 @@ class Solution:
                 slow += 1
         return slow
         
+# simplified
+class Solution:
+    def compress(self, chars: list[str]) -> int:
+        l = len(chars)
+        slow, cnt = 0, 1
+        for fast in range(1, l + 1):
+            if fast < l and chars[fast] == chars[fast - 1]:
+                cnt += 1
+            else:
+                chars[slow] = chars[fast - 1]
+                slow += 1
+                if cnt > 1:
+                    for c in str(cnt):
+                        chars[slow] = c
+                        slow += 1
+                cnt = 1
+        return slow
+
                 
 
         
