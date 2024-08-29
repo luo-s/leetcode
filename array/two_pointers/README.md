@@ -1,6 +1,6 @@
 # 双指针简介
 
-- 双指针（Two Pointers）：指的是在遍历元素的过程中，不是使用单个指针进行访问，而是使用两个指针进行访问，从而达到相应的目的。如果两个指针方向相反，则称为「对撞指针」。如果两个指针方向相同，则称为「快慢指针」。如果两个指针分别属于不同的数组 / 链表，则称为「分离双指针」。
+- 双指针（[Two Pointers](https://leetcode.com/tag/two-pointers/)）：指的是在遍历元素的过程中，不是使用单个指针进行访问，而是使用两个指针进行访问，从而达到相应的目的。如果两个指针方向相反，则称为「对撞指针」。如果两个指针方向相同，则称为「快慢指针」。如果两个指针分别属于不同的数组 / 链表，则称为「分离双指针」。
 
 - 在数组的区间问题上，暴力算法的时间复杂度往往是 O(n^2)。而双指针利用了区间「单调性」的性质，可以将时间复杂度降到 O(n)。
 
@@ -11,6 +11,9 @@
 - 查找有序数组中满足某些约束条件的一组元素问题：比如二分查找、数字之和等问题。
 
   - [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+  - [3Sum](https://leetcode.com/problems/3sum/)
+  - [3Sum Closest](https://leetcode.com/problems/3sum-closest/)
+  - [4Sum](https://leetcode.com/problems/4sum/)
   - [Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
   - [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
   - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
@@ -30,7 +33,9 @@
   - [Sort Colors](https://leetcode.com/problems/sort-colors/) (本质是两套快慢指针同时处理数组移动)
   - [Remove Element](https://leetcode.com/problems/remove-element/)
   - [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+  - [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
   - [String Compression](https://leetcode.com/problems/string-compression/)
+  - [Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
 
 - 环形链表、链表长度问题。
   - [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
