@@ -29,7 +29,7 @@
 
 - 处理数组中的移动、删除元素问题.
 
-  - [Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+  - [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | [Apply Operations to an Array](https://leetcode.com/problems/apply-operations-to-an-array/)
   - [Sort Colors](https://leetcode.com/problems/sort-colors/) (本质是两套快慢指针同时处理数组移动)
   - [Remove Element](https://leetcode.com/problems/remove-element/)
   - [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
