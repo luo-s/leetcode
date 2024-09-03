@@ -17,10 +17,19 @@
 # We will build the linked list and pass the node to your function.
 # The output will be the entire list after calling your function.
 
+# https://leetcode.com/problems/delete-node-in-a-linked-list/description/
+
+
+# no access to previous nodes
+# only way to accomplish task is to change node value
+# copy next node to given node and delete the next
 class Solution:
     def deleteNode(self, node):
         """
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
+        node.val = node.next.val
+        node.next = node.next.next
+
         

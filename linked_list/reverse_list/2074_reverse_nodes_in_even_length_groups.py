@@ -35,6 +35,6 @@ class Solution:
                     cur.next = nxt.next
                     nxt.next = pre.next
                     pre.next = nxt
-                # move the pointers
+                # move the pointers for the next even length group
                 pre, cur = cur, cur.next
         return head

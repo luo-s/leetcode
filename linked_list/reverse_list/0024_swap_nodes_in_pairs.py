@@ -51,6 +51,6 @@ class Solution:
             cur.next = nxt.next
             nxt.next = pre.next
             pre.next = nxt
-            # move pointers
+            # move pointers for the next group
             pre, cur = cur, cur.next
         return dummy_head.next
