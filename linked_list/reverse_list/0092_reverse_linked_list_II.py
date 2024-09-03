@@ -34,6 +34,7 @@ class Solution:
         curr = prev.next
         # reverse target nodes: right - left steps
         for i in range(right - left):
+            # pre.next, cur.next.next, cur.next = cur.next, pre.next, cur.next.next
             next = curr.next
             curr.next = next.next
             next.next = prev.next
