@@ -28,7 +28,7 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
         return slow
-
+    # reverse list
     def reverseList(self, head):
         pre = None
         cur = head

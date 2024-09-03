@@ -5,10 +5,10 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        if not headA or not headB:
+            return None
         currA, currB = headA, headB
-        while True:
-            if currA == currB:
-                return currA
+        while currA != currB:
             currA = currA.next if currA else headB
             currB = currB.next if currB else headA
-        return None
+        return currA
