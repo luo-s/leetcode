@@ -37,7 +37,13 @@ class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         # base case
         if not head:
-            return head
+            return None
         # recursive case
         head.next = self.removeElements(head.next, val)
-        return head.next if head.val == val else head
+        # remove current node or not
+        if head.val == val:
+            # remove current node
+            return head.next   
+        else:
+            # keep current node
+            return head
