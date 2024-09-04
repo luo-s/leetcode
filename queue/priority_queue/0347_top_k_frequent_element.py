@@ -8,5 +8,19 @@
 # https://leetcode.com/problems/top-k-frequent-elements/
 
 # heap sort
-
+import heapq
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        freq_map = dict()
+        for num in nums:
+            freq_map[num] = freq_map.get(num, 0) + 1
+        top_k_ele = []
+        for num, freq in freq_map.items():
+            heapq.heappush(top_k_ele, (freq, num))
+            if len(top_k_ele) > k:
+                heapq.heappop(top_k_ele)
+        top_k = []
+        while top_k_ele:
+            top_k.append(heapq.heappop(top_k_ele)[1])
+        return top_k
 
