@@ -7,7 +7,7 @@
 
 # https://leetcode.com/problems/top-k-frequent-elements/
 
-# heap sort
+# priority queue / heap sort
 import heapq
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
