@@ -118,12 +118,12 @@ def merge_sort(nums):
     return merge(merge_sort(left), merge_sort(right))
 
 # bucket sort -- stability depends on the sorting algorithm
-# time complexity m * O(klogk) ~ O(n)
+# time complexity O(n + k)
 # space compplexity O(n + m)
 def bucket_sort(nums):
     mi, ma = min(nums), max(nums)
     # choose bucket size
-    size = (ma - mi) // int(pow(len(nums), 0.5))
+    size = (ma - mi) // len(nums)
     # calculate bucket count
     cnt = (ma - mi) // size + 1
     # define bucket list
