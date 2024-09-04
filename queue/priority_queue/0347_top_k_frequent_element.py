@@ -23,4 +23,19 @@ class Solution:
         while top_k_ele:
             top_k.append(heapq.heappop(top_k_ele)[1])
         return top_k
+    
+# bucket sort
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        freq_map = dict()
+        for num in nums:
+            freq_map[num] = freq_map.get(num, 0) + 1
+        buckets = [[] for _ in range(max(freq_map.values()) + 1)]
+        for num in freq_map:
+            buckets[freq_map[num]].append(num)
+        res = []
+        for i in range(len(buckets) - 1, 0, -1):
+            for num in buckets[i]:
+                res.append(num)
+        return res[:k]
 
