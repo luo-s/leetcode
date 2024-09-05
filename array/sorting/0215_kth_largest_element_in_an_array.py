@@ -43,7 +43,13 @@ class Solution:
         # top k is in middle, which is pivot
         return pivot
 
-
 # heap sort
+import heapq
 class Solution:
     def findKthLargest(self, nums: list[int], k: int) -> int:
+        heap, l = [], len(nums)
+        for num in nums:
+            heapq.heappush(heap, num)
+            while len(heap) > k:
+                heapq.heappop(heap)
+        return heapq.heappop(heap)
