@@ -19,10 +19,7 @@ class Solution:
             heapq.heappush(top_k_ele, (freq, num))
             if len(top_k_ele) > k:
                 heapq.heappop(top_k_ele)
-        top_k = []
-        while top_k_ele:
-            top_k.append(heapq.heappop(top_k_ele)[1])
-        return top_k
+        return [num for _, num in top_k_ele]
     
 # bucket sort
 class Solution:
