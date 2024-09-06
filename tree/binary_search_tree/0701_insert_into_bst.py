@@ -4,6 +4,8 @@
   
 # https://leetcode.com/problems/insert-into-a-binary-search-tree/description/
 
+# this way always insert as a leaf node (if not root node)
+# BST doesn't allow two nodes have the same value
 class Solution:
     def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         # base case
