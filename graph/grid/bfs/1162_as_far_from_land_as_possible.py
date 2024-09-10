@@ -15,7 +15,6 @@ class Solution:
             for j in range(n):
                 if grid[i][j] == 1:
                     queue.append([i, j])
-                    visited[i][j] = True
         if not queue or len(queue) == n ** 2:
             return -1
         # bfs
