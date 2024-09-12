@@ -6,4 +6,20 @@
 
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        res, path = [], []
+
+        def backtracking(root, targetSum):
+            # base case
+            if not root: return
+            path.append(root.val)
+            if not root.left and not root.right and targetSum == root.val:
+                res.append(path[:])
+                path.pop()
+                return
+            # recursive case
+            backtracking(root.left, targetSum - root.val)
+            backtracking(root.right, targetSum - root.val)
+            path.pop()
         
+        backtracking(root, targetSum)
+        return res
