@@ -3,7 +3,7 @@
 # A root-to-leaf path is a path starting from the root and ending at any leaf node. A leaf is a node with no children.
 
 # https://leetcode.com/problems/path-sum-ii/
-
+    
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
         res, path = [], []
@@ -11,14 +11,13 @@ class Solution:
         def backtracking(root, targetSum):
             # base case
             if not root: return
+            # recursive case
             path.append(root.val)
             if not root.left and not root.right and targetSum == root.val:
                 res.append(path[:])
-                path.pop()
-                return
-            # recursive case
-            backtracking(root.left, targetSum - root.val)
-            backtracking(root.right, targetSum - root.val)
+            else:
+                backtracking(root.left, targetSum - root.val)
+                backtracking(root.right, targetSum - root.val)
             path.pop()
         
         backtracking(root, targetSum)
