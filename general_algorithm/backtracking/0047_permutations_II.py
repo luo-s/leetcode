@@ -8,6 +8,7 @@ class Solution:
         res, path, l = [], [], len(nums)
         used = [False] * l
         nums.sort()
+        
         def backtracking(nums):
             # base case
             if len(path) == l:

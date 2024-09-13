@@ -16,10 +16,9 @@ class Solution:
             # recursive case
             # use idx to avoid duplicate
             for i in range(idx, n):
-                if nums[i] not in path:
-                    path.append(nums[i])
-                    backtracking(nums, i + 1)
-                    path.pop()
+                path.append(nums[i])
+                backtracking(nums, i + 1)
+                path.pop()
         
         backtracking(nums, 0)
         return res

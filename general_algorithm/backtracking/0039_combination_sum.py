@@ -10,7 +10,6 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res, path, l = [], [], len(candidates)
-        candidates.sort()
         
         def backtracking(candidates, target, idx):
             # base case
