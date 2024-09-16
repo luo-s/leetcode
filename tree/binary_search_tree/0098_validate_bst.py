@@ -6,7 +6,7 @@
 # The right subtree of a node contains only nodes with keys greater than the node's key.
 # Both the left and right subtrees must also be binary search trees.
 
-# https://leetcode.com/problems/validate-binary-search-tree/description/'
+# https://leetcode.com/problems/validate-binary-search-tree/description/
 
 # pre-order
 class Solution:
