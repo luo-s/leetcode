@@ -9,6 +9,7 @@
 # Each element in the array appears twice except for one element which appears only once.
 
 # https://leetcode.com/problems/single-number/
+# 反面例子（XOR不适用）：https://leetcode.com/problems/divide-array-into-equal-pairs/
 
 # x ^ x = 0, x ^ 0 = x
 # x ^ y = y ^ x

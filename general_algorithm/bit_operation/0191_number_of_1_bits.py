@@ -6,6 +6,8 @@
 
 # https://leetcode.com/problems/number-of-1-bits/description/
 
+# python built-in: int.bit_count()
+
 class Solution:
     def hammingWeight(self, n: int) -> int:
         res = 0
