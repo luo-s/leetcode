@@ -44,7 +44,7 @@
 1. 如果任意节点的左子树不为空，则左子树上所有节点的值均小于它的根节点的值。
 2. 如果任意节点的右子树不为空，则右子树上所有节点的值均大于它的根节点的值。
 3. 任意节点的左子树、右子树均为二叉搜索树。
-4. 推论：层序遍历二叉搜索树，得到一个递增数列。
+4. 推论：中序遍历（LNR）二叉搜索树，得到一个递增数列。
 
 - [0098 Validate BST](https://leetcode.com/problems/validate-binary-search-tree)
 - [0700 Search in a BST](https://leetcode.com/problems/search-in-a-binary-search-tree)
