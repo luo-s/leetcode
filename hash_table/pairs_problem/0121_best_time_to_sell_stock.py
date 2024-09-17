@@ -15,8 +15,10 @@
 # LC 714 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
 
 # advanced topic: pairs problem
-# LC 2905 https://leetcode.com/problems/find-indices-with-index-and-value-difference-ii/
+# LC 1014 https://leetcode.com/problems/best-sightseeing-pair/
+# LC 2815 https://leetcode.com/problems/max-pair-sum-in-an-array/
 # LC 2874 https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-ii/
+# LC 2905 https://leetcode.com/problems/find-indices-with-index-and-value-difference-ii/
 
 # if prices[i + 1] <= price[i], never buy prices[i]
 class Solution:
