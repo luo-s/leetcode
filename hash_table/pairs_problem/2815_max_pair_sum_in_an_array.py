@@ -4,12 +4,14 @@
 
 # Return the maximum sum or -1 if no such pair exists.
 
-# https://leetcode.com/problems/max-pair-sum-in-an-array/description/
+# https://leetcode.com/problems/max-pair-sum-in-an-array/
 
+# 桶思想
 class Solution:
     def maxSum(self, nums: List[int]) -> int:
         ans = -1
         # maintain an array to track the current largest number with max_d of 0 ~ 9 (use an array as a hash table)
+        # 把该数字装进桶里
         max_val = [float('-inf')] * 10
         for num in nums:
             # calculate the max_d

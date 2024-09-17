@@ -4,7 +4,7 @@
 
 # Return the maximum number of operations you can perform on the array.
 
-# https://leetcode.com/problems/max-number-of-k-sum-pairs/description/
+# https://leetcode.com/problems/max-number-of-k-sum-pairs/
 
 class Solution:
     def maxOperations(self, nums: list[int], k: int) -> int:

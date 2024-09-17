@@ -2,7 +2,7 @@
 
 # Return the maximum value of nums[i] + nums[j] that you can obtain over all possible indices i and j that satisfy the conditions.
 
-# https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/description/
+# https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/
 
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:

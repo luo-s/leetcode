@@ -2,7 +2,7 @@
 
 # Return the minimum number of consecutive cards you have to pick up to have a pair of matching cards among the picked cards. If it is impossible to have matching cards, return -1.
 
-# https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/description/
+# https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/
 
 class Solution:
     def minimumCardPickup(self, cards: list[int]) -> int:

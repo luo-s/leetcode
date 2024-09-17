@@ -4,13 +4,15 @@
 
 # Return the maximum score of a pair of sightseeing spots.
 
-# https://leetcode.com/problems/best-sightseeing-pair/description/
+# https://leetcode.com/problems/best-sightseeing-pair/
 
 class Solution:
     def maxScoreSightseeingPair(self, values: list[int]) -> int:
+        # mx is max(vi + i)
+        # ans is max(mx + vj - j)
         ans = mx = 0 
-        for j, v in enumerate(values):
-            ans = max(ans, mx + v - j)
-            mx = max(mx, v + j)
+        for j, vj in enumerate(values):
+            ans = max(ans, mx + vj - j)
+            mx = max(mx, vj + j)
         return ans
     

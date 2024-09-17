@@ -9,8 +9,7 @@
 
 
 # https://leetcode.com/problems/two-sum/
-# advanced two-sum 1679
-# https://leetcode.com/problems/max-number-of-k-sum-pairs/description/
+# advanced LC 219 https://leetcode.com/problems/contains-duplicate-ii/
 
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:

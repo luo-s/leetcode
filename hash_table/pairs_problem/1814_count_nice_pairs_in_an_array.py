@@ -4,7 +4,7 @@
 # nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])
 # Return the number of nice pairs of indices. Since that number can be too large, return it modulo 10 ** 9 + 7.
 
-# https://leetcode.com/problems/count-nice-pairs-in-an-array/description/
+# https://leetcode.com/problems/count-nice-pairs-in-an-array/
 
 # nums[i] + rev(nums[j]) == nums[j] + rev(nums[i]) ->
 # nums[i] - rev(nums[i]) == nums[j] - rev(nums[j])
