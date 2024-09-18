@@ -6,7 +6,7 @@
 # NumArray(int[] nums) Initializes the object with the integer array nums.
 # int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ... + nums[right]).
 
-# https://leetcode.com/problems/range-sum-query-immutable/description/
+# https://leetcode.com/problems/range-sum-query-immutable/
 
 class NumArray:
     def __init__(self, nums: list[int]):
