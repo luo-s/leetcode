@@ -5,7 +5,7 @@
 # F(n) = F(n - 1) + F(n - 2), for n > 1.
 # Given n, calculate F(n).
 
-# https://leetcode.com/problems/fibonacci-number/description/
+# https://leetcode.com/problems/fibonacci-number/
 
 class Solution:
     def fib(self, n: int) -> int:
