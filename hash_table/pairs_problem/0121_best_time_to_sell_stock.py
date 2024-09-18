@@ -22,11 +22,9 @@
 
 # if prices[i + 1] <= price[i], never buy prices[i]
 class Solution:
-    def maxProfit(self, prices: list[int]) -> int:
-        cur_min, max_profit = float('inf'), 0
+    def maxProfit(self, prices: List[int]) -> int:
+        max_p, cur_min = 0, float('inf')
         for price in prices:
-            if price <= cur_min:
-                cur_min = price
-            else:
-                max_profit = max(max_profit, price - cur_min)
-        return max_profit
+            cur_min = min(cur_min, price)
+            max_p = max(max_p, price - cur_min)
+        return max_p
