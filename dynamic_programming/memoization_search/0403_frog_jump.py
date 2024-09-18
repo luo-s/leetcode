@@ -4,7 +4,7 @@
 
 # If the frog's last jump was k units, its next jump must be either k - 1, k, or k + 1 units. The frog can only jump in the forward direction.
 
-# https://leetcode.com/problems/frog-jump/description/
+# https://leetcode.com/problems/frog-jump/
 
 # let dfs(val, k) == true denotes the frog starting with lands on stone val with jump k ends with landing on the last stone successfully
 # then dfs[val, k] = dfs(val + k, k) or dfs(val + k + 1, k + 1) or dfs(val + k - 1, k - 1)
@@ -26,3 +26,16 @@ class Solution:
             return ans
         return dfs(1, 1)
         
+class Solution:
+    def canCross(self, stones: list[int]) -> bool:
+        # edge case
+        if stones[1] != 1: return False
+        @cache
+        def dfs(val, k):
+            # base case
+            if k <= 0: return False
+            if val not in stones: return False
+            if val == stones[-1]: return True
+            # recursive case
+            return dfs(val + k, k) or dfs(val + k + 1, k + 1) or dfs(val + k - 1, k - 1)
+        return dfs(1, 1)

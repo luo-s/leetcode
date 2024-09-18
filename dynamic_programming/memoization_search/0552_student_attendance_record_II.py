@@ -9,7 +9,9 @@
 # The student was never late ('L') for 3 or more consecutive days.
 # Given an integer n, return the number of possible attendance records of length n that make a student eligible for an attendance award. The answer may be very large, so return it modulo 10 ** 9 + 7.
 
-# https://leetcode.com/problems/student-attendance-record-ii/description/
+# 1 <= n <= 10**5
+
+# https://leetcode.com/problems/student-attendance-record-ii/
 
 
 # let dfs(i, absent, consecutive_late) denotes the number of possible attendaces records that eligible for an attendance award with start at ith day, with total absence and consecutive_late days
@@ -18,20 +20,25 @@
 # MLE when n = 100000
 class Solution:
     def checkRecord(self, n: int) -> int:
+        MOD = 10**9 + 7
         table = dict()
+
         def dfs(idx, absent, consecutive_late):
             # check memoization first
             if (idx, absent, consecutive_late) in table:
                 return table[(idx, absent, consecutive_late)]
-            # base case
+            # base cases
             if absent >= 2: return 0
             if consecutive_late >= 3: return 0
-            if idx == n - 1: return 1
+            if idx == n: return 1
             # recursive case
-            ans = dfs(idx + 1, absent, 0) + dfs(idx + 1, absent + 1, 0) + dfs(idx + 1, absent, consecutive_late + 1)
-            table[(idx, absent, consecutive_late)] = ans
-            return ans
-        return (dfs(0, 0, 0) + dfs(0, 1, 0) + dfs(0, 0, 1)) % (10 ** 9 + 7)
+            ans = (dfs(idx + 1, absent, 0) +    # 'P': present
+                   dfs(idx + 1, absent + 1, 0) +    # 'A': absent
+                   dfs(idx + 1, absent, consecutive_late + 1))  # 'L': late
+            table[(idx, absent, consecutive_late)] = ans % MOD
+            return table[(idx, absent, consecutive_late)]
+
+        return dfs(0, 0, 0)
 
 # pythonic way to use cache
 # write dfs function outside and using @cache
@@ -53,4 +60,3 @@ def dfs(i: int, j: int, k: int) -> int:
 class Solution:
     def checkRecord(self, n: int) -> int:
         return dfs(n, 0, 0)
-

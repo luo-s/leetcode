@@ -2,17 +2,19 @@
 
 # Given the five integers m, n, maxMove, startRow, startColumn, return the number of paths to move the ball out of the grid boundary. Since the answer can be very large, return it modulo 10 ** 9 + 7.
 
-# https://leetcode.com/problems/out-of-boundary-paths/description/
+# https://leetcode.com/problems/out-of-boundary-paths/
 
 # dfs -- TLE
 class Solution:
     def findPaths(self, m: int, n: int, maxMove: int, startRow: int, startColumn: int) -> int:
+        # @cache
         def dfs(startRow, startColumn, maxMove):
             # base case
             if maxMove < 0:
                 return 0
             if startRow < 0 or startRow >= m or startColumn < 0 or startColumn >= n:
                 return 1
+            # recursive case
             return dfs(startRow - 1, startColumn, maxMove - 1) + dfs(startRow + 1, startColumn, maxMove - 1) + dfs(startRow, startColumn - 1, maxMove - 1) + dfs(startRow, startColumn + 1, maxMove - 1)
         
         return dfs(startRow, startColumn, maxMove) % (10 ** 9 + 7)
