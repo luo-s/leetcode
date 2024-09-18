@@ -4,6 +4,7 @@
 # nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0
 
 # https://leetcode.com/problems/4sum-ii/
+# Similar LC 1995 https://leetcode.com/problems/count-special-quadruplets/
 
 # 正常枚举O(n^4), 1-3分组枚举O(n^3), 两两分组枚举O(n^2)
 import collections
