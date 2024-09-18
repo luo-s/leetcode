@@ -13,27 +13,50 @@
 # time complexity O(2 ** n) -- TLE
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-      l = len(nums)
-      def dfs(i, cur_sum):
-         if i == l:
+    #   @cache  # automatic avoiding repeating calculation
+      def dfs(i: int, cur_sum: int) -> int:
+         if i == len(nums):
             return 1 if cur_sum == target else 0
          return dfs(i + 1, cur_sum - nums[i]) + dfs(i + 1, cur_sum + nums[i])
       return dfs(0, 0)
     
-# memoization
+# dfs with memoization
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        l = len(nums)
         table = dict()
-        def dfs(i, cur_sum):
+        def dfs(i: int, cur_sum: int) -> int:
             # check memo first
             if (i, cur_sum) in table:
                 return table[(i, cur_sum)]
             # base case
-            if i == l:
+            if i == len(nums):
               return 1 if cur_sum == target else 0
             # recursive case
             cnt = dfs(i + 1, cur_sum - nums[i]) + dfs(i + 1, cur_sum + nums[i])
             table[(i, cur_sum)] = cnt
             return cnt
         return dfs(0, 0)
+
+# dp
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        total = sum(nums)
+        
+        # If the target is unreachable, return 0
+        if abs(target) > total or (total + target) % 2 != 0:
+            return 0
+        
+        # Calculate the subset sum we need to achieve
+        # subset is the collection of elements we add together
+        subset_sum = (total + target) // 2
+        
+        # Initialize the DP table
+        dp = [0] * (subset_sum + 1)
+        dp[0] = 1
+        
+        # Fill the DP table
+        for num in nums:
+            for j in range(subset_sum, num - 1, -1):
+                dp[j] += dp[j - num]
+        
+        return dp[subset_sum]
