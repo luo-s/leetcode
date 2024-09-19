@@ -66,12 +66,29 @@
 
 ### 单串线性 DP 问题
 
-单串线性 DP 问题：问题的输入为单个数组或单个字符串的线性 DP 问题。状态一般可定义为 dp[i]，表示为：
+单串线性 DP 问题：问题的输入为单个数组或单个字符串的线性 DP 问题。状态一般可定义为 `dp[i]`，表示为：
 
-1. 「以数组中第 i 个位置元素 nums[i] 为结尾的子数组（nums[0]...nums[i]）」的相关解。
-2. 「以数组中第 i−1 个位置元素 nums[i−1] 为结尾的子数组（nums[0]...nums[i−1]）」的相关解。
-3. 「以数组中前 i 个元素为子数组（nums[0]...nums[i−1]）」的相关解。
+1. 「以数组中第 i 个位置元素 `nums[i]` 为结尾的子数组（`nums[0]...nums[i]`）」的相关解。
+2. 「以数组中第 i−1 个位置元素 `nums[i−1]` 为结尾的子数组（`nums[0]...nums[i−1]`）」的相关解，或者「以数组中前 i 个元素为子数组（`nums[0]...nums[i−1]`）」的相关解。
 
 - [0300 Longest Increasing Subsequence LIS](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [0053 Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 - [0873 Length of Longest Fibonacci Subsequence](https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/)
+
+### 双串线性 DP 问题
+
+双串线性 DP 问题：问题的输入为两个数组或两个字符串的线性 DP 问题。状态一般可定义为 `dp[i][j]`，表示为：
+
+1. 「以第一个数组中第 i 个位置元素 `nums1[i]` 为结尾的子数组`nums1[:i+1]`」与「以第二个数组中第 j 个位置元素 `nums2[j]` 为结尾的子数组`nums2[:j+1]`」的相关解。
+2. 「以第一个数组中第 i−1 个位置元素 `nums1[i−1]` 为结尾的子数组`nums1[:i]`」与「以第二个数组中第 j−1 个位置元素 `nums2[j−1]` 为结尾的子数组（`nums2[:j]`）」的相关解；或者「以第一个数组中前 i 个元素为子数组`nums1[:i]`」与「以第二个数组中前 j 个元素为子数组`nums2[:j]`」的相关解。
+
+- [1143 Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+- [0718 Longest Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/)
+- [0072 Edit Distance](https://leetcode.com/problems/edit-distance/)
+
+### 矩阵线性 DP 问题
+
+矩阵线性 DP 问题：问题的输入为二维矩阵的线性 DP 问题。状态一般可定义为 `dp[i][j]`，表示为：从「位置 `(0,0)`」到达「位置 `(i,j)`」的相关解。
+
+- [0064 Minimum path Sum](https://leetcode.com/problems/minimum-path-sum/)
+- [0221 Maximum Square](https://leetcode.com/problems/maximal-square/)
