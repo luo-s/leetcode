@@ -92,3 +92,39 @@
 
 - [0064 Minimum path Sum](https://leetcode.com/problems/minimum-path-sum/)
 - [0221 Maximum Square](https://leetcode.com/problems/maximal-square/)
+
+### 无串线性 DP 问题
+
+无串线性 DP 问题：问题的输入不是显式的数组或字符串，但依然可分解为若干子问题的线性 DP 问题。
+
+- [0343 Integer Break](https://leetcode.com/problems/integer-break/)
+- [0650 2 Keys Keyboard](https://leetcode.com/problems/2-keys-keyboard/)
+- [0279 Perfect Squares](https://leetcode.com/problems/perfect-squares/)
+
+## 背包问题
+
+背包问题：背包问题是线性 DP 问题中一类经典而又特殊的模型。背包问题可以描述为：给定一组物品，每种物品都有自己的重量、价格以及数量。再给定一个最多能装重量为 W 的背包。现在选择将一些物品放入背包中，请问在总重量不超过背包载重上限的情况下，能装入背包的最大价值总和是多少？
+
+### 0-1 背包问题
+
+0-1 背包问题：有 n 件物品和有一个最多能装重量为 W 的背包。第 i 件物品的重量为 `weight[i]`，价值为 `value[i]`，每件物品有且只有 1 件。请问在总重量不超过背包载重上限的情况下，能装入背包的最大价值是多少？
+
+### 完全背包问题
+
+完全背包问题：有 n 件物品和有一个最多能装重量为 W 的背包。第 i 件物品的重量为 `weight[i]`，价值为 `value[i]`，每种物品数量没有限制。请问在总重量不超过背包载重上限的情况下，能装入背包的最大价值是多少？
+
+### 多重背包问题
+
+多重背包问题：有 n 种物品和一个最多能装重量为 W 的背包，第 i 种物品的重量为 `weight[i]`，价值为 `value[i]` ，件数为 `count[i]`。请问在总重量不超过背包载重上限的情况下，能装入背包的最大价值是多少？
+
+### 混合背包问题
+
+混合背包问题：有 n 种物品和一个最多能装重量为 W 的背包，第 i 种物品的重量为 `weight[i]`，价值为 `value[i]` ，件数为 `count[i]`。其中：
+当 count[i] = -1 时，代表该物品有无限件。
+当 count[i] > 0 时，代表该物品有 count[i] 件。
+
+请问在总重量不超过背包载重上限的情况下，能装入背包的最大价值是多少？
+
+### 分组背包问题
+
+分组背包问题：有 n 组物品和一个最多能装重量为 W 的背包，第 i 组物品的件数为 `group_count[i]`，第 i 组的第 j 个物品重量为 `weight[i][j]`，价值为 `value[i][j]`。每组物品中最多只能选择 1 件物品装入背包。请问在总重量不超过背包载重上限的情况下，能装入背包的最大价值是多少？
