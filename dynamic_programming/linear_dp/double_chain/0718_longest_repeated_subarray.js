@@ -8,8 +8,8 @@ A subarray is a contiguous non-empty sequence of elements within an array.
 0 <= nums1[i], nums2[i] <= 100
 */
 
-// https://leetcode.com/problems/maximum-length-of-repeated-subarray/description/
-// related: https://leetcode.com/problems/maximal-square/description/
+// https://leetcode.com/problems/maximum-length-of-repeated-subarray/
+// related: https://leetcode.com/problems/maximal-square/
 
 // let dp[i][j] be the length of the longest common subarray of
 // nums1[0:i) and nums2[0:j)
