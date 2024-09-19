@@ -21,10 +21,10 @@
 通常我们使用动态规划方法来解决问题的基本思路如下：
 
 - 划分阶段：将原问题按顺序（时间顺序、空间顺序或其他顺序）分解为若干个相互联系的「阶段」。划分后的阶段⼀定是有序或可排序的，否则问题⽆法求解。
-这里的「阶段」指的是⼦问题的求解过程。每个⼦问题的求解过程都构成⼀个「阶段」，在完成前⼀阶段的求解后才会进⾏后⼀阶段的求解。
+  这里的「阶段」指的是⼦问题的求解过程。每个⼦问题的求解过程都构成⼀个「阶段」，在完成前⼀阶段的求解后才会进⾏后⼀阶段的求解。
 
 - 定义状态：将和子问题相关的某些变量（位置、数量、体积、空间等等）作为一个「状态」表示出来。状态的选择要满⾜⽆后效性。
-一个「状态」对应一个或多个子问题，所谓某个「状态」下的值，指的就是这个「状态」所对应的子问题的解。
+  一个「状态」对应一个或多个子问题，所谓某个「状态」下的值，指的就是这个「状态」所对应的子问题的解。
 
 - 状态转移：根据「上一阶段的状态」和「该状态下所能做出的决策」，推导出「下一阶段的状态」。或者说根据相邻两个阶段各个状态之间的关系，确定决策，然后推导出状态间的相互转移方式（即「状态转移方程」）。
 
@@ -38,7 +38,7 @@
 - [0509 Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
 - [0062 Unique Paths](https://leetcode.com/problems/unique-paths/)
 
-### 记忆化搜索 
+## 记忆化搜索
 
 记忆化搜索（Memoization Search）：是一种通过存储已经遍历过的状态信息，从而避免对同一状态重复遍历的搜索算法。
 记忆化搜索是动态规划的一种实现方式。在记忆化搜索中，当算法需要计算某个子问题的结果时，它首先检查是否已经计算过该问题。如果已经计算过，则直接返回已经存储的结果；否则，计算该问题，并将结果存储下来以备将来使用。
@@ -51,3 +51,27 @@
 4. 在主函数中，调用递归函数并返回结果。
 
 - [0494 Target Sum](https://leetcode.com/problems/target-sum/)
+- [0576 Out of Boundary Paths](https://leetcode.com/problems/out-of-boundary-paths/)
+- [0403 Frog Jump](https://leetcode.com/problems/frog-jump/)
+- [0552 Student Attendence Record II](https://leetcode.com/problems/student-attendance-record-ii/)
+
+## 线性动态规划
+
+线性动态规划：具有「线性」阶段划分的动态规划方法统称为线性动态规划（简称为「线性 DP」）
+
+线性 DP 问题的划分方法有多种方式。
+
+如果按照「状态的维度数」进行分类，我们可以将线性 DP 问题分为：一维线性 DP 问题、二维线性 DP 问题，以及多维线性 DP 问题。
+如果按照「问题的输入格式」进行分类，我们可以将线性 DP 问题分为：单串线性 DP 问题、双串线性 DP 问题、矩阵线性 DP 问题，以及无串线性 DP 问题。
+
+### 单串线性 DP 问题
+
+单串线性 DP 问题：问题的输入为单个数组或单个字符串的线性 DP 问题。状态一般可定义为 dp[i]，表示为：
+
+1. 「以数组中第 i 个位置元素 nums[i] 为结尾的子数组（nums[0]...nums[i]）」的相关解。
+2. 「以数组中第 i−1 个位置元素 nums[i−1] 为结尾的子数组（nums[0]...nums[i−1]）」的相关解。
+3. 「以数组中前 i 个元素为子数组（nums[0]...nums[i−1]）」的相关解。
+
+- [0300 Longest Increasing Subsequence LIS](https://leetcode.com/problems/longest-increasing-subsequence/)
+- [0053 Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+- [0873 Length of Longest Fibonacci Subsequence](https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/)
