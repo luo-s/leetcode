@@ -26,45 +26,18 @@ class Solution:
             
             # divide search space into 3 parts: 
             # [left, mid - 1], [mid], [mid + 1, right]
-            # if nums[mid] < target, search space: [mid + 1, right]
             if nums[mid] < target:
+                # nums[mid] < target, search space: [mid + 1, right]
                 left = mid + 1
-            # if nums[mid] > target, search space: [left, mid - 1]
             elif nums[mid] > target:
+                # nums[mid] > target, search space: [left, mid - 1]
                 right = mid - 1
-            # if nums[mid] == target, return mid
             else:
+                # found the target
                 return mid
         
         # not found, return -1
         return -1 
-    
-# The following code is the same as above, but is not recommended
-class Solution: 
-    def search(self, nums: list[int], target: int) -> int:
-        # search space: [left, right]
-        left, right = 0, len(nums) - 1  
-        # exit condition: [right, right] (left == right), final check needed
-        while left < right: 
-            # round up and round down must pair with specified final check
-            mid = left + (right - left) // 2
-            # mid = left + (right - left + 1) // 2  
-
-            # if nums[mid] < target, search space: [mid + 1, right]
-            if nums[mid] < target:
-                left = mid + 1  # left might be out of index if round-up mid
-            # if nums[mid] > target, search space: [left, mid - 1]
-            elif nums[mid] > target:
-                right = mid - 1 # right might be out of index if round-down mid
-            # if nums[mid] == target, return mid
-            else:
-                return mid
-        
-        # final check
-        # for round-down mid:
-        return left if nums[left] == target else -1
-        # for round-up mid:
-        # return right if nums[right] == target else -1
 
 # 排除法: divide search space into 2 parts
 # [left, mid], [mid + 1, right] if mid = left + (right - left) // 2
