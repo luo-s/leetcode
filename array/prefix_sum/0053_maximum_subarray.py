@@ -17,8 +17,8 @@ class Solution:
     
 # dynamic programming
 # let dp[i] denote the max sum of subarray ending at nums[i]
-# if dp[i - 1] < 0: dp[i] = nums[i] 
-# if dp[i - 1] >= 0: dp[i] = dp[i - 1] + nums[i]
+# if dp[i - 1] < 0: dp[i] = nums[i]; if dp[i - 1] >= 0: dp[i] = dp[i - 1] + nums[i]
+# thus: dp[i] = max(nums[i], nums[i] + dp[i - 1])
 # time complexity O(n)
 # space complexity O(n)
 class Solution:
@@ -28,25 +28,18 @@ class Solution:
         dp[0] = nums[0]
 
         for i in range(1, l):
-            if dp[i - 1]< 0:
-                dp[i] = nums[i]
-            else:
-                dp[i] = dp[i - 1] + nums[i]
+            dp[i] = max(nums[i], nums[i] + dp[i - 1])
         return max(dp)
 
-# optimized dp: only need max(dp)
+# optimized dp: only need max(dp) -- same as preSum approach
 # time complexity O(n)
 # space complexity O(1)
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         l = len(nums)
-        subMax = nums[0]
-        ansMax = nums[0]
+        curMax = allMax = nums[0]
 
         for i in range(1, l):
-            if subMax < 0:
-                subMax = nums[i]
-            else:
-                subMax += nums[i]
-            ansMax = max(ansMax, subMax)
-        return ansMax
+            curMax = max(curMax + nums[i], nums[i])
+            allMax = max(allMax, curMax)
+        return allMax
