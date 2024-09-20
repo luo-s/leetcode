@@ -67,12 +67,13 @@
 
 ### 二分查找边界问题
 
-在用直接法查找边界时，可以引入变量维持每一次循环符合条件的结果，并不断迭代缩小边界。
+在用直接法查找边界时，可以引入变量维持每一次循环符合条件的结果，并不断迭代缩小边界。此变量需要根据特殊情况进行初始赋值。
 
 - [0035 Search Insert Position](https://leetcode.com/problems/search-insert-position/)
+- [0278 First Bad Version](https://leetcode.com/problems/first-bad-version/)
+- [0153 Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 - [0034 Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - [0240 Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/)
-- [0153 Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 
 ### 复杂二分查找
 - [0875 Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
