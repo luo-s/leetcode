@@ -65,6 +65,7 @@
 - [0074 Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)
 - [0167 Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 - [0033 Search Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+- [0367 Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/)
 
 ### 二分查找边界问题
 
@@ -73,6 +74,7 @@
 - [0035 Search Insert Position](https://leetcode.com/problems/search-insert-position/)
 - [0034 Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - [0744 Find Smallest Letter Greater than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+- [0069 Sqrt(x)](https://leetcode.com/problems/sqrtx/)
 - [0278 First Bad Version](https://leetcode.com/problems/first-bad-version/)
 - [0240 Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/)
 - [0153 Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
