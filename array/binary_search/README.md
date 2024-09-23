@@ -72,9 +72,13 @@
 
 - [0035 Search Insert Position](https://leetcode.com/problems/search-insert-position/)
 - [0034 Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+- [0744 Find Smallest Letter Greater than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
 - [0278 First Bad Version](https://leetcode.com/problems/first-bad-version/)
 - [0240 Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/)
 - [0153 Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+- [0154 Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
+- [0162 Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+- [0852 Peak Index in Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)
 
 ### 复杂二分查找
 
