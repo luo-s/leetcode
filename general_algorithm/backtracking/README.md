@@ -33,7 +33,6 @@
 
 - [0046 Permutations](https://leetcode.com/problems/permutations/)
 - [0079 Word Search](https://leetcode.com/problems/word-search/)
-
 - [0047 Permutations II](https://leetcode.com/problems/permutations-ii/)
 - [1079 Letter Tile Possibilities](https://leetcode.com/problems/letter-tile-possibilities/)
 
@@ -48,6 +47,5 @@
 - [0216 Combination Sum III](https://leetcode.com/problems/combination-sum-iii/description/)
 - [0017 Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 - [0784 Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/)
-
 - [0040 Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)
 - [0090 Subsets II](https://leetcode.com/problems/path-sum-ii/)
