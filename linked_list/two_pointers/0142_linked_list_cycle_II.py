@@ -9,7 +9,7 @@
 
 # Do not modify the linked list.
 
-# https://leetcode.com/problems/linked-list-cycle-ii/description/
+# https://leetcode.com/problems/linked-list-cycle-ii/
 # solution: https://leetcode.cn/problems/linked-list-cycle-ii/solutions/2832831/jian-ji-qing-xi-yan-jin-de-tu-shi-tui-da-nak2/
 
 class Solution:
