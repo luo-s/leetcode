@@ -15,6 +15,10 @@
 # You must decrease the overall operation steps as much as possible.
 
 # https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+# related
+# LC 33  https://leetcode.com/problems/search-in-rotated-sorted-array/ 
+# LC 153 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+# LC 154 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
 
 # convert to LC 33 problem: remove duplicates
 class Solution:

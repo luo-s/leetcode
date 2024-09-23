@@ -16,6 +16,11 @@
 # You must write an algorithm that runs in O(log n) time.
 
 # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+# advanced 
+# LC 154 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
+# related
+# LC 33  https://leetcode.com/problems/search-in-rotated-sorted-array/
+# LC 81  https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
 
 class Solution:
     def findMin(self, nums: List[int]) -> int:

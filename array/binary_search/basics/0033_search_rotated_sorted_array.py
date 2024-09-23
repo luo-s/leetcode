@@ -15,7 +15,11 @@
 # You must write an algorithm with O(log n) runtime complexity.
 
 # https://leetcode.com/problems/search-in-rotated-sorted-array/
-# advanced LC 81 https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+# advanced 
+# LC 81  https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+# related 
+# LC 153 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+# LC 154 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
