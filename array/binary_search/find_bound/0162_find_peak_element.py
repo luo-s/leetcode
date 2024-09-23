@@ -12,6 +12,7 @@
 # You must write an algorithm that runs in O(log n) time.
 
 # https://leetcode.com/problems/find-peak-element/
+# similar LC 852 ttps://leetcode.com/problems/peak-index-in-a-mountain-array/
 
 # 直接法
 class Solution:
