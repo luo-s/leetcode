@@ -81,7 +81,8 @@
 - [0154 Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
 - [0162 Find Peak Element](https://leetcode.com/problems/find-peak-element/)
 - [0852 Peak Index in Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)
+- [0875 Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
 
 ### 复杂二分查找
 
-- [0875 Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
+
