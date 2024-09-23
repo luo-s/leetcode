@@ -8,6 +8,8 @@
 # You must write an algorithm with O(log n) runtime complexity.
 
 # https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+# related
+# LC 35 https://leetcode.com/problems/search-insert-position/
 
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:

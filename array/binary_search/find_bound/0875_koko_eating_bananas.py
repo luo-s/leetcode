@@ -45,11 +45,11 @@ class Solution:
         # binary search [1, max(piles)], find the smallest k that make time(k) <= h
         left, right = 1, max(piles)
         k = right
-        while left < right:
+        while left <= right:
             mid = (left + right) // 2
             if self.time(piles, mid) <= h:
-                right = mid
-                k = mid     # mid might be the answer, might not be
+                right = mid - 1
+                k = mid     # maintain possible answer
             elif self.time(piles, mid) > h:
                 left = mid + 1
         return k
@@ -57,9 +57,44 @@ class Solution:
     def time(self, piles, k):
         t = 0
         for i in range(len(piles)):
-            if piles[i] % k == 0:
-                t += piles[i] // k
-            else:
-                t += piles[i] // k + 1
+            t += ceil(piles[i] / k)
         return t
 
+# another approach
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        l = len(piles)
+        if h == l: return max(piles)
+        # binary search [1, max(piles)], find the smallest k that make time(k) <= h
+        left, right = 1, max(piles)
+        k = right
+        while left < right:    # ends at left = right
+            mid = (left + right) // 2
+            if self.time(piles, mid) <= h:
+                right = mid    
+            elif self.time(piles, mid) > h:
+                left = mid + 1
+        return left
+
+    def time(self, piles, k):
+        t = 0
+        for bananas in range(len(piles)):
+            t += ceil(bananas / k)
+        return t
+
+# optimized binary search
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        def can_eat(k):
+            hours = 0
+            for bananas in piles:
+                hours += ceil(bananas / k)
+            return hours <= h
+        left, right = 1, max(piles)
+        while left < right:
+            mid = (right + left) // 2
+            if can_eat(mid):
+                right = mid
+            else:
+                left = mid + 1
+        return left

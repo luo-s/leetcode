@@ -7,6 +7,8 @@
 # You must write an algorithm with O(log n) runtime complexity.
 
 # https://leetcode.com/problems/search-insert-position/
+# similar
+# LC 34 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
 # bisect.bisec_left()
 # find the smallest index where nums[idx] >= target
