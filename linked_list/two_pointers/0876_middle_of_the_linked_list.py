@@ -2,7 +2,7 @@
 
 # If there are two middle nodes, return the second middle node.
 
-# https://leetcode.com/problems/middle-of-the-linked-list/description/
+# https://leetcode.com/problems/middle-of-the-linked-list/
 
 # return 2nd mid 
 class Solution:

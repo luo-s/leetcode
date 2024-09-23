@@ -3,7 +3,7 @@
 
 # You should preserve the original relative order of the nodes in each of the two partitions.
 
-# https://leetcode.com/problems/partition-list/description/
+# https://leetcode.com/problems/partition-list/
 
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:

@@ -12,7 +12,7 @@ The number of nodes in the linked list is in the range [0, 10^4].
 -10^6 <= Node.val <= 10^6
 */
 
-// https://leetcode.com/problems/odd-even-linked-list/description/
+// https://leetcode.com/problems/odd-even-linked-list/
 
 var oddEvenList = function (head) {
   if (!head) return head;

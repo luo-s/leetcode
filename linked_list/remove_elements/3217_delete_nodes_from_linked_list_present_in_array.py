@@ -2,7 +2,7 @@
 # Return the head of the modified linked list after removing all nodes 
 # from the linked list that have a value that exists in nums.
 
-# https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/description/
+# https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/
 
 # search in array: O(n) will result in TLE
 # construct a hash map that give us O(1) time search

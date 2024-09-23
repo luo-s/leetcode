@@ -6,7 +6,7 @@ The number of nodes in the list is in the range [0, 500].
 0 <= k <= 2 * 10^9
 */
 
-// https://leetcode.com/problems/rotate-list/description/
+// https://leetcode.com/problems/rotate-list/
 
 // make a circle, find the new head (need to know length), cut the circle
 // time complexity: O(n)

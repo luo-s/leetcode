@@ -10,7 +10,7 @@
 
 # Reverse the nodes in each group with an even length, and return the head of the modified linked list.
 
-# https://leetcode.com/problems/reverse-nodes-in-even-length-groups/description/
+# https://leetcode.com/problems/reverse-nodes-in-even-length-groups/
 
 class Solution:
     def reverseEvenLengthGroups(self, head: Optional[ListNode]) -> Optional[ListNode]:

@@ -5,7 +5,7 @@
 
 # You may not alter the values in the list's nodes, only nodes themselves may be changed.
 
-# https://leetcode.com/problems/reverse-nodes-in-k-group/description/
+# https://leetcode.com/problems/reverse-nodes-in-k-group/
 
 class Solution:
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:

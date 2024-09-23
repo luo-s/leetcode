@@ -7,7 +7,7 @@
 
 # The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
 
-# https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/description/
+# https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/
 
 class Solution:
     def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:

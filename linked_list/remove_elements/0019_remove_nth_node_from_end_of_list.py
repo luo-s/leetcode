@@ -6,7 +6,7 @@
 # 0 <= Node.val <= 100
 # 1 <= n <= sz
 
-# https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+# https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:

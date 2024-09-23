@@ -11,7 +11,7 @@ It is -1 if there is no cycle. Note that pos is not passed as a parameter.
 Do not modify the linked list.
 */
 
-// https://leetcode.com/problems/linked-list-cycle-ii/description/
+// https://leetcode.com/problems/linked-list-cycle-ii/
 
 // return the index of node which two pointers meet
 var detectCycle = function (head) {

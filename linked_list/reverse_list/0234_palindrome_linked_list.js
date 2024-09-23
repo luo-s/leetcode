@@ -3,7 +3,7 @@ Given the head of a singly linked list, return true if it is a
 palindrome or false otherwise.
 */
 
-// https://leetcode.com/problems/palindrome-linked-list/description/
+// https://leetcode.com/problems/palindrome-linked-list/
 
 // convert to array + two pointers
 // time complexity O(n)

@@ -4,7 +4,7 @@
 # -100 <= Node.val <= 100
 # 0 <= k <= 2 * 10^9
 
-# https://leetcode.com/problems/rotate-list/description/
+# https://leetcode.com/problems/rotate-list/
 
 class Solution:
     def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:

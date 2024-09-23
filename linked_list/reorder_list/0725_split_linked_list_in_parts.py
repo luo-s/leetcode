@@ -6,7 +6,7 @@
 
 # Return an array of the k parts.
 
-# https://leetcode.com/problems/split-linked-list-in-parts/description/
+# https://leetcode.com/problems/split-linked-list-in-parts/
 
 class Solution:
     def splitListToParts(self, head: Optional[ListNode], k: int) -> List[Optional[ListNode]]:

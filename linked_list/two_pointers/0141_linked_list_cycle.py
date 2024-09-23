@@ -8,7 +8,7 @@
 
 # Return true if there is a cycle in the linked list. Otherwise, return false.
 
-# https://leetcode.com/problems/linked-list-cycle/description/
+# https://leetcode.com/problems/linked-list-cycle/
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:

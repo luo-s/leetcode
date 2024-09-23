@@ -1,7 +1,7 @@
 # Given the head of a linked list and an integer val, remove all the nodes of the 
 # linked list that has Node.val == val, and return the new head.
 
-# https://leetcode.com/problems/remove-linked-list-elements/description/
+# https://leetcode.com/problems/remove-linked-list-elements/
 
 class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:

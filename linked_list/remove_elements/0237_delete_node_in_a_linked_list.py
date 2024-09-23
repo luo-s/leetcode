@@ -17,8 +17,7 @@
 # We will build the linked list and pass the node to your function.
 # The output will be the entire list after calling your function.
 
-# https://leetcode.com/problems/delete-node-in-a-linked-list/description/
-
+# https://leetcode.com/problems/delete-node-in-a-linked-list/
 
 # no access to previous nodes
 # only way to accomplish task is to change node value

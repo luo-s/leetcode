@@ -3,7 +3,7 @@ Given the head of a singly linked list, reverse the list, and return the
 reversed list.
 */
 
-// https://leetcode.com/problems/reverse-linked-list/description/
+// https://leetcode.com/problems/reverse-linked-list/
 
 var reverseList = function (head) {
   let prev = null;

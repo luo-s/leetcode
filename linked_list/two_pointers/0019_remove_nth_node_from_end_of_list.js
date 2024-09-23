@@ -8,7 +8,7 @@ The number of nodes in the list is sz.
 1 <= n <= sz
 */
 
-// https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+// https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
 var removeNthFromEnd = function (head, n) {
   let slow = head,

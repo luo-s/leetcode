@@ -4,7 +4,7 @@ numbers, leaving only distinct numbers from the original list. Return the linked
 list sorted as well.
 */
 
-// https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
+// https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 
 // time complexity O(n)
 // space complexity O(1)
