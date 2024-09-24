@@ -10,28 +10,20 @@
 # Return k.
 
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+# advanced
+# LC 80 https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
 
-class Solution:
-    def removeDuplicates(self, nums: list[int]) -> int:
-        l = len(nums)
-        if l <= 1:
-            return l
-        slow, fast = 1, 1
-        while fast < l:
-            if nums[slow - 1] != nums[fast]:
-                nums[slow] = nums[fast]
-                slow += 1
-            fast += 1
-        return slow
-        
+# nums is sorted, thus same elements are next to each other
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
         slow, fast, l = 0, 1, len(nums)
         while fast < l:
+            # new element
             if nums[fast] != nums[slow]:
                 slow += 1
                 nums[slow] = nums[fast]
+            # same element
             else:
                 fast += 1
-
         return slow + 1
+    

@@ -10,16 +10,31 @@
 # Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+# related
+# LC 26 https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+
+# general-purpose solution: each unique element appears at most k times
+# for i < k: keep
+# for i >= k: compare i with i - k, keep if different
 
 class Solution:
-    def removeDuplicates(self, nums: list[int]) -> int:
-        l = len(nums)
-        if l <= 2:
-            return l
-        slow, fast = 2, 2
-        while fast < l:
-            if nums[slow - 2] != nums[fast]:
-                nums[slow] = nums[fast]
-                slow += 1
-            fast += 1
-        return slow
+    def removeDuplicates(self, nums: List[int]) -> int:
+        def solve(k):
+            slow = 0
+            for fast in range(len(nums)):
+                if slow < k or nums[slow - k] != nums[fast]:
+                    nums[slow] = nums[fast]
+                    slow += 1
+            return slow
+        return solve(2)
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        def solve(k):
+            idx = 0
+            for num in nums:
+                if idx < k or nums[idx - k] != num:
+                    nums[idx] = num
+                    idx += 1
+            return idx
+        return solve(2)
