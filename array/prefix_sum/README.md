@@ -25,7 +25,7 @@ preSum = list(accumulate(nums))
 ### 前缀和的性质
 - `s[i+1] = s[i] + a[i]`
 - `a[i] + ... + a[j] = s[j+1] - s[i]`
-- 对于正整数数列 a，其前缀和数列 s 是单调递增的，必要时可以进行二分查找。
+- 对于正整数数列 a，其前缀和数列 s 是单调递增的，必要时可以进行二分查找。(LC 2389)
 
 ### 前缀和题目
 - [0303 Range Sum Query Immutable](https://leetcode.com/problems/range-sum-query-immutable/)
