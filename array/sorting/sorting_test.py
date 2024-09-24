@@ -17,3 +17,5 @@ s_nums = sorted(nums)
 
 def test_eval(test_input, expected):
     assert eval(test_input) == expected
+
+# pytest -v --durations=0 sorting_test.py
