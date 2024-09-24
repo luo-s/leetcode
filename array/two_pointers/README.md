@@ -33,7 +33,7 @@
   - [2460 Apply Operations to an Array](https://leetcode.com/problems/apply-operations-to-an-array/)
   - [0075 Sort Colors](https://leetcode.com/problems/sort-colors/) (本质是两套快慢指针同时处理数组移动)
   - [0027 Remove Element](https://leetcode.com/problems/remove-element/)
-  - [0028 Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+  - [0026 Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
   - [0080 Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
   - [0443 String Compression](https://leetcode.com/problems/string-compression/)
   - [0845 Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
