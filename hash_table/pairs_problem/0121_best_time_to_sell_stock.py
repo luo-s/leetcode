@@ -28,3 +28,15 @@ class Solution:
             cur_min = min(cur_min, price)
             max_p = max(max_p, price - cur_min)
         return max_p
+    
+# sliding window
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        left = right = res = 0
+        while right < len(prices):
+            if prices[left] < prices[right]:
+                res = max(res, prices[right] - prices[left])
+            else:
+                left = right    # if prices[left] >= prices[right], never buy prices[left]
+            right += 1
+        return res
