@@ -11,6 +11,7 @@
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
         vowels, helper, ans, l = ['a', 'e', 'i', 'o', 'u'], [0] * len(words), [], len(words)
+        # construct a helper array to convert words[i] to 0 or 1
         for i in range(l):
             if words[i][0] in vowels and words[i][-1] in vowels:
                 helper[i] = 1
