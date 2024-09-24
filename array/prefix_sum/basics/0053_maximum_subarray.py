@@ -1,5 +1,4 @@
-# Given an integer array nums, find the 
-# subarray with the largest sum, and return its sum.
+# Given an integer array nums, find the subarray with the largest sum, and return its sum.
 
 # https://leetcode.com/problems/maximum-subarray/
 # similar LC 121 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
