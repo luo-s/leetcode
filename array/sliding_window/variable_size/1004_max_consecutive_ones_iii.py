@@ -1,6 +1,8 @@
 # Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
 
 # https://leetcode.com/problems/max-consecutive-ones-iii/
+# similar
+# LC 1493 https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/
 
 
 class Solution:

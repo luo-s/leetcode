@@ -1,6 +1,8 @@
 # Given a string s, find the length of the longest substring without repeating characters.
 
 # https://leetcode.com/problems/longest-substring-without-repeating-characters/
+# similar
+# LC 1695 https://leetcode.com/problems/maximum-erasure-value/
 
 # sliding window to describe a substring & hashmap to check duplicates
 class Solution:
