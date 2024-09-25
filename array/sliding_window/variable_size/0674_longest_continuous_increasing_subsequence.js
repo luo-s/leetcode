@@ -8,7 +8,7 @@ such that it is [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]] and for each
 l <= i < r, nums[i] < nums[i + 1].
 */
 
-// https://leetcode.com/problems/longest-continuous-increasing-subsequence/description/
+// https://leetcode.com/problems/longest-continuous-increasing-subsequence/
 
 // sliding window
 // time complexity O(n)
