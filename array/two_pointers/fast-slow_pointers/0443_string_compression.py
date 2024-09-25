@@ -50,6 +50,7 @@ class Solution:
             else:
                 chars[slow] = chars[fast - 1]
                 slow += 1
+                # handle cases if cnt > 10
                 if cnt > 1:
                     for c in str(cnt):
                         chars[slow] = c
