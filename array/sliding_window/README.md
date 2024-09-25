@@ -12,9 +12,22 @@
 ### 固定长度窗口：窗口大小是固定的。
 
 - [1343 Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/)
+- [0643 Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
+- [1456 Maximum Number of Vowels in a Substring of Given Length](https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/)
+- [1052 Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/)
+- [1423 Maximum Points You Can Obtain From Cards](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)
+- [0567 Permutation in String](https://leetcode.com/problems/permutation-in-string/)
+- [0438 Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
+- [0995 Minimum Number of K Consecutive Bit Flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/)
+- [0239 Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+- [0480 Sliding Window Median](https://leetcode.com/problems/sliding-window-median/)
+- [0220 Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
 
 ### 不定长度窗口：窗口大小是不固定的。
 
 - [0003 Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [0209 Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 - [0713 Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
+- [0674 Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)
+- [0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)
+- [0718 Maximum Length of Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/)
