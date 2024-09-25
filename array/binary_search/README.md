@@ -81,8 +81,12 @@
 - [0154 Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
 - [0162 Find Peak Element](https://leetcode.com/problems/find-peak-element/)
 - [0852 Peak Index in Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)
+
+### 其他二分查找
+
+- [0400 Nth Digit](https://leetcode.com/problems/nth-digit/description/)
 - [0875 Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
-
-### 复杂二分查找
-
-
+- [1300 Sum of Mutated Array Closest to Target](https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/)
+- [1482 Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/)
+- [1011 Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
+- [0719 Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance/) \*
