@@ -26,11 +26,14 @@
 ### 不定长度窗口：窗口大小是不固定的。
 
 - [0003 Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+- [1695 Maximum Erasure Value](https://leetcode.com/problems/maximum-erasure-value/)
 - [0209 Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
+- [1208 Get Equal Substrings Within Budge](https://leetcode.com/problems/get-equal-substrings-within-budget/)
 - [0713 Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
 - [0674 Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)
 - [0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)
 - [1004 Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
+- [1493 Longest Subarray of 1's After Deleting One Element](https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/)
 - [0718 Maximum Length of Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/)
 - [1658 Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/)
 - [0424 Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
