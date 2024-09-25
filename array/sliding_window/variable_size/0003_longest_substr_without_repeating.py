@@ -2,6 +2,7 @@
 
 # https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
+# sliding window to describe a substring & hashmap to check duplicates
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         slow, fast, max_cnt, l = 0, 0, 0, len(s)
@@ -11,6 +12,7 @@ class Solution:
                 chars.add(s[fast])
                 fast += 1
                 max_cnt = max(max_cnt, len(chars))
+            # keep moving left until window only has unique char
             else:
                 chars.remove(s[slow])
                 slow += 1
@@ -38,6 +40,7 @@ class Solution:
             char_map[s[right]] = char_map.get(s[right], 0) + 1
             while char_map[s[right]] > 1:
                 char_map[s[left]] -= 1
+                # if use char_map length as window size, need to delete key if value == 0
                 if char_map[s[left]] == 0: del char_map[s[left]]
                 left += 1
             ans = max(ans, len(char_map))
