@@ -13,12 +13,16 @@
   - [0167 Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
   - [0015 3Sum](https://leetcode.com/problems/3sum/)
   - [0016 3Sum Closest](https://leetcode.com/problems/3sum-closest/)
+  - [0611 Valid Triangle Number](https://leetcode.com/problems/valid-triangle-number/)
   - [0018 4Sum](https://leetcode.com/problems/4sum/)
+  - [0977 Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+  - [0658 Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
   - [0881 Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
   - [0011 Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
   - [0042 Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
 
 - 字符串反转问题：反转字符串、回文数、颠倒二进制等问题。
+
   - [0344 Reverse String](https://leetcode.com/problems/reverse-string/)
   - [0345 Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/)
   - [0125 Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
@@ -27,7 +31,7 @@
 
 快慢指针广泛应用于数组和链表的处理：
 
-- 处理数组中的移动、删除元素问题.
+- 处理数组中的原地修改、移动、删除元素问题.
 
   - [0283 Move Zeroes](https://leetcode.com/problems/move-zeroes/)
   - [2460 Apply Operations to an Array](https://leetcode.com/problems/apply-operations-to-an-array/)
@@ -39,10 +43,20 @@
   - [0845 Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
 
 - 环形链表、链表长度问题。
+
+  - [0876 Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
   - [0141 Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
   - [0142 Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+  - [0287 Find Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
+  - [0160 Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+  - [0019 Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 
 ## 分离双指针
 
 - 分离双指针一般用于处理有序数组合并，求交集、并集问题。
+
+  - [0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)
   - [0925 Long Pressed Name](https://leetcode.com/problems/long-pressed-name/)
+  - [0844 Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)
+  - [0415 Add Strings](https://leetcode.com/problems/add-strings/)
+  - [0392 Is Subsequence](https://leetcode.com/problems/is-subsequence/)
