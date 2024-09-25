@@ -18,10 +18,10 @@
 - [1423 Maximum Points You Can Obtain From Cards](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)
 - [0567 Permutation in String](https://leetcode.com/problems/permutation-in-string/)
 - [0438 Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
-- [0995 Minimum Number of K Consecutive Bit Flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/)
-- [0239 Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
-- [0480 Sliding Window Median](https://leetcode.com/problems/sliding-window-median/)
-- [0220 Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
+- [0995 Minimum Number of K Consecutive Bit Flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/) \*
+- [0239 Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) \*
+- [0480 Sliding Window Median](https://leetcode.com/problems/sliding-window-median/) \*
+- [0220 Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/) \*
 
 ### 不定长度窗口：窗口大小是不固定的。
 
@@ -37,3 +37,8 @@
 - [0718 Maximum Length of Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/)
 - [1658 Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/)
 - [0424 Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
+- [0795 Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/) \*
+- [0904 Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) \*
+- [1358 Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/) \*
+- [0467 Unique Substrings in Wraparound String](https://leetcode.com/problems/unique-substrings-in-wraparound-string/) \*
+- [1438 Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/) \*
