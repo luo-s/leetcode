@@ -19,7 +19,7 @@
   - [0658 Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
   - [0881 Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
   - [0011 Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
-  - [0042 Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+  - [0042 Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) \*
 
 - 字符串反转问题：反转字符串、回文数、颠倒二进制等问题。
 
@@ -39,8 +39,9 @@
   - [0027 Remove Element](https://leetcode.com/problems/remove-element/)
   - [0026 Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
   - [0080 Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
-  - [0443 String Compression](https://leetcode.com/problems/string-compression/)
+  - [0443 String Compression](https://leetcode.com/problems/string-compression/) \*
   - [0845 Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
+  - [2511 Maximum Enemy Forts That Can Be Captured](https://leetcode.com/problems/maximum-enemy-forts-that-can-be-captured/)
 
 - 环形链表、链表长度问题。
 
