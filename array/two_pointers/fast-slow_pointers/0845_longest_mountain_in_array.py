@@ -10,4 +10,16 @@
 
 class Solution:
     def longestMountain(self, arr: List[int]) -> int:
-        
+        ans = up = down = 0
+
+        for i in range(1, len(arr)):
+            if (down and arr[i - 1] < arr[i]) or (arr[i - 1] == arr[i]):
+                up = down = 0
+
+            up += arr[i - 1] < arr[i]
+            down += arr[i - 1] > arr[i]
+
+            if up and down:
+                ans = max(ans, up + down + 1)
+
+        return ans  
