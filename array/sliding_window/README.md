@@ -26,6 +26,7 @@
 ### 不定长度窗口：窗口大小是不固定的。
 
 - [0003 Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+- [0121 Best Time to Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [1695 Maximum Erasure Value](https://leetcode.com/problems/maximum-erasure-value/)
 - [0209 Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 - [1208 Get Equal Substrings Within Budge](https://leetcode.com/problems/get-equal-substrings-within-budget/)
@@ -37,8 +38,8 @@
 - [0718 Maximum Length of Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/)
 - [1658 Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/)
 - [0424 Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
-- [0795 Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/) \*
-- [0904 Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/) \*
-- [1358 Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/) \*
+- [0795 Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/)
+- [0904 Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
+- [1358 Number of Substrings Containing All Three Characters](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/)
 - [0467 Unique Substrings in Wraparound String](https://leetcode.com/problems/unique-substrings-in-wraparound-string/) \*
 - [1438 Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/) \*

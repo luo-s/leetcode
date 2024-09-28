@@ -3,6 +3,8 @@
 # https://leetcode.com/problems/subarray-product-less-than-k/
 # smiliar
 # LC 209 https://leetcode.com/problems/minimum-size-subarray-sum/
+
+# number of subarray that prod < k
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
         if k <= 1: return 0
