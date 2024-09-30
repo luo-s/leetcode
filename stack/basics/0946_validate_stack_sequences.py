@@ -3,15 +3,14 @@
 # and pop operations on an initially empty stack, or false otherwise.
 
 # https://leetcode.com/problems/validate-stack-sequences/description/
-
-      
+    
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
-        stack, p2 = [], 0
+        stack, ptr = [], 0
         for num in pushed:
             stack.append(num)
-            while stack and stack[-1] == popped[p2]:
-                p2 += 1
+            while stack and stack[-1] == popped[ptr]:
+                ptr += 1
                 stack.pop()
         return not stack
 

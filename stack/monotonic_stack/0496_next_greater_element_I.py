@@ -16,17 +16,19 @@
 # All integers in nums1 and nums2 are unique.
 # All the integers of nums1 also appear in nums2.
 
-# https://leetcode.com/problems/next-greater-element-i/description/
+# https://leetcode.com/problems/next-greater-element-i/
+# advanced
+# LC 503 https://leetcode.com/problems/next-greater-element-ii/
 
 # nums1 and nums2 only contains unique integers, we can use dict to store NGA
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        stack, ans, nga = [], [], {}
+        stack, nge = [], {}
         for num in nums2:
             while stack and num > stack[-1]:
-                n = stack.pop()
-                nga[n] = num
+                nge[stack.pop()] = num
             stack.append(num)
+        ans = []
         for num in nums1:
-            ans.append(nga.get(num, -1))
+            ans.append(nge.get(num, -1))
         return ans

@@ -11,13 +11,14 @@
 # -10^9 <= nums[i] <= 10^9
 
 # https://leetcode.com/problems/next-greater-element-ii/
+# related 
+# LC 496 https://leetcode.com/problems/next-greater-element-i/
 
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
         l, nums, stack, ans = len(nums), nums * 2, [], [-1] * len(nums) * 2
         for i in range(l * 2):
             while stack and nums[i] > nums[stack[-1]]:
-                idx = stack.pop()
-                ans[idx] = nums[i]
+                ans[stack.pop()] = nums[i]
             stack.append(i)
         return ans[:l]
