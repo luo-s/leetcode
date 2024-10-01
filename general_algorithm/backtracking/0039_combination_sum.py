@@ -5,23 +5,29 @@
 
 # The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
  
-# https://leetcode.com/problems/combination-sum/description/
+# https://leetcode.com/problems/combination-sum/
+# similar
+# LC 78 https://leetcode.com/problems/subsets/
+# advanced
+# LC 40 https://leetcode.com/problems/combination-sum-ii/
+# LC 90 https://leetcode.com/problems/subsets-ii/
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res, path, l = [], [], len(candidates)
         
-        def backtracking(candidates, target, idx):
+        def backtracking(target, idx):
             # base case
             if target == 0:
                 res.append(path[:])
                 return
-            if target < 0: return
+            if target < 0: 
+                return
             # recursive case
             for i in range(idx, l):
               path.append(candidates[i])
-              backtracking(candidates, target - candidates[i], i)
+              backtracking(target - candidates[i], i)
               path.pop()
           
-        backtracking(candidates, target, 0)
+        backtracking(target, 0)
         return res

@@ -4,13 +4,18 @@
 # The solution set must not contain duplicate subsets. 
 # Return the solution in any order.
 
-# https://leetcode.com/problems/subsets/description/
+# https://leetcode.com/problems/subsets/
+# similar 
+# LC 39 https://leetcode.com/problems/combination-sum/
+# advaced
+# LC 90 https://leetcode.com/problems/subsets-ii/
+# LC 40 https://leetcode.com/problems/combination-sum-ii/
 
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res, path, l = [], [], len(nums)
         
-        def backtracking(nums, idx):
+        def backtracking(idx):
             # base case
             res.append(path[:])
             if idx >= l:
@@ -19,8 +24,8 @@ class Solution:
             # use idx to avoid duplicate
             for i in range(idx, l):
                 path.append(nums[i])
-                backtracking(nums, i + 1)
+                backtracking(i + 1) # always move forward
                 path.pop()
         
-        backtracking(nums, 0)
+        backtracking(0)
         return res

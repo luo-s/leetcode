@@ -10,6 +10,8 @@
 # p and q will exist in the BST.
 
 # https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+# similar
+# LC 236 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
 # recursion
 class Solution:

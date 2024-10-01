@@ -35,6 +35,7 @@
 - [0079 Word Search](https://leetcode.com/problems/word-search/)
 - [0047 Permutations II](https://leetcode.com/problems/permutations-ii/)
 - [1079 Letter Tile Possibilities](https://leetcode.com/problems/letter-tile-possibilities/)
+- [0022 Generate Perentheses](https://leetcode.com/problems/generate-parentheses/)
 
 组合
 
