@@ -25,3 +25,17 @@ class Solution:
             return max(left, right) + 1
         depth(root)
         return max_d
+    
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        max_d = [0]  # Using a list to store max_d can avoid nonlocal
+        
+        def depth(node):
+            if not node: return 0
+            l = depth(node.left)
+            r = depth(node.right)
+            max_d[0] = max(max_d[0], l + r)  # Update update max_d[0]
+            return 1 + max(l, r)
+        
+        depth(root)
+        return max_d[0]  
