@@ -13,6 +13,7 @@ class Solution:
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
         l = len(bloomDay)
         if l < m * k: return -1
+        
         # number of bouquets can make with given flowers and k
         def bouquets(arr, k):
             cnt = 0
@@ -26,19 +27,6 @@ class Solution:
                     left = right + 1
                 right += 1
             return cnt
-        
-        # def bouquets(arr, k):
-        #     cnt = 0
-        #     flowers = 0
-        #     for bloom in arr:
-        #         if bloom == 1:
-        #             flowers += 1
-        #             if flowers == k:
-        #                 cnt += 1
-        #                 flowers = 0  # Reset after forming a bouquet
-        #         else:
-        #             flowers = 0  # Reset if a non-bloomed flower is found
-        #     return cnt
         
         left, right = min(bloomDay), max(bloomDay)
         while left <= right:
