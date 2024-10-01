@@ -4,14 +4,19 @@
 
 # Note: The solution set must not contain duplicate combinations.
 
-# https://leetcode.com/problems/combination-sum-ii/description/
+# https://leetcode.com/problems/combination-sum-ii/
+# related
+# LC 78 https://leetcode.com/problems/subsets/
+# LC 39 https://leetcode.com/problems/combination-sum/
+# similar:
+# LC 90 https://leetcode.com/problems/subsets-ii/
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         res, path, l = [], [], len(candidates)
         candidates.sort()
         
-        def backtracking(candidates, target, idx):
+        def backtracking(target, idx):
             # base case
             if target == 0:
                 res.append(path[:]) 
@@ -23,9 +28,9 @@ class Solution:
                 if i > idx and candidates[i] == candidates[i - 1]:
                     continue
                 path.append(candidates[i])
-                backtracking(candidates, target - candidates[i], i + 1)  
+                backtracking(target - candidates[i], i + 1)  
                 path.pop()
         
-        backtracking(candidates, target, 0)
+        backtracking(target, 0)
         return res
             

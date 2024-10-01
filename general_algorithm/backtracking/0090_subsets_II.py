@@ -4,24 +4,31 @@
 # The solution set must not contain duplicate subsets. 
 # Return the solution in any order.
 
-# https://leetcode.com/problems/subsets-ii/description/
+# https://leetcode.com/problems/subsets-ii/
+# related
+# LC 78 https://leetcode.com/problems/subsets/
+# LC 39 https://leetcode.com/problems/combination-sum/
+# similar:
+# LC 40 https://leetcode.com/problems/combination-sum-ii/
 
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        res, path, l = [], [], len(nums)
+        ans, path, l = [], [], len(nums)
         nums.sort()
         
-        def backtracking(nums, idx):
+        def backtracking(idx):
+            ans.append(path[:])
             # base case
-            res.append(path[:])
-            if len(path) == l:
-                return
+            if idx >= l:
+                return  
             # recursive case
             for i in range(idx, l):
-                if i > idx and nums[i] == nums[i - 1]: continue
+                # skip duplicates
+                if i > idx and nums[i] == nums[i - 1]: 
+                    continue
                 path.append(nums[i])
-                backtracking(nums, i + 1)
+                backtracking(i + 1) # always move forward
                 path.pop()
-
-        backtracking(nums, 0)
-        return res
+        
+        backtracking(0)
+        return ans
