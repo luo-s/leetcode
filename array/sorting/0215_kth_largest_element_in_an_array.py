@@ -7,6 +7,8 @@
 # Can you solve it without sorting?
 
 # https://leetcode.com/problems/kth-largest-element-in-an-array/
+# similar
+# LC 703 https://leetcode.com/problems/kth-largest-element-in-a-stream/
 
 # counting sort -- TLE
 class Solution:
@@ -47,9 +49,9 @@ class Solution:
 import heapq
 class Solution:
     def findKthLargest(self, nums: list[int], k: int) -> int:
-        heap, l = [], len(nums)
+        heap = []
         for num in nums:
             heapq.heappush(heap, num)
-            while len(heap) > k:
+            if len(heap) > k:
                 heapq.heappop(heap)
-        return heapq.heappop(heap)
+        return heap[0]
