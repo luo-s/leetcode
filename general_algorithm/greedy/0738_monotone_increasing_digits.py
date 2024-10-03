@@ -3,6 +3,8 @@
 # Given an integer n, return the largest number that is less than or equal to n with monotone increasing digits.
 
 # https://leetcode.com/problems/monotone-increasing-digits/
+# similar
+# LC 670 https://leetcode.com/problems/maximum-swap/
 
 # brute force
 # time complexity O(n)
