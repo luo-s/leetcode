@@ -15,10 +15,11 @@
 - [0045 Jump Game II](https://leetcode.com/problems/jump-game-ii/)
 - [0376 Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/)
 - [0738 Monotone Increasing Digits](https://leetcode.com/problems/monotone-increasing-digits/)
-- [0670 Maximum Swap](https://leetcode.com/problems/maximum-swap/) *
-- [0861 Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/) *
+- [0670 Maximum Swap](https://leetcode.com/problems/maximum-swap/)
+- [0861 Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/)
 - [1247 Minimum Swaps to Make Strings Equal](https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/)
-- [1605 Find Valid Matrix Given Row and Column Sums](https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/) *
+- [1605 Find Valid Matrix Given Row and Column Sums](https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/) \*
+- [0402 Remove K Digits](https://leetcode.com/problems/remove-k-digits/)
 
 ## 简单贪心问题
 
