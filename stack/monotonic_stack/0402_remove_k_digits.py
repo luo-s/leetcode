@@ -3,6 +3,8 @@
 # https://leetcode.com/problems/remove-k-digits/
 
 # monotone stack
+# we have k chances to remove digits, how do we choose digit to remove?
+# start from the most significant digit, if we have a smaller digit than the last digits in stack, we remove it.
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
         # Edge case: if k equals the length of num, the smallest number is 0
@@ -11,9 +13,8 @@ class Solution:
         stack = []
         # Greedily remove digits
         for digit in num:
-            # Pop from the stack while the current digit is smaller than the previous digit in stack
-            # and we still need to remove digits (k > 0).
-            while k > 0 and stack and stack[-1] > digit:
+            # Pop from the stack while the current digit is smaller than the previous digit in stack and we still need to remove digits (k > 0).
+            while k > 0 and stack and digit < stack[-1]:
                 stack.pop()
                 k -= 1
             stack.append(digit)
