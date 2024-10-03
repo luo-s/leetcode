@@ -22,7 +22,12 @@ class Solution:
                 yx += 1
         if (xy + yx) % 2 == 1:
             return -1
-        return xy // 2 + yx // 2 + xy % 2 + yx % 2
+        # return (xy + yx) // 2 + xy % 2
+        if xy % 2:
+            return (xy + yx) // 2 + 1
+        else:
+            return (xy + yx) // 2
+         
 
 from collections import Counter
 class Solution:
