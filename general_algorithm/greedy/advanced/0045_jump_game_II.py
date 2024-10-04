@@ -37,7 +37,7 @@ class Solution:
         cur_mx = nxt_mx = steps = 0
         for i in range(l - 1):
             nxt_mx = max(nxt_mx, nums[i] + i)
-            if i == cur_mx:
-                cur_mx = nxt_mx
+            if i == cur_mx: # once we loop through all possible stones of cur round
+                cur_mx = nxt_mx # jump to the position that can reach the farthest the next jump
                 steps += 1
         return steps 
