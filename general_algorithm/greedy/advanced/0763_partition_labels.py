@@ -7,6 +7,7 @@
 # https://leetcode.com/problems/partition-labels/
 # similar
 # LC 56 https://leetcode.com/problems/merge-intervals/
+# LC 45 https://leetcode.com/problems/jump-game-ii/
 
 # mark the letter appearance of first and last time, and then it become merge intervals
 class Solution:
@@ -57,7 +58,9 @@ class Solution:
         
         # Traverse the string and adjust partitions dynamically
         for i, char in enumerate(s):
+            # the max end we need to go to avoid any char appear in multiple substrings
             end = max(end, last_occurrence[char])
+            # once we catch up with the end, we got one substring
             if i == end:
                 partitions.append(end - start + 1)
                 start = i + 1

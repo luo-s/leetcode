@@ -12,6 +12,8 @@
 # It's guaranteed that you can reach nums[n - 1].
 
 # https://leetcode.com/problems/jump-game-ii/
+# similar
+# LC 0763 https://leetcode.com/problems/partition-labels/
 
 # dynamic programming
 # time complexity O(n^2)
