@@ -9,6 +9,7 @@
 ## 经典贪心问题
 
 - [0056 Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+- [0763 Partition Labels](https://leetcode.com/problems/partition-labels/)
 - [0452 Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)
 - [0435 Non Overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
 - [0055 Jump Game](https://leetcode.com/problems/jump-game/)
