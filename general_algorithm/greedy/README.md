@@ -21,6 +21,7 @@
 - [1247 Minimum Swaps to Make Strings Equal](https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/)
 - [1605 Find Valid Matrix Given Row and Column Sums](https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/) \*
 - [0402 Remove K Digits](https://leetcode.com/problems/remove-k-digits/)
+- [0678 Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)
 
 ## 简单贪心问题
 
