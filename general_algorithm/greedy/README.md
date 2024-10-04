@@ -34,3 +34,4 @@
 - [1400 Construct K Palindrom Strings](https://leetcode.com/problems/construct-k-palindrome-strings/)
 - [1710 Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/)
 - [1846 Max Element After Decreasing and Rearranging](https://leetcode.com/problems/maximum-element-after-decreasing-and-rearranging/)
+- [1899 Merge Triplets to Form Target](https://neetcode.io/problems/merge-triplets-to-form-target)
