@@ -74,6 +74,10 @@
 - [0300 Longest Increasing Subsequence LIS](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [0053 Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 - [0873 Length of Longest Fibonacci Subsequence](https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/)
+- [0005 Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+- [0647 Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+- [0091 Decode Ways](https://leetcode.com/problems/decode-ways/)
+- [0096 Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/)
 
 ### 双串线性 DP 问题
 
@@ -85,6 +89,7 @@
 - [1143 Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 - [0718 Longest Repeated Subarray](https://leetcode.com/problems/maximum-length-of-repeated-subarray/)
 - [0072 Edit Distance](https://leetcode.com/problems/edit-distance/)
+- [0097 Interleaving String](https://leetcode.com/problems/interleaving-string/)
 
 ### 矩阵线性 DP 问题
 
@@ -112,6 +117,8 @@
 ### 完全背包问题
 
 完全背包问题：有 n 件物品和有一个最多能装重量为 W 的背包。第 i 件物品的重量为 `weight[i]`，价值为 `value[i]`，每种物品数量没有限制。请问在总重量不超过背包载重上限的情况下，能装入背包的最大价值是多少？
+
+- [0322 Coin Change](https://leetcode.com/problems/coin-change/)
 
 ### 多重背包问题
 
