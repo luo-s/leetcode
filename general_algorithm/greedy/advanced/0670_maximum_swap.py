@@ -11,7 +11,7 @@ class Solution:
     def maximumSwap(self, num: int) -> int:
         if num < 10: return num
         s = str(num)
-        # find pivot point
+        # find first pivot point
         l, pivot = len(s), -1
         for i in range(l - 1):
             if s[i] < s[i + 1]:
@@ -19,7 +19,7 @@ class Solution:
                 break
         while pivot > 0 and s[pivot] == s[pivot - 1]:
             pivot -= 1
-        # if no pivot point, no need to swap
+        # if DESC: no need to swap
         if pivot == -1: return num
         # find the max value and mx_idx in part 2
         mx = max(s[pivot + 1:])
@@ -39,9 +39,10 @@ class Solution:
         s = list(str(num))  # Convert number to a list of characters for easier manipulation
         last_occurrence = {int(digit): i for i, digit in enumerate(s)}  # Track the last occurrence of each digit
 
+        # key of greedy: swap as left as possible, swap as large as possible
         # Traverse the digits from left to right
         for i, digit in enumerate(s):
-            # Check if there's a larger digit later in the number
+            # Check if there's a larger digit later in the number (start from 9)
             for d in range(9, int(digit), -1):
                 if last_occurrence.get(d, -1) > i:
                     # Swap the current digit with the larger one found
